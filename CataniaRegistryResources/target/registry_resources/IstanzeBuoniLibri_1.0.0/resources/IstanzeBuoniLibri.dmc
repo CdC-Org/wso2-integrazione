@@ -1,0 +1,26 @@
+map_S_request_S_response = function(){ 
+var outputresponse={};
+var COMPARE_6_0 = '';
+var COMPARE_7_0 = '';
+
+var count_i_issue_88e4ecab_c05c_441f_9184_729bc60d2ad6 = 0;
+COMPARE_6_0 = ( inputrequest.payload.esito == '0' );
+COMPARE_7_0 = ( inputrequest.payload.esito == '0' );
+outputresponse =  {};
+outputresponse.status = (COMPARE_6_0)?(true):(false);
+
+for(i_issue_88e4ecab_c05c_441f_9184_729bc60d2ad6 in inputrequest.outcome.issue){
+outputresponse.message = (COMPARE_7_0)?('Operazione effettuata'):(inputrequest.outcome.issue[i_issue_88e4ecab_c05c_441f_9184_729bc60d2ad6].message);
+
+count_i_issue_88e4ecab_c05c_441f_9184_729bc60d2ad6++;
+}
+return outputresponse;
+};
+
+
+
+
+
+
+
+

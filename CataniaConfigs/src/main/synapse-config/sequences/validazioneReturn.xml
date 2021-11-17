@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="validazioneReturn" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="full"/>
+    <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();      
+    		
+    	
+		var log = mc.getServiceLog();
+		
+        log.info(">>Normalizzazione messaggi di warning");
+        log.info(">>plInput: " +  JSON.stringify(plInput)); 
+        
+        var esito = plInput.esito;
+        var status = "false";
+        if (esito == 1)
+        {
+        	status = "false";
+        }
+        else
+        {
+        	status = "true";
+        }
+        
+        
+        var outcome = plInput.outcome;
+        log.info(">>outcome: " +  JSON.stringify(outcome));
+        var issue = outcome.issue;
+        log.info(">>issue: " +  JSON.stringify(issue));
+        log.info(">>issue.length: " +  issue.length);
+       
+        
+        
+        var   stringaWarnings = '';
+		
+		for (i = 0; i < issue.length; ++i)
+		{
+			log.info(">>issue.message: " +  issue[i].message);
+			if (i==0)
+			{
+				stringaWarnings = issue[i].message;
+			}
+			else 
+			{
+				stringaWarnings = stringaWarnings + ", " + issue[i].message;
+			}
+		}
+
+        log.info(">>warnings: " +  stringaWarnings);
+        
+        var response = {"status": 	status, 
+        				"message": 	stringaWarnings};
+
+
+		
+        mc.setPayloadJSON(response);]]></script>
+    <respond/>
+</sequence>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="AcquisizioneApi_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/AcquisizioneApi_swagger.yaml</file>
+    </artifact>
+    <artifact name="AcquisizioneApi_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/AcquisizioneApi_metadata.yaml</file>
+    </artifact>
+    <artifact name="ValidazioneApi" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ValidazioneApi.xml</file>
+    </artifact>
+    <artifact name="ValidazioneApi_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ValidazioneApi_swagger.yaml</file>
+    </artifact>
+    <artifact name="ValidazioneApi_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ValidazioneApi_metadata.yaml</file>
+    </artifact>
+    <artifact name="validazione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/validazione.xml</file>
+    </artifact>
+    <artifact name="acquisizione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/acquisizione.xml</file>
+    </artifact>
+    <artifact name="cambioStatoPratica" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/cambioStatoPratica.xml</file>
+    </artifact>
+    <artifact name="istanzeBuoniLibroReturn" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/istanzeBuoniLibroReturn.xml</file>
+    </artifact>
+    <artifact name="trasformaInputResidenzaSoggettoAllaData" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/trasformaInputResidenzaSoggettoAllaData.xml</file>
+    </artifact>
+    <artifact name="soggettoresidenteAlladata" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/soggettoresidenteAlladata.xml</file>
+    </artifact>
+    <artifact name="BuoniLibro" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/BuoniLibro.xml</file>
+    </artifact>
+    <artifact name="BuoniLibro_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BuoniLibro_swagger.yaml</file>
+    </artifact>
+    <artifact name="BuoniLibro_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BuoniLibro_metadata.yaml</file>
+    </artifact>
+    <artifact name="validazioneReturn" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/validazioneReturn.xml</file>
+    </artifact>
+    <artifact name="trasformaInputCambioStatoSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/trasformaInputCambioStatoSequence.xml</file>
+    </artifact>
+</artifacts>

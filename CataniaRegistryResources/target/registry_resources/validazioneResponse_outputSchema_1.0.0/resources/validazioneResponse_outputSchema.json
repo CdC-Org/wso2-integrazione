@@ -1,0 +1,17 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "outputType" : "JSON",
+  "id" : "",
+  "title" : "response",
+  "type" : "object",
+  "properties" : {
+    "status" : {
+      "id" : "null/0",
+      "type" : "string"
+    },
+    "message" : {
+      "id" : "null/0",
+      "type" : "string"
+    }
+  }
+}

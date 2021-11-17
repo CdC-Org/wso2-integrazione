@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="trasformaInputResidenzaSoggettoAllaData" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <datamapper config="gov:datamapper/JsonSoggettoResidenteAllaDataToXml.dmc" description="JsonSoggettoResidenteAllaDataToXml" inputSchema="gov:datamapper/JsonSoggettoResidenteAllaDataToXml_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/JsonSoggettoResidenteAllaDataToXml_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/JsonSoggettoResidenteAllaDataToXml_xsltStyleSheet.xml"/>
+    <header scope="default">
+        <urn:soapaction xmlns:urn=" http://synapse.apache.org/ "/>
+    </header>
+</sequence>

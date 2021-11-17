@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="cambioStatoPratica" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <endpoint name="endpoint_urn_uuid_97b72a79-6507-4b7b-9d46-1d3e6e07931c">
+            <address uri="http://192.168.20.210:8080/citta-semplice-office-test/wsesterni/istanza/changestatus">
+                <suspendOnFailure>
+                    <initialDuration>-1</initialDuration>
+                    <progressionFactor>1</progressionFactor>
+                </suspendOnFailure>
+                <markForSuspension>
+                    <retriesBeforeSuspension>0</retriesBeforeSuspension>
+                </markForSuspension>
+            </address>
+            <property name="NO_KEEPALIVE" scope="axis2" value="true"/>
+        </endpoint>
+        <inSequence>
+            <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
+				var log = mc.getServiceLog(); 
+				log.info("Log MESSAGGIO RICEVUTO DA WSO2: "+ JSON.stringify(plInput)); 
+				 
+				var localRespinta = true;
+               	var	localConclusa = true;
+               	
+               	if (plInput.stato == 1)
+               	{
+               		localRespinta = false;
+               		localConclusa = false;
+               		
+               	}
+               	if (plInput.stato == 2)
+               	{
+               		localRespinta = false;
+               		localConclusa = true;
+               		
+               	}
+               	if (plInput.stato == 3)
+               	{
+               		localRespinta = true;
+               		localConclusa = false;
+               		
+               	}
+
+                
+                var keys = Object.keys(plInput);
+                var response = 
+                {
+                            "key": 		plInput.key,
+                            "id":  		plInput.id,
+                            "motivo": 	plInput.motivo,
+                            "respinta": localRespinta,
+							"conclusa": localConclusa
+                };
+               
+               log.info("Log MESSAGGIO COSTRUITO PER INVIARE AL SERVIZIO DI BACKEND: "+JSON.stringify(response));
+               mc.setPayloadJSON(response);]]></script>
+        </inSequence>
+        <outSequence>
+            <datamapper config="gov:datamapper/InterpretazioneRitornoCambioStatoPratica.dmc" inputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet.xml"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

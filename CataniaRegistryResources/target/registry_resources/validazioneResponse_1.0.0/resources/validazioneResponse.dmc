@@ -1,0 +1,22 @@
+map_S_response_S_response = function(){ 
+var outputresponse={};
+var COMPARE_4_0 = '';
+var IF_ELSE_5_0 = '';
+var SPLIT_6_0 = '';
+
+COMPARE_4_0 = ( '1' == inputresponse.payload.esito );
+IF_ELSE_5_0 = (COMPARE_4_0)?('true - Validazione superata'):('false - validazione superata con warning');
+SPLIT_6_0 = IF_ELSE_5_0.split(' - ');
+outputresponse =  {};
+outputresponse.status = SPLIT_6_0[0];
+outputresponse.message = SPLIT_6_0[1];
+return outputresponse;
+};
+
+
+
+
+
+
+
+

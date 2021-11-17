@@ -1,0 +1,12 @@
+map_S_wm_soggetto_alla_data_in_S_wm_soggetto_alla_data_in = function(){ 
+var outputwm_soggetto_alla_data_in={};
+
+outputwm_soggetto_alla_data_in =  {};
+outputwm_soggetto_alla_data_in.dati_soggetto =  {};
+outputwm_soggetto_alla_data_in.dati_soggetto.sog_dominio = inputwm_soggetto_alla_data_in.dati_soggetto.sog_dominio;
+outputwm_soggetto_alla_data_in.dati_soggetto.sog_codfisc = inputwm_soggetto_alla_data_in.dati_soggetto.sog_codfisc;
+return outputwm_soggetto_alla_data_in;
+};
+
+
+
