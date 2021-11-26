@@ -6,43 +6,95 @@
     	
 		var log = mc.getServiceLog();
 		
-        log.info(">>Normalizzazione messaggi di warning");
+
         log.info(">>plInput: " +  JSON.stringify(plInput)); 
         
-        var esito = plInput.esito;
+        var esito = plInput.payload.esito;
         var status = "false";
-        if (esito == 1)
-        {
-        	status = "false";
-        }
-        else
-        {
-        	status = "true";
-        }
-        
+        log.info(">>esito: " + esito);
         
         var outcome = plInput.outcome;
         log.info(">>outcome: " +  JSON.stringify(outcome));
         var issue = outcome.issue;
         log.info(">>issue: " +  JSON.stringify(issue));
         log.info(">>issue.length: " +  issue.length);
-       
+        
+      	var   stringaWarnings = '';
+
+                     
+        if (esito == '0')
+        {
+        	
+        	status = "true";
+        	stringaWarnings = ' ';
+        	
+        }
         
         
-        var   stringaWarnings = '';
-		
-		for (i = 0; i < issue.length; ++i)
-		{
-			log.info(">>issue.message: " +  issue[i].message);
-			if (i==0)
+        var nIterazioni = -1;
+        log.info(">>nIterazioni: " + nIterazioni);
+        
+		if (esito == '1')
+        {
+        	
+        	status = "false";
+			
+			for (i = 0; i < issue.length; ++i)
 			{
-				stringaWarnings = issue[i].message;
+				log.info(">>issue.message: " +  issue[i].message);
+				log.info(">>issue.code: " +  issue[i].code);
+				
+				if (issue[i].code == 'IBLV-1' || issue[i].code == 'IBLV-4' || issue[i].code == 'IBLV-5'  || issue[i].code == 'IBLV-7' )
+				{
+					if (nIterazioni <0 )
+					{	
+						if (issue[i].code != 'IBLV-7')
+						{
+							stringaWarnings = issue[i].details + ": " + issue[i].message;
+							nIterazioni ++;
+							status = "false";
+						}
+						else 
+						{
+							if (issue[i].code == 'IBLV-7' && issue[i].message != "Controllo non effettuabile" )
+							{
+								stringaWarnings = issue[i].message;
+								nIterazioni ++;
+								status = "false";
+							}
+						}
+					}
+					else
+					{
+						if (issue[i].code != 'IBLV-7')
+						{							
+							stringaWarnings = stringaWarnings + "; " + issue[i].details + ": " + issue[i].message;
+							nIterazioni ++;
+							status = "false";						
+						}
+						else
+						{
+							if (issue[i].code == 'IBLV-7' && issue[i].message != "Controllo non effettuabile" )
+							{
+								stringaWarnings = issue[i].message;
+								nIterazioni ++;
+								status = "false";
+							}
+						}
+					}
+					
+					log.info(">>nIterazioni: " + nIterazioni);
+				}	
+				
 			}
-			else 
+			if (nIterazioni <0 )
 			{
-				stringaWarnings = stringaWarnings + ", " + issue[i].message;
+				status = "true";
+				stringaWarnings = ' ';
 			}
-		}
+
+        }
+       		
 
         log.info(">>warnings: " +  stringaWarnings);
         

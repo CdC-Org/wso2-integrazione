@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoint name="validazione" xmlns="http://ws.apache.org/ns/synapse">
-    <http method="post" uri-template="http://10.0.5.24:8082/api/msistruzione/esb/istanzabuonolibri/">
+    <http method="post" uri-template="http://localhost:8082/api/msistruzione/esb/istanzabuonolibri/">
         <suspendOnFailure>
             <initialDuration>-1</initialDuration>
             <progressionFactor>1.0</progressionFactor>

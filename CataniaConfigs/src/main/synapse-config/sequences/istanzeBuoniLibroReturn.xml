@@ -9,42 +9,63 @@
         log.info(">>Normalizzazione messaggi di warning");
         log.info(">>plInput: " +  JSON.stringify(plInput)); 
         
-        var esito = plInput.esito;
+        var esito = plInput.payload.esito; 
         var status = "false";
-        if (esito == 1)
+        log.info(">>esito: " + esito);
+        var   stringaWarnings = '';
+         
+        if (esito == '1')
         {
         	status = "false";
+        	
+        	
+	        var outcome = plInput.outcome;
+	        log.info(">>outcome: " +  JSON.stringify(outcome));
+	        var issue = outcome.issue;
+	        log.info(">>issue: " +  JSON.stringify(issue));
+	        log.info(">>issue.length: " +  issue.length);
+	         
+			var   strDettaglio ='';
+			
+			for (i = 0; i < issue.length; ++i)
+			{
+				log.info(">>issue.message: " +  issue[i].message);
+				if (i==0)
+				{
+					if (issue[i].details != null)
+					{
+						strDettaglio = issue[i].details + ": ";
+					
+					}
+					
+					stringaWarnings = strDettaglio + issue[i].message;
+					strDettaglio = '';
+					
+				}
+				else 
+				{
+					if (issue[i].details != null)
+					{
+						strDettaglio = issue[i].details + ": ";
+					
+					}
+					stringaWarnings = stringaWarnings + ", " + strDettaglio + issue[i].message;
+					strDettaglio = '';
+				}
+			}
+	
+	        log.info(">>warnings: " +  stringaWarnings);
+        	
         }
-        else
+        else if (esito == '0')
         {
+        	
         	status = "true";
+        	stringaWarnings =  " ";
         }
-        
-        
-        var outcome = plInput.outcome;
-        log.info(">>outcome: " +  JSON.stringify(outcome));
-        var issue = outcome.issue;
-        log.info(">>issue: " +  JSON.stringify(issue));
-        log.info(">>issue.length: " +  issue.length);
        
         
         
-        var   stringaWarnings = '';
-		
-		for (i = 0; i < issue.length; ++i)
-		{
-			log.info(">>issue.message: " +  issue[i].message);
-			if (i==0)
-			{
-				stringaWarnings = issue[i].message;
-			}
-			else 
-			{
-				stringaWarnings = stringaWarnings + ", " + issue[i].message;
-			}
-		}
-
-        log.info(">>warnings: " +  stringaWarnings);
         
         var response = {"status": 	status, 
         				"message": 	stringaWarnings};

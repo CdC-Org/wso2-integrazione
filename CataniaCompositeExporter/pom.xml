@@ -16,7 +16,6 @@
   <properties>
     <com.example.resource_._IstanzeBuoniLibri_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._IstanzeBuoniLibri_inputSchema>
     <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_outputSchema>
-    <com.example.resource_._JsonSoggettoResidenteAllaDataToXml>capp/EnterpriseServiceBus</com.example.resource_._JsonSoggettoResidenteAllaDataToXml>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
     <com.example.metadata_._AcquisizioneApi_swagger>capp/EnterpriseServiceBus</com.example.metadata_._AcquisizioneApi_swagger>
     <com.example.resource_._IstanzeBuoniLibri_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._IstanzeBuoniLibri_xsltStyleSheet>
@@ -26,15 +25,12 @@
     <com.example.sequence_._trasformaInputCambioStatoSequence>capp/EnterpriseServiceBus</com.example.sequence_._trasformaInputCambioStatoSequence>
     <com.example.resource_._TrasformaInputResidenteAlladata_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._TrasformaInputResidenteAlladata_inputSchema>
     <com.example.resource_._trasformaInputCambioStato_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._trasformaInputCambioStato_xsltStyleSheet>
-    <com.example.resource_._JsonSoggettoResidenteAllaDataToXml_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._JsonSoggettoResidenteAllaDataToXml_outputSchema>
     <com.example.metadata_._ValidazioneApi_swagger>capp/EnterpriseServiceBus</com.example.metadata_._ValidazioneApi_swagger>
-    <com.example.resource_._NewConfig_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._NewConfig_inputSchema>
     <com.example.resource_._validazioneResponse_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._validazioneResponse_inputSchema>
     <com.example.resource_._trasformaInputCambioStato>capp/EnterpriseServiceBus</com.example.resource_._trasformaInputCambioStato>
     <com.example.metadata_._ValidazioneApi_metadata>capp/EnterpriseServiceBus</com.example.metadata_._ValidazioneApi_metadata>
     <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>
     <com.example.resource_._validazioneResponse>capp/EnterpriseServiceBus</com.example.resource_._validazioneResponse>
-    <com.example.resource_._JsonSoggettoResidenteAllaDataToXml_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._JsonSoggettoResidenteAllaDataToXml_inputSchema>
     <com.example.metadata_._ResidenzaSoggettoApi_metadata>capp/EnterpriseServiceBus</com.example.metadata_._ResidenzaSoggettoApi_metadata>
     <com.example.resource_._trasformaInputCambioStato_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._trasformaInputCambioStato_outputSchema>
     <com.example.endpoint_._validazione>capp/EnterpriseServiceBus</com.example.endpoint_._validazione>
@@ -44,15 +40,11 @@
     <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_inputSchema>
     <com.example.proxy-service_._cambioStatoPratica>capp/EnterpriseServiceBus</com.example.proxy-service_._cambioStatoPratica>
     <com.example.metadata_._IstanzeBuoniLibroApi_metadata>capp/EnterpriseServiceBus</com.example.metadata_._IstanzeBuoniLibroApi_metadata>
-    <com.example.resource_._NewConfig>capp/EnterpriseServiceBus</com.example.resource_._NewConfig>
     <com.example.endpoint_.__acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_.__acquisizione>
     <com.example.metadata_.__acquisizioneApi_metadata>capp/ApplicationServer</com.example.metadata_.__acquisizioneApi_metadata>
     <com.example.endpoint_._acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._acquisizione>
-    <com.example.resource_._JsonSoggettoResidenteAllaDataToXml_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._JsonSoggettoResidenteAllaDataToXml_xsltStyleSheet>
     <com.example.metadata_._BuoniLibro_metadata>capp/EnterpriseServiceBus</com.example.metadata_._BuoniLibro_metadata>
-    <com.example.resource_._NewConfig_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._NewConfig_outputSchema>
     <com.example.resource_._IstanzeBuoniLibri_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._IstanzeBuoniLibri_outputSchema>
-    <com.example.resource_._NewConfig_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._NewConfig_xsltStyleSheet>
     <com.example.metadata_._IstanzeBuoniLibroApi_swagger>capp/ApplicationServer</com.example.metadata_._IstanzeBuoniLibroApi_swagger>
     <com.example.api_._BuoniLibro>capp/EnterpriseServiceBus</com.example.api_._BuoniLibro>
     <com.example.api_._AcquisizioneApi>capp/ApplicationServer</com.example.api_._AcquisizioneApi>
@@ -162,18 +154,6 @@
       <type>zip</type>
     </dependency>
     <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>NewConfig_xsltStyleSheet</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>NewConfig</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.endpoint</groupId>
       <artifactId>acquisizione</artifactId>
       <version>1.0.0</version>
@@ -236,12 +216,6 @@
     <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>TrasformaInputResidenteAlladata</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>JsonSoggettoResidenteAllaDataToXml_xsltStyleSheet</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
     </dependency>
