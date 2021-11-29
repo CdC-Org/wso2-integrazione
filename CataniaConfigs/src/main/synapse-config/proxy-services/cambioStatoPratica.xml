@@ -2,7 +2,7 @@
 <proxy name="cambioStatoPratica" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <endpoint name="endpoint_urn_uuid_97b72a79-6507-4b7b-9d46-1d3e6e07931c">
-            <address uri="http://192.168.20.210:8080/citta-semplice-office-test/wsesterni/istanza/changestatus">
+            <address uri="$FILE:cambioStatoPraticaEP">
                 <suspendOnFailure>
                     <initialDuration>-1</initialDuration>
                     <progressionFactor>1</progressionFactor>
@@ -16,7 +16,7 @@
         <inSequence>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
 				var log = mc.getServiceLog(); 
-				log.info("Log MESSAGGIO RICEVUTO DA WSO2: "+ JSON.stringify(plInput)); 
+				log.info("MESSAGGIO RICEVUTO: "+ JSON.stringify(plInput)); 
 				 
 				var localRespinta = true;
                	var	localConclusa = true;

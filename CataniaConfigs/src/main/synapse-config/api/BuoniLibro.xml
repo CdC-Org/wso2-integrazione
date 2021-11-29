@@ -3,20 +3,15 @@
     <resource methods="POST" url-mapping="/acquisizione">
         <inSequence>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
-            
             	var log = mc.getServiceLog();
-                log.info("BUONI LIBRO.xml Log INPUT JSON: " + JSON.stringify(plInput));
-             
+                log.info("INPUT JSON: " + JSON.stringify(plInput));
            	  	
-           	  	var datiSputtanati = plInput.dati;
-				datiSputtanati = datiSputtanati.replace("\\\"IT\\\"", "");
-				datiSputtanati = datiSputtanati.replace("\\", "");
-				
-				log.info(">>DATI: " +   datiSputtanati);    	  	
-           	  	var pl = JSON.parse(datiSputtanati);
-           	  	log.info(">>PL: " +   JSON.stringify(pl));
+           	  	var datiOriginali = plInput.dati;
+				datiOriginali = datiOriginali.replace("\\\"IT\\\"", "");
+				datiOriginali = datiOriginali.replace("\\", "");
+           	  	var pl = JSON.parse(datiOriginali);
            	  	
-                log.info("Log INPUT JSON DOPO REPLACE: " + JSON.stringify(plInput));
+                log.info("INPUT JSON DOPO REPLACE: " + JSON.stringify(plInput));
            	    log.info("SOLO LOG DEL CAMPO DATI: " + JSON.stringify(plInput.dati));
             	
 			  	var plAnnoScolasctico="2021";
@@ -87,8 +82,6 @@
                 }
                 log.info("Log Letto Sesso richiedente: " + plSessoRichiedente );
                 
-                
-                
                 var plTipoScuola  = getValue(findElement(pl,'Tipologia scuola'));
                 var plIntTipoScuola = 0;
                 if (plTipoScuola == "Statale")
@@ -100,10 +93,6 @@
                   plIntTipoScuola = 1;
                 }
                 log.info("Log Letto  tipo scuola: " + plTipoScuola );
-                
-                
-                
-                
                 
                 var plIntStato = 1;
                 if (plInput.conclusa == "true" && plInput.respinta == "true")
@@ -123,9 +112,6 @@
                   plIntStato = 3;
                 }
                 log.info("Log Letto pratica conclusa//respinta: " + plInput.conclusa + " // " + plInput.respinta);
-                
-                
-                
   
                 var keys = Object.keys(plInput);
                 var response = {
@@ -169,32 +155,21 @@
                               "telefono": getValue(findElement(pl,'Telefono')), 
                               "tipoScuola": plIntTipoScuola                
                 };
-                   
-                   
-                  
-                
                           
                 log.info("LOG RESPONSE PRIMA DELLA SET PAYLOAD: "+JSON.stringify(response));
-                          
                           
                 mc.setPayloadJSON(response);
                 
                 log.info("LOG RESPONSE DOPO DELLA SET PAYLOAD: "+JSON.stringify(response));
-                
 				
                 function parseDate(input)
                 {
-                
                 	log.info("input alla funzione PARSEDATE(): " + Number(input));
                 	log.info("Time convertita: "  + new Date().getTime());   
                 	log.info("data convertita: "  + new Date(Number(input)).toISOString().split('T')[0]);  
                 	            
                  	return new Date(Number(input)).toISOString().split('T')[0];
                 }
-                
-                
-                
-                
                 
                 function parseDateOld (input) 
                 {
@@ -260,48 +235,36 @@
 				    return anno + "-" + meseNumerico + "-" + giorno;
 				}
                 
-                
-                
-                
-                
-                
-                
                 function findElement(lista,nome){
-                       var element='';
-                        for (i = 0; i < lista.length; ++i) {
-                                if (lista[i].name==nome) {
-                                    element=lista[i];
-                                    break;
-                                }
-                            }
-                            log.info("> chiamata funzione findElement per cercare " + nome + " Valore restituito: " + element); 
-                            return element;
-                      }
-                      
-                      
-                      
-                      function getValue(element){
-                             if(element && element.value){
-                             
-                             	log.info("> chiamata funzione getValue dell'elemento: " + element + " Valore restituito: " + element.value); 
-                                 return element.value; 
-                             }
-                             return '';
-                      }
-                      
-                      
-                      
-                    function getToggle(element){
-                             if(element){
-                                 if(element.toggle){
-                                        return '1'; 
-                                 }
-                                 else{
-                                        return '0';
-                                 }
-                             }
-                             return '';
-                      }]]></script>
+                    var element='';
+                    for (i = 0; i < lista.length; ++i) {
+                        if (lista[i].name==nome) {
+                            element=lista[i];
+                            break;
+                        }
+                    }
+                    log.info("> chiamata funzione findElement per cercare " + nome + " Valore restituito: " + element); 
+                    return element;
+                }
+
+                function getValue(element){
+                    if(element && element.value){
+                        log.info("> chiamata funzione getValue dell'elemento: " + element + " Valore restituito: " + element.value); 
+                        return element.value; 
+                    }
+                    return '';
+                }
+
+                function getToggle(element){
+                    if(element){
+                        if(element.toggle){
+                            return '1'; 
+                        } else {
+                            return '0';
+                        }
+                    }
+                    return '';
+                }]]></script>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
             <log description="Log customer message" level="custom">
                 <property name="MESSAGE" value="Request received to /users resource."/>
@@ -338,30 +301,24 @@
     <resource methods="POST" url-mapping="/validazione">
         <inSequence>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
-            
             	var log = mc.getServiceLog();
-            		            
-            	var datiSputtanati = plInput.dati;
-				datiSputtanati = datiSputtanati.replace("\\\"IT\\\"", "");
-				datiSputtanati = datiSputtanati.replace("\\", "");
+            	var datiOriginali = plInput.dati;
+				datiOriginali = datiOriginali.replace("\\\"IT\\\"", "");
+				datiOriginali = datiOriginali.replace("\\", "");
 				
-				log.info(">>DATI: " +   datiSputtanati);         	  	
-           	  	var pl = JSON.parse(datiSputtanati);
-            
-				  var plAnnoScolasctico="2021";
-                  var plCodiceFiscale=findElement(pl,'cf-alunno').value;      
-                  var plCodiceFiscaleCittadino= plInput.codice_fiscale;
-               
-                  var plCointestato=getValue(findElement(pl,'radio-1605166148122'));       
-                  var plIntCointestato = null;
-                  if (plCointestato == "Cointestato")
-                  {
-                        plIntCointestato =1;
-                  }
-                  else if (plCointestato == "Non Cointestato")
-                  {
-                        plIntCointestato =0;
-                  }
+				log.info(">>DATI: " + datiOriginali);
+           	  	var pl = JSON.parse(datiOriginali);
+			    var plAnnoScolasctico="2021";
+                var plCodiceFiscale=findElement(pl,'cf-alunno').value;      
+                var plCodiceFiscaleCittadino= plInput.codice_fiscale;
+                var plCointestato=getValue(findElement(pl,'radio-1605166148122'));       
+                var plIntCointestato = null;
+
+                if (plCointestato == "Cointestato") {
+                    plIntCointestato =1;
+                } else if (plCointestato == "Non Cointestato") {
+                    plIntCointestato =0;
+                }
                
                 var plContoCorrente=getValue(findElement(pl,'radio-1605165862764'));  
                 var plIntContoCorrente = null;
@@ -374,7 +331,6 @@
                   plIntContoCorrente = 0;
                 }
                 
-                
                 var plGenitoreTutore=getValue(findElement(pl,'Scelta Genitore e Tutore'));
                 var plIntGenitoreTutore = 0;
                 if (plGenitoreTutore == "Genitore")
@@ -385,7 +341,6 @@
                 {
                   plIntGenitoreTutore = 1;
                 }
-                
                  
                 var plSesso = getValue(findElement(pl,'SX_ALU'));
                 var plIntSesso = 0;
@@ -397,7 +352,6 @@
                 {
                   plIntSesso = 1;
                 }
-                
                 
                 var plSessoRichiedente  = getValue(findElement(pl,'SX_GEN')); 
                 var plIntSessoRichiedente = 0;
@@ -420,9 +374,6 @@
                 {
                   plIntTipoScuola = 2;
                 }
-                
-                
-                
                 
                 var keys = Object.keys(plInput);
                 var response = {
@@ -459,18 +410,13 @@
                               "telefono": getValue(findElement(pl,'Telefono')), 
                               "tipoScuola": plIntTipoScuola                
                 };
-                         log.info("Log messaggio ricevuto: "+ JSON.stringify(plInput));
-                          log.info("Logging inside Script Mediator"+JSON.stringify(response));
+
+                log.info("Log messaggio ricevuto: "+ JSON.stringify(plInput));
+                log.info("Logging inside Script Mediator"+JSON.stringify(response));
                 mc.setPayloadJSON(response);
-               
-               
-               
                 log.info("LOG RESPONSE DOPO DELLA SET PAYLOAD: "+JSON.stringify(response));
-                
 				
-                 function parseDate(input)
-                {
-                
+                function parseDate(input) {
                 	log.info("input alla funzione PARSEDATE(): " + Number(input));
                 	log.info("Time convertita: "  + new Date().getTime());   
                 	log.info("data convertita: "  + new Date(Number(input)).toISOString().split('T')[0]);  
@@ -479,14 +425,11 @@
                 }
                 
                 
-                function parseDateOld (input) 
-                {
-                	
+                function parseDateOld (input) {
                 	log.info("input alla funzione PARSEDATE(): " + input);
                 
                 	var posInizialeGiorno = 4;
                 	var posInizialeAnno = 8;
-                	
                 	var meseNumerico = "";
                 	var meseBreveInglese = input.substr(0,3);
                 	
@@ -543,45 +486,37 @@
 				    return anno + "-" + meseNumerico + "-" + giorno;
 				}
                 
-   
-                
-                
                 function findElement(lista,nome){
-                       var element='';
-                        for (i = 0; i < lista.length; ++i) {
-                                if (lista[i].name==nome) {
-                                    element=lista[i];
-                                    break;
-                                }
-                            }
-                            log.info("> chiamata funzione findElement per cercare " + nome + " Valore restituito: " + element); 
-                            return element;
+                  var element='';
+                  for (i = 0; i < lista.length; ++i) {
+                      if (lista[i].name==nome) {
+                          element=lista[i];
+                          break;
                       }
-                      
-                      
-                      
-                      function getValue(element){
-                             if(element && element.value){
-                             
-                             	log.info("> chiamata funzione getValue dell'elemento: " + element + " Valore restituito: " + element.value); 
-                                 return element.value; 
-                             }
-                             return '';
-                      }
-                      
-                      
-                      
-                    function getToggle(element){
-                             if(element){
-                                 if(element.toggle){
-                                        return '1'; 
-                                 }
-                                 else{
-                                        return '0';
-                                 }
-                             }
-                             return '';
-                      }]]></script>
+                  }
+                 
+                  log.info("> chiamata funzione findElement per cercare " + nome + " Valore restituito: " + element); 
+                  return element;
+                }
+
+                function getValue(element){
+                    if(element && element.value){
+                        log.info("> chiamata funzione getValue dell'elemento: " + element + " Valore restituito: " + element.value); 
+                        return element.value; 
+                    }
+                    return '';
+                }
+
+                function getToggle(element){
+                    if(element){
+                        if(element.toggle){
+                            return '1'; 
+                        } else {
+                            return '0';
+                        }
+                    }
+                    return '';
+                }]]></script>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
             <log description="Log customer message" level="custom">
                 <property name="MESSAGE" value="Request received to /users resource."/>
