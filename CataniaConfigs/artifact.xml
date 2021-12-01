@@ -26,25 +26,19 @@
     <artifact name="istanzeBuoniLibroReturn" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/istanzeBuoniLibroReturn.xml</file>
     </artifact>
-    <artifact name="trasformaInputResidenzaSoggettoAllaData" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/sequences/trasformaInputResidenzaSoggettoAllaData.xml</file>
-    </artifact>
-    <artifact name="soggettoresidenteAlladata" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/endpoints/soggettoresidenteAlladata.xml</file>
-    </artifact>
     <artifact name="BuoniLibro" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/BuoniLibro.xml</file>
-    </artifact>
-    <artifact name="BuoniLibro_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
-        <file>src/main/resources/metadata/BuoniLibro_swagger.yaml</file>
-    </artifact>
-    <artifact name="BuoniLibro_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
-        <file>src/main/resources/metadata/BuoniLibro_metadata.yaml</file>
     </artifact>
     <artifact name="validazioneReturn" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/validazioneReturn.xml</file>
     </artifact>
     <artifact name="trasformaInputCambioStatoSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/trasformaInputCambioStatoSequence.xml</file>
+    </artifact>
+    <artifact name="AnaWSSCedafSoggettoAllaDataESB" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/AnaWSSCedafSoggettoAllaDataESB.xml</file>
+    </artifact>
+    <artifact name="AnaWSSCedafSoggettoAllaDataSoap" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/AnaWSSCedafSoggettoAllaDataSoap.xml</file>
     </artifact>
 </artifacts>

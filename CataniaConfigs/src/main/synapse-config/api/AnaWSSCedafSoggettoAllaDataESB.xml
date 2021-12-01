@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api/msistruzione/esb/anagrafi" name="AnaWSSCedafSoggettoAllaDataESB" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/AnaWSSCedafSoggettoAllaDataESB">
+        <inSequence>
+            <log level="full"/>
+            <payloadFactory description="TrasformaJsonToSoap" media-type="xml">
+                <format>
+                    <soapenv:Envelope xmlns:sch="http://www.cedaf.it/schema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <sch:wm_soggetto_alla_data>
+                                <sch:wm_soggetto_alla_data_in><![CDATA[
+					          <wm_soggetto_alla_data_in>
+					          	<dati_soggetto>
+					          		<sog_dominio>ANA</sog_dominio>
+					          		<sog_codfisc>$1</sog_codfisc>  
+					          		<sog_datarif>$2</sog_datarif>        		
+					          	</dati_soggetto>
+					          </wm_soggetto_alla_data_in>
+					           ]]></sch:wm_soggetto_alla_data_in>
+                            </sch:wm_soggetto_alla_data>
+                        </soapenv:Body>
+                    </soapenv:Envelope>
+                </format>
+                <args>
+                    <arg evaluator="json" expression="$.dati_soggetto.sog_codfisc"/>
+                    <arg evaluator="json" expression="$.dati_soggetto.sog_datarif"/>
+                </args>
+            </payloadFactory>
+            <header description="Set SOAPAction header" name="Action" scope="default" value="http://www.cedaf.it/schema/wm_soggetto_alla_data"/>
+            <property action="remove" description="Avoid appending resource to endpoint URL" name="REST_URL_POSTFIX" scope="axis2"/>
+            <send>
+                <endpoint key="AnaWSSCedafSoggettoAllaDataSoap"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <datamapper config="gov:datamapper/AnagrafeResponse.dmc" description="AnagrafeResponse" inputSchema="gov:datamapper/AnagrafeResponse_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/AnagrafeResponse_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/AnagrafeResponse_xsltStyleSheet.xml"/>
+            <send description="manda il messaggio convertito in formato json al client"/>
+        </outSequence>
+        <faultSequence>
+            <log description="Log customer message" level="custom">
+                <property name="text" value="An unexpected error occured"/>
+                <property expression="get-property('ERROR_MESSAGE')" name="message"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>
+                           {
+                                  "payload": {
+                                        "esito": "1"
+                                  },
+                                  "outcome": {
+                                        "issue": [
+                                               {
+                                               "severity": "FATAL",
+                                               "code": $1,
+                                               "message": $2
+                                               }
+                                        ]
+                                  }
+                           }
+                           </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
+                    <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                    <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
+                </args>
+            </payloadFactory>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="404"/>
+            <respond description="Send Error Back to Client"/>
+        </faultSequence>
+    </resource>
+</api>

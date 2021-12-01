@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:datamapper="http:///org/wso2/developerstudio/eclipse/gmf/datamapper" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_jvJn0FEqEeyhKdw4vLJK3w" type="DataMapper" name="AnagrafeResponse.datamapper_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_kLZe8FEqEeyhKdw4vLJK3w" type="2002" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_jMVKcFExEeyhKdw4vLJK3w" type="3002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_jMVKclExEeyhKdw4vLJK3w" type="5002"/>
+      <children xmi:type="notation:Shape" xmi:id="_jMWYkFExEeyhKdw4vLJK3w" type="3020" fontName="Segoe UI">
+        <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@input/@treeNode.0/@inNode"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jMWYkVExEeyhKdw4vLJK3w" x="-11" y="-9"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_jMWYklExEeyhKdw4vLJK3w" type="3019" fontName="Segoe UI">
+        <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@input/@treeNode.0/@outNode"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jMWYk1ExEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_r1Yq8FExEeyhKdw4vLJK3w" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_r1Yq8lExEeyhKdw4vLJK3w" type="5001"/>
+        <children xmi:type="notation:Shape" xmi:id="_r1Z5EFExEeyhKdw4vLJK3w" type="3020" fontName="Segoe UI">
+          <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@input/@treeNode.0/@node.0/@inNode"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r1Z5EVExEeyhKdw4vLJK3w" x="-11" y="-9"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_r1agIFExEeyhKdw4vLJK3w" type="3019" fontName="Segoe UI">
+          <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@input/@treeNode.0/@node.0/@outNode"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r1agIVExEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:TreeNode" href="AnagrafeResponse.datamapper#//@input/@treeNode.0/@node.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r1Yq8VExEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:TreeNode" href="AnagrafeResponse.datamapper#//@input/@treeNode.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jMVKcVExEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:Input" href="AnagrafeResponse.datamapper#//@input"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kLZe8VEqEeyhKdw4vLJK3w" x="156" y="402" width="285" height="160"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_kLbUIFEqEeyhKdw4vLJK3w" type="2003" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_zhHEsFEqEeyhKdw4vLJK3w" type="3011" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_zhHEslEqEeyhKdw4vLJK3w" type="5003"/>
+      <children xmi:type="notation:Shape" xmi:id="_zhWVQFEqEeyhKdw4vLJK3w" type="3020" fontName="Segoe UI">
+        <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@inNode"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zhWVQVEqEeyhKdw4vLJK3w" x="-11" y="-9"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_zhW8UFEqEeyhKdw4vLJK3w" type="3019" fontName="Segoe UI">
+        <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@outNode"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zhW8UVEqEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_3QzpkFEqEeyhKdw4vLJK3w" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_3QzpklEqEeyhKdw4vLJK3w" type="5001"/>
+        <children xmi:type="notation:Shape" xmi:id="_J-_nAFErEeyhKdw4vLJK3w" type="3003" fontName="Segoe UI">
+          <children xmi:type="notation:DecorationNode" xmi:id="_J_AOEFErEeyhKdw4vLJK3w" type="5001"/>
+          <children xmi:type="notation:Shape" xmi:id="_J_CqUFErEeyhKdw4vLJK3w" type="3020" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.0/@node.0/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J_CqUVErEeyhKdw4vLJK3w" x="-10" y="4"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_J_CqUlErEeyhKdw4vLJK3w" type="3019" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.0/@node.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J_CqU1ErEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:TreeNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.0/@node.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J-_nAVErEeyhKdw4vLJK3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_J_A1IFErEeyhKdw4vLJK3w" type="3020" fontName="Segoe UI">
+          <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.0/@inNode"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J_A1IVErEeyhKdw4vLJK3w" x="1" y="-1"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_J_A1IlErEeyhKdw4vLJK3w" type="3019" fontName="Segoe UI">
+          <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.0/@outNode"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J_A1I1ErEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:TreeNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3QzpkVEqEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_85sksFEqEeyhKdw4vLJK3w" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_85skslEqEeyhKdw4vLJK3w" type="5001"/>
+        <children xmi:type="notation:Shape" xmi:id="_85uZ4FEqEeyhKdw4vLJK3w" type="3020" fontName="Segoe UI">
+          <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.1/@inNode"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_85uZ4VEqEeyhKdw4vLJK3w" x="-11" y="-9"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_85uZ4lEqEeyhKdw4vLJK3w" type="3019" fontName="Segoe UI">
+          <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.1/@outNode"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_85uZ41EqEeyhKdw4vLJK3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_ACFR8FErEeyhKdw4vLJK3w" type="3003" fontName="Segoe UI">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ACFR8lErEeyhKdw4vLJK3w" type="5001"/>
+          <children xmi:type="notation:Shape" xmi:id="_ACHHIFErEeyhKdw4vLJK3w" type="3020" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.1/@node.0/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ACHHIVErEeyhKdw4vLJK3w" x="-10" y="4"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_ACHHIlErEeyhKdw4vLJK3w" type="3019" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.1/@node.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ACHHI1ErEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:TreeNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.1/@node.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ACFR8VErEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:TreeNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0/@node.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_85sksVEqEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:TreeNode" href="AnagrafeResponse.datamapper#//@output/@treeNode.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zhHEsVEqEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:Output" href="AnagrafeResponse.datamapper#//@output"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kLbUIVEqEeyhKdw4vLJK3w" x="1866" y="378" width="250" height="100"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_pl0DwFErEeyhKdw4vLJK3w" type="2008" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_pl7_kFErEeyhKdw4vLJK3w" type="3012" fontName="Segoe UI">
+      <children xmi:type="notation:Shape" xmi:id="_pmDUUFErEeyhKdw4vLJK3w" type="3013" fontName="Segoe UI">
+        <element xmi:type="datamapper:OperatorLeftContainer" href="AnagrafeResponse.datamapper#//@operators.0/@basicContainer/@leftContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pmDUUVErEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_pmDUUlErEeyhKdw4vLJK3w" type="3016" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_pmkRsFErEeyhKdw4vLJK3w" type="3017" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_pmrmcFErEeyhKdw4vLJK3w" type="3018" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@operators.0/@basicContainer/@rightContainer/@rightConnectors.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pmrmcVErEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorRightConnector" href="AnagrafeResponse.datamapper#//@operators.0/@basicContainer/@rightContainer/@rightConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pmkRsVErEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorRightContainer" href="AnagrafeResponse.datamapper#//@operators.0/@basicContainer/@rightContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pmDUU1ErEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:OperatorBasicContainer" href="AnagrafeResponse.datamapper#//@operators.0/@basicContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pl7_kVErEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:Constant" href="AnagrafeResponse.datamapper#//@operators.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pl0q0FErEeyhKdw4vLJK3w" x="1602" y="366"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_GcG1cFEzEeyhKdw4vLJK3w" type="2008" fontName="Segoe UI">
+    <element xmi:type="datamapper:Constant" href="AnagrafeResponse.datamapper#//@operators.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GcG1cVEzEeyhKdw4vLJK3w" x="174" y="156"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_MKSgQFEzEeyhKdw4vLJK3w" type="2008" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_MKTHUFEzEeyhKdw4vLJK3w" type="3012" fontName="Segoe UI">
+      <children xmi:type="notation:Shape" xmi:id="_MKTuYFEzEeyhKdw4vLJK3w" type="3013" fontName="Segoe UI">
+        <element xmi:type="datamapper:OperatorLeftContainer" href="AnagrafeResponse.datamapper#//@operators.2/@basicContainer/@leftContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MKTuYVEzEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_MKTuYlEzEeyhKdw4vLJK3w" type="3016" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_MKhw0FEzEeyhKdw4vLJK3w" type="3017" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_MKhw0lEzEeyhKdw4vLJK3w" type="3018" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@operators.2/@basicContainer/@rightContainer/@rightConnectors.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MKhw01EzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorRightConnector" href="AnagrafeResponse.datamapper#//@operators.2/@basicContainer/@rightContainer/@rightConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MKhw0VEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorRightContainer" href="AnagrafeResponse.datamapper#//@operators.2/@basicContainer/@rightContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MKTuY1EzEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:OperatorBasicContainer" href="AnagrafeResponse.datamapper#//@operators.2/@basicContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MKTHUVEzEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:Constant" href="AnagrafeResponse.datamapper#//@operators.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MKSgQVEzEeyhKdw4vLJK3w" x="924" y="504"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_PvUGMFEzEeyhKdw4vLJK3w" type="2008" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_PvVUUFEzEeyhKdw4vLJK3w" type="3012" fontName="Segoe UI">
+      <children xmi:type="notation:Shape" xmi:id="_PvXwkFEzEeyhKdw4vLJK3w" type="3013" fontName="Segoe UI">
+        <element xmi:type="datamapper:OperatorLeftContainer" href="AnagrafeResponse.datamapper#//@operators.3/@basicContainer/@leftContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PvXwkVEzEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_PvXwklEzEeyhKdw4vLJK3w" type="3016" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_PvlzAFEzEeyhKdw4vLJK3w" type="3017" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_PvlzAlEzEeyhKdw4vLJK3w" type="3018" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@operators.3/@basicContainer/@rightContainer/@rightConnectors.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PvlzA1EzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorRightConnector" href="AnagrafeResponse.datamapper#//@operators.3/@basicContainer/@rightContainer/@rightConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PvlzAVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorRightContainer" href="AnagrafeResponse.datamapper#//@operators.3/@basicContainer/@rightContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PvXwk1EzEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:OperatorBasicContainer" href="AnagrafeResponse.datamapper#//@operators.3/@basicContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PvVUUVEzEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:Constant" href="AnagrafeResponse.datamapper#//@operators.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PvUGMVEzEeyhKdw4vLJK3w" x="972" y="606"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_mUEskFEzEeyhKdw4vLJK3w" type="2021" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_mUNPcFEzEeyhKdw4vLJK3w" type="3012" fontName="Segoe UI">
+      <children xmi:type="notation:Shape" xmi:id="_mUN2gFEzEeyhKdw4vLJK3w" type="3013" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_mUgKYFEzEeyhKdw4vLJK3w" type="3014" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_mUgKYlEzEeyhKdw4vLJK3w" type="3015" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer/@leftContainer/@leftConnectors.0/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUgKY1EzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorLeftConnector" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer/@leftContainer/@leftConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUgKYVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorLeftContainer" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer/@leftContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUN2gVEzEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_mUOdkFEzEeyhKdw4vLJK3w" type="3016" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_mUoGMFEzEeyhKdw4vLJK3w" type="3017" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_mUotQFEzEeyhKdw4vLJK3w" type="3018" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer/@rightContainer/@rightConnectors.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUotQVEzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorRightConnector" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer/@rightContainer/@rightConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUoGMVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorRightContainer" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer/@rightContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUOdkVEzEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:OperatorBasicContainer" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUNPcVEzEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:StringLength" href="AnagrafeResponse.datamapper#//@operators.4"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mUEskVEzEeyhKdw4vLJK3w" x="504" y="432"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_wKFIYFEzEeyhKdw4vLJK3w" type="2036" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_wKL2EFEzEeyhKdw4vLJK3w" type="3012" fontName="Segoe UI">
+      <children xmi:type="notation:Shape" xmi:id="_wKMdIFEzEeyhKdw4vLJK3w" type="3013" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_wKcUwFEzEeyhKdw4vLJK3w" type="3014" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_wKc70FEzEeyhKdw4vLJK3w" type="3015" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@leftContainer/@leftConnectors.0/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKc70VEzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorLeftConnector" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@leftContainer/@leftConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKcUwVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_wKeJ8FEzEeyhKdw4vLJK3w" type="3014" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_wKexAFEzEeyhKdw4vLJK3w" type="3015" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@leftContainer/@leftConnectors.1/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKexAVEzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorLeftConnector" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@leftContainer/@leftConnectors.1"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKeJ8VEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorLeftContainer" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@leftContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKNEMFEzEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_wKNEMVEzEeyhKdw4vLJK3w" type="3016" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_wKgmMFEzEeyhKdw4vLJK3w" type="3017" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_wKgmMlEzEeyhKdw4vLJK3w" type="3018" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@rightContainer/@rightConnectors.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKgmM1EzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorRightConnector" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@rightContainer/@rightConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKgmMVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorRightContainer" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@rightContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKNEMlEzEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:OperatorBasicContainer" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKL2EVEzEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:Compare" href="AnagrafeResponse.datamapper#//@operators.5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wKFIYVEzEeyhKdw4vLJK3w" x="804" y="408"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_4cm_QFEzEeyhKdw4vLJK3w" type="2008" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_4cnmUFEzEeyhKdw4vLJK3w" type="3012" fontName="Segoe UI">
+      <children xmi:type="notation:Shape" xmi:id="_4coNYFEzEeyhKdw4vLJK3w" type="3013" fontName="Segoe UI">
+        <element xmi:type="datamapper:OperatorLeftContainer" href="AnagrafeResponse.datamapper#//@operators.6/@basicContainer/@leftContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4coNYVEzEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_4coNYlEzEeyhKdw4vLJK3w" type="3016" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_4c3d8FEzEeyhKdw4vLJK3w" type="3017" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_4c3d8lEzEeyhKdw4vLJK3w" type="3018" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@operators.6/@basicContainer/@rightContainer/@rightConnectors.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4c3d81EzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorRightConnector" href="AnagrafeResponse.datamapper#//@operators.6/@basicContainer/@rightContainer/@rightConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4c3d8VEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorRightContainer" href="AnagrafeResponse.datamapper#//@operators.6/@basicContainer/@rightContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4coNY1EzEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:OperatorBasicContainer" href="AnagrafeResponse.datamapper#//@operators.6/@basicContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4cnmUVEzEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:Constant" href="AnagrafeResponse.datamapper#//@operators.6"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4cm_QVEzEeyhKdw4vLJK3w" x="558" y="522"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_9_NsMFEzEeyhKdw4vLJK3w" type="2025" fontName="Segoe UI">
+    <children xmi:type="notation:Shape" xmi:id="_9_UZ4FEzEeyhKdw4vLJK3w" type="3012" fontName="Segoe UI">
+      <children xmi:type="notation:Shape" xmi:id="_9_VoAFEzEeyhKdw4vLJK3w" type="3013" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_9_h1QFEzEeyhKdw4vLJK3w" type="3014" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_9_icUFEzEeyhKdw4vLJK3w" type="3015" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@leftContainer/@leftConnectors.0/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_icUVEzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorLeftConnector" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@leftContainer/@leftConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_h1QVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_9_kRgFEzEeyhKdw4vLJK3w" type="3014" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_9_kRglEzEeyhKdw4vLJK3w" type="3015" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@leftContainer/@leftConnectors.1/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_kRg1EzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorLeftConnector" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@leftContainer/@leftConnectors.1"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_kRgVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_9_mGsFEzEeyhKdw4vLJK3w" type="3014" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_9_mGslEzEeyhKdw4vLJK3w" type="3015" fontName="Segoe UI">
+            <element xmi:type="datamapper:InNode" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@leftContainer/@leftConnectors.2/@inNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_mGs1EzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorLeftConnector" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@leftContainer/@leftConnectors.2"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_mGsVEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorLeftContainer" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@leftContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_VoAVEzEeyhKdw4vLJK3w"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_9_VoAlEzEeyhKdw4vLJK3w" type="3016" fontName="Segoe UI">
+        <children xmi:type="notation:Shape" xmi:id="_9_nU0FEzEeyhKdw4vLJK3w" type="3017" fontName="Segoe UI">
+          <children xmi:type="notation:Shape" xmi:id="_9_n74FEzEeyhKdw4vLJK3w" type="3018" fontName="Segoe UI">
+            <element xmi:type="datamapper:OutNode" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@rightContainer/@rightConnectors.0/@outNode"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_n74VEzEeyhKdw4vLJK3w"/>
+          </children>
+          <element xmi:type="datamapper:OperatorRightConnector" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@rightContainer/@rightConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_nU0VEzEeyhKdw4vLJK3w"/>
+        </children>
+        <element xmi:type="datamapper:OperatorRightContainer" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@rightContainer"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_VoA1EzEeyhKdw4vLJK3w"/>
+      </children>
+      <element xmi:type="datamapper:OperatorBasicContainer" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_UZ4VEzEeyhKdw4vLJK3w"/>
+    </children>
+    <element xmi:type="datamapper:IfElse" href="AnagrafeResponse.datamapper#//@operators.7"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9_NsMVEzEeyhKdw4vLJK3w" x="1266" y="474"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_jvJn0VEqEeyhKdw4vLJK3w"/>
+  <element xmi:type="datamapper:DataMapperRoot" href="AnagrafeResponse.datamapper#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_nDL1UFEzEeyhKdw4vLJK3w" type="4001" source="_r1agIFExEeyhKdw4vLJK3w" target="_mUgKYlEzEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="_nDL1UVEzEeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@input/@treeNode.0/@node.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nDL1UlEzEeyhKdw4vLJK3w" points="[-2, 0, -131, 25]$[128, -25, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nDNqgFEzEeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nDNqgVEzEeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_wuIQoFEzEeyhKdw4vLJK3w" type="4001" source="_mUotQFEzEeyhKdw4vLJK3w" target="_wKc70FEzEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="_wuIQoVEzEeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@operators.4/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wuIQolEzEeyhKdw4vLJK3w" points="[-1, 0, 4, 155]$[-6, -155, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wuKF0FEzEeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wuKF0VEzEeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_7MBy4FEzEeyhKdw4vLJK3w" type="4001" source="_4c3d8lEzEeyhKdw4vLJK3w" target="_wKexAFEzEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="_7MBy4VEzEeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@operators.6/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7MBy4lEzEeyhKdw4vLJK3w" points="[-1, 0, -103, 128]$[101, -128, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7MEPIFEzEeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7MEPIVEzEeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="__X4IQFEzEeyhKdw4vLJK3w" type="4001" source="_wKgmMlEzEeyhKdw4vLJK3w" target="_9_icUFEzEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="__X4IQVEzEeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@operators.5/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__X4IQlEzEeyhKdw4vLJK3w" points="[-1, 0, -65, 4]$[63, -4, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__X59cFEzEeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__X59cVEzEeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_DyeEQFE0EeyhKdw4vLJK3w" type="4001" source="_MKhw0lEzEeyhKdw4vLJK3w" target="_9_kRglEzEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="_DyeEQVE0EeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@operators.2/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DyeEQlE0EeyhKdw4vLJK3w" points="[-1, 0, -179, 20]$[177, -20, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DyfSYFE0EeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DyfSYVE0EeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_I6_dQFE0EeyhKdw4vLJK3w" type="4001" source="_PvlzAlEzEeyhKdw4vLJK3w" target="_9_mGslEzEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="_I6_dQVE0EeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@operators.3/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_I6_dQlE0EeyhKdw4vLJK3w" points="[-1, 0, -103, 102]$[101, -102, -1, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_I7ArYFE0EeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_I7ArYVE0EeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_LDyVwFE0EeyhKdw4vLJK3w" type="4001" source="_9_n74FEzEeyhKdw4vLJK3w" target="_ACHHIFErEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="_LDyVwVE0EeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@operators.7/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LDyVwlE0EeyhKdw4vLJK3w" points="[-1, 0, -129, 5]$[126, -5, -2, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LDy80FE0EeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LDy80VE0EeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_M5YlcFE0EeyhKdw4vLJK3w" type="4001" source="_pmrmcFErEeyhKdw4vLJK3w" target="_J_CqUFErEeyhKdw4vLJK3w">
+    <styles xmi:type="notation:FontStyle" xmi:id="_M5YlcVE0EeyhKdw4vLJK3w" fontName="Segoe UI"/>
+    <element xmi:type="datamapper:DataMapperLink" href="AnagrafeResponse.datamapper#//@operators.0/@basicContainer/@rightContainer/@rightConnectors.0/@outNode/@outgoingLink.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_M5YlclE0EeyhKdw4vLJK3w" points="[-1, 0, -133, -73]$[130, 73, -2, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_M5Ylc1E0EeyhKdw4vLJK3w" id="CENTER"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_M5YldFE0EeyhKdw4vLJK3w" id="CENTER"/>
+  </edges>
+</notation:Diagram>
