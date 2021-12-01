@@ -23,8 +23,8 @@
                     </soapenv:Envelope>
                 </format>
                 <args>
-                    <arg evaluator="json" expression="$.dati_soggetto.sog_codfisc"/>
-                    <arg evaluator="json" expression="$.dati_soggetto.sog_datarif"/>
+                    <arg evaluator="json" expression="$.codiceFiscale"/>
+                    <arg evaluator="json" expression="$.dataRiferimento"/>
                 </args>
             </payloadFactory>
             <header description="Set SOAPAction header" name="Action" scope="default" value="http://www.cedaf.it/schema/wm_soggetto_alla_data"/>
