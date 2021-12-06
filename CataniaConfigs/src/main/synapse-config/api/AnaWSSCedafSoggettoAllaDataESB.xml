@@ -13,8 +13,8 @@
 					          <wm_soggetto_alla_data_in>
 					          	<dati_soggetto>
 					          		<sog_dominio>ANA</sog_dominio>
-					          		<sog_codfisc>$1</sog_codfisc>  
-					          		<sog_datarif>$2</sog_datarif>        		
+					          		<sog_codfisc>$1</sog_codfisc>
+					          		<sog_datarif>$2</sog_datarif>  
 					          	</dati_soggetto>
 					          </wm_soggetto_alla_data_in>
 					           ]]></sch:wm_soggetto_alla_data_in>
@@ -34,9 +34,35 @@
             </send>
         </inSequence>
         <outSequence>
-            <log level="full"/>
-            <datamapper config="gov:datamapper/AnagrafeResponse.dmc" description="AnagrafeResponse" inputSchema="gov:datamapper/AnagrafeResponse_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/AnagrafeResponse_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/AnagrafeResponse_xsltStyleSheet.xml"/>
-            <send description="manda il messaggio convertito in formato json al client"/>
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+              var result = mc.getPayloadXML()..*::wm_soggetto_alla_dataResult;
+              var indexErr = result.indexOf("<errore");
+              var indexDataIni = result.indexOf("<res_datainizio>");
+              var indexDataFine = result.indexOf("<res_datafine>");
+              var response = "";
+
+              if(indexErr != -1) {
+              	response = "<residente>false</residente>";
+              } else if(indexDataFine != -1) {
+                <!-- confrontare data in input con dataFine -->
+              } else {
+              	response = "<residente>true</residente>";
+              }
+              mc.setPayloadXML(new XML(response));]]></script>
+            <payloadFactory media-type="json">
+                <format>
+                  {
+                    "payload": {
+                      "esito": "0",
+                      "residente": $1
+                    }
+                  }
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="//residente"/>
+                </args>
+            </payloadFactory>
+            <respond/>
         </outSequence>
         <faultSequence>
             <log description="Log customer message" level="custom">
@@ -45,28 +71,28 @@
             </log>
             <payloadFactory media-type="json">
                 <format>
-                           {
-                                  "payload": {
-                                        "esito": "1"
-                                  },
-                                  "outcome": {
-                                        "issue": [
-                                               {
-                                               "severity": "FATAL",
-                                               "code": $1,
-                                               "message": $2
-                                               }
-                                        ]
-                                  }
-                           }
-                           </format>
+                  {
+                    "payload": {
+                      "esito": "1"
+                    },
+                    "outcome": {
+                      "issue": [
+                        {
+                          "severity": "FATAL",
+                          "code": "$1",
+                          "message": "$2"
+                        }
+                      ]
+                    }
+                  }
+                </format>
                 <args>
                     <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
                     <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
                     <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
                 </args>
             </payloadFactory>
-            <property name="HTTP_SC" scope="axis2" type="STRING" value="404"/>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
             <respond description="Send Error Back to Client"/>
         </faultSequence>
     </resource>

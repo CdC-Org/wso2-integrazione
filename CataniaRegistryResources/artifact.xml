@@ -127,28 +127,4 @@
             <properties/>
         </item>
     </artifact>
-    <artifact name="AnagrafeResponse" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>AnagrafeResponse.dmc</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="AnagrafeRample.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>AnagrafeResponse_outputSchema.json</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="AnagrafeResponse_xsltStyleSheet" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>AnagrafeResponse_xsltStyleSheet.xml</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-</artifacts>
+            </artifacts>
