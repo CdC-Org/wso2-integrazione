@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoint name="AnaWSSCedafSoggettoAllaDataSoap" xmlns="http://ws.apache.org/ns/synapse">
-    <address format="soap11" uri="http://sicrawebappserver.comune.catania.it:58000/client/services/AnaWSSCedafSoggettoAllaDataSoap?CID=sicraweb">
+    <address format="soap11" uri="http://192.168.20.70:58000/client/services/AnaWSSCedafSoggettoAllaDataSoap?CID=sicraweb">
         <suspendOnFailure>
             <initialDuration>-1</initialDuration>
             <progressionFactor>1.0</progressionFactor>
