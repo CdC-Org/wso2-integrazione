@@ -5,7 +5,7 @@ var IF_ELSE_9_0 = '';
 var SPLIT_10_0 = '';
 
 COMPARE_8_0 = ( inputritorno.esito == 'true' );
-IF_ELSE_9_0 = (COMPARE_8_0)?('1 - INFO - 1 - Operazione Eseguita'):('0 - INFO - 0 - Operazione non eseguita');
+IF_ELSE_9_0 = (COMPARE_8_0)?('0 - INFORMATION - 0 - Operazione Eseguita'):('1 - INFORMATION - 1 - Operazione non eseguita');
 SPLIT_10_0 = IF_ELSE_9_0.split(' - ');
 outputroot =  {};
 outputroot.payload =  {};

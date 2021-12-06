@@ -98,7 +98,7 @@
       <inNode/>
     </treeNode>
   </output>
-  <operators xsi:type="datamapper:Constant" defaultOutputConnectors="1" operatorType="CONSTANT" constantValue="1 - INFO - 1 - Operazione Eseguita">
+  <operators xsi:type="datamapper:Constant" defaultOutputConnectors="1" operatorType="CONSTANT" constantValue="0 - INFORMATION - 0 - Operazione Eseguita">
     <basicContainer>
       <leftContainer/>
       <rightContainer>
@@ -110,7 +110,7 @@
       </rightContainer>
     </basicContainer>
   </operators>
-  <operators xsi:type="datamapper:Constant" defaultOutputConnectors="1" operatorType="CONSTANT" constantValue="0 - INFO - 0 - Operazione non eseguita">
+  <operators xsi:type="datamapper:Constant" defaultOutputConnectors="1" operatorType="CONSTANT" constantValue="1 - INFORMATION - 1 - Operazione non eseguita">
     <basicContainer>
       <leftContainer/>
       <rightContainer>
