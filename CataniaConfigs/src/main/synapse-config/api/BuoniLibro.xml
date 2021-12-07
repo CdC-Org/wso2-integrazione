@@ -8,8 +8,14 @@
 				datiOriginali = datiOriginali.replace("\\\"IT\\\"", "");
 				datiOriginali = datiOriginali.replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
+           	  	log.info("acquisizioneBuoniLibro Payload: " + JSON.stringify(pl));
 
-			  	var plAnnoScolasctico="2021";
+			  	var plAnnoScolastico = "2021";
+			    var plAnnoStr = findElement(pl,'paragraph-1605017328811').placeholder;
+			    if(plAnnoStr != null && plAnnoStr.indexOf("ANNO SCOLASTICO" != -1)) {
+			     plAnnoScolastico = plAnnoStr.substring(16, 20); 
+			    }
+
                 var plCodiceFiscale=findElement(pl,'cf-alunno').value;      
                 var plCodiceFiscaleCittadino= plInput.codice_fiscale;
 
@@ -77,7 +83,7 @@
   
                 var keys = Object.keys(plInput);
                 var response = {
-                  			  "annoScolastico": plAnnoScolasctico,
+                  			  "annoScolastico": plAnnoScolastico,
                  			  "cap": getValue(findElement(pl,'cap')),
                               "classe": getValue(findElement(pl,'Classe')),
                               "codiceFiscale": plCodiceFiscale,                          
@@ -210,7 +216,7 @@
                     return '';
                 }]]></script>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
-            <log description="Log customer message" level="custom">
+            <log description="Log Input" level="custom">
                 <property name="MESSAGE" value="Request received to /users resource."/>
             </log>
             <call blocking="true" description="Send Request to Users Endpoint">
@@ -221,7 +227,7 @@
         </inSequence>
         <outSequence/>
         <faultSequence>
-            <log description="Log customer message" level="custom">
+            <log category="ERROR" description="Log Errore" level="custom">
                 <property name="text" value="An unexpected error occured"/>
                 <property expression="get-property('ERROR_MESSAGE')" name="message"/>
             </log>
@@ -245,11 +251,10 @@
                 <args>
                     <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
                     <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
-                    <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
                 </args>
             </payloadFactory>
             <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
-            <!--  respond description="Send Error Back to Client"/ -->
+            <respond description="Send Error Back to Client"/>
         </faultSequence>
     </resource>
     <resource methods="POST" url-mapping="/validazione">
@@ -260,10 +265,17 @@
 				datiOriginali = datiOriginali.replace("\\\"IT\\\"", "");
 				datiOriginali = datiOriginali.replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
-			    var plAnnoScolasctico="2021";
+           	  	log.info("validazioneBuoniLibro Payload: " + JSON.stringify(pl));
+
+			  	var plAnnoScolastico = "2021";
+			    var plAnnoStr = findElement(pl,'paragraph-1605017328811').placeholder;
+			    if(plAnnoStr != null && plAnnoStr.indexOf("ANNO SCOLASTICO" != -1)) {
+			     plAnnoScolastico = plAnnoStr.substring(16, 20); 
+			    }
+
                 var plCodiceFiscale=findElement(pl,'cf-alunno').value;      
                 var plCodiceFiscaleCittadino= plInput.codice_fiscale;
-                var plCointestato=getValue(findElement(pl,'radio-1605166148122'));       
+                var plCointestato=getValue(findElement(pl,'radio-1605166148122'));
                 var plIntCointestato = null;
 
                 if (plCointestato == "Cointestato") {
@@ -314,7 +326,7 @@
                 
                 var keys = Object.keys(plInput);
                 var response = {
-                  			  "annoScolastico": plAnnoScolasctico,
+                  			  "annoScolastico": plAnnoScolastico,
                   			  "cap": getValue(findElement(pl,'cap')),
                               "classe": getValue(findElement(pl,'Classe')),
                               "codiceFiscale": plCodiceFiscale,                          
@@ -440,21 +452,18 @@
                     return '';
                 }]]></script>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
-            <log description="Log customer message" level="custom">
+            <log description="Log Input" level="custom">
                 <property name="MESSAGE" value="Request received to /users resource."/>
             </log>
             <call blocking="true" description="Send Request to Users Endpoint">
                 <endpoint key="validazione"/>
             </call>
-            <log description="Log customer message" level="custom">
-                <property name="MESSAGE" value="Response received to /users resource."/>
-            </log>
             <sequence key="validazioneReturn"/>
             <respond description="Send Response Back to Client"/>
         </inSequence>
         <outSequence/>
         <faultSequence>
-            <log description="Log customer message" level="custom">
+            <log category="ERROR" description="Log Errore" level="custom">
                 <property name="text" value="An unexpected error occured"/>
                 <property expression="get-property('ERROR_MESSAGE')" name="message"/>
             </log>
@@ -478,7 +487,6 @@
                 <args>
                     <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
                     <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
-                    <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
                 </args>
             </payloadFactory>
             <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>

@@ -15,7 +15,8 @@
         </endpoint>
         <inSequence>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
-				var log = mc.getServiceLog(); 
+				var log = mc.getServiceLog();
+				log.info("cambioStatoPratica Payload: " + JSON.stringify(plInput));
 				var localRespinta = true;
                	var	localConclusa = true;
                	
@@ -47,6 +48,35 @@
             <datamapper config="gov:datamapper/InterpretazioneRitornoCambioStatoPratica.dmc" inputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet.xml"/>
             <send/>
         </outSequence>
-        <faultSequence/>
+        <faultSequence>
+            <log category="ERROR" description="Log Errore" level="custom">
+                <property name="text" value="An unexpected error occured"/>
+                <property expression="get-property('ERROR_MESSAGE')" name="message"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>
+                  {
+                    "payload": {
+                      "esito": "1"
+                    },
+                    "outcome": {
+                      "issue": [
+                        {
+                          "severity": "FATAL",
+                          "code": "$1",
+                          "message": "$2"
+                        }
+                      ]
+                    }
+                  }
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
+                    <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                </args>
+            </payloadFactory>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
+            <respond description="Send Error Back to Client"/>
+        </faultSequence>
     </target>
 </proxy>

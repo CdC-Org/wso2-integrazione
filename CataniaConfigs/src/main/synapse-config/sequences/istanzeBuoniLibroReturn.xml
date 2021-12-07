@@ -2,75 +2,41 @@
 <sequence name="istanzeBuoniLibroReturn" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <log level="full"/>
     <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();      
-    		
-    	
 		var log = mc.getServiceLog();
-		
-        log.info(">>Normalizzazione messaggi di warning");
-        log.info(">>plInput: " +  JSON.stringify(plInput)); 
-        
+
         var esito = plInput.payload.esito; 
         var status = "false";
-        log.info(">>esito: " + esito);
-        var   stringaWarnings = '';
+        var stringaWarnings = '';
          
-        if (esito == '1')
-        {
+        if (esito == '1') {
         	status = "false";
-        	
-        	
-	        var outcome = plInput.outcome;
-	        log.info(">>outcome: " +  JSON.stringify(outcome));
+ 	        var outcome = plInput.outcome;
 	        var issue = outcome.issue;
-	        log.info(">>issue: " +  JSON.stringify(issue));
-	        log.info(">>issue.length: " +  issue.length);
-	         
-			var   strDettaglio ='';
+			var strDettaglio = '';
 			
-			for (i = 0; i < issue.length; ++i)
-			{
-				log.info(">>issue.message: " +  issue[i].message);
-				if (i==0)
-				{
-					if (issue[i].details != null)
-					{
+			for (i = 0; i < issue.length; ++i) {
+				if (i==0) {
+					if (issue[i].details != null) {
 						strDettaglio = issue[i].details + ": ";
-					
 					}
 					
 					stringaWarnings = strDettaglio + issue[i].message;
 					strDettaglio = '';
-					
-				}
-				else 
-				{
-					if (issue[i].details != null)
-					{
+				} else {
+					if (issue[i].details != null) {
 						strDettaglio = issue[i].details + ": ";
-					
 					}
 					stringaWarnings = stringaWarnings + ", " + strDettaglio + issue[i].message;
 					strDettaglio = '';
 				}
 			}
-	
-	        log.info(">>warnings: " +  stringaWarnings);
-        	
-        }
-        else if (esito == '0')
-        {
-        	
+        } else if (esito == '0') {
         	status = "true";
         	stringaWarnings =  " ";
         }
-       
-        
-        
         
         var response = {"status": 	status, 
         				"message": 	stringaWarnings};
-
-
 		
         mc.setPayloadJSON(response);]]></script>
     <respond/>

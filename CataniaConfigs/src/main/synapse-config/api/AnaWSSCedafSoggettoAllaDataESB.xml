@@ -2,7 +2,7 @@
 <api context="/api/msistruzione/esb/anagrafi" name="AnaWSSCedafSoggettoAllaDataESB" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" url-mapping="/AnaWSSCedafSoggettoAllaDataESB">
         <inSequence>
-            <log level="full"/>
+            <log description="Log Input" level="full"/>
             <payloadFactory description="TrasformaJsonToSoap" media-type="xml">
                 <format>
                     <soapenv:Envelope xmlns:sch="http://www.cedaf.it/schema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -65,7 +65,7 @@
             <respond/>
         </outSequence>
         <faultSequence>
-            <log description="Log customer message" level="custom">
+            <log category="ERROR" description="Log Errore" level="custom">
                 <property name="text" value="An unexpected error occured"/>
                 <property expression="get-property('ERROR_MESSAGE')" name="message"/>
             </log>
@@ -89,7 +89,6 @@
                 <args>
                     <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
                     <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
-                    <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
                 </args>
             </payloadFactory>
             <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
