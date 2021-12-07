@@ -44,7 +44,8 @@
               if(indexErr != -1) {
               	response = "<residente>false</residente>";
               } else if(indexDataFine != -1) {
-                <!-- confrontare data in input con dataFine -->
+                <!-- TODO confrontare data in input con dataFine -->
+                response = "<residente>false</residente>";
               } else {
               	response = "<residente>true</residente>";
               }
