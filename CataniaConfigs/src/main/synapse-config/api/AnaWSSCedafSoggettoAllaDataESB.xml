@@ -37,14 +37,15 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
               var result = mc.getPayloadXML()..*::wm_soggetto_alla_dataResult;
               var indexErr = result.indexOf("<errore");
-              var indexDataIni = result.indexOf("<res_datainizio>");
-              var indexDataFine = result.indexOf("<res_datafine>");
+
+              var countDataIni = result.split("<res_datainizio>").length;
+              var countDataFine = result.split("<res_datafine>").length;
+
               var response = "";
 
               if(indexErr != -1) {
               	response = "<residente>false</residente>";
-              } else if(indexDataFine != -1) {
-                <!-- TODO confrontare data in input con dataFine -->
+              } else if(countDataIni == countDataFine) {
                 response = "<residente>false</residente>";
               } else {
               	response = "<residente>true</residente>";
