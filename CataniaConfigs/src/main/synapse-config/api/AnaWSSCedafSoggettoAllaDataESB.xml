@@ -14,7 +14,7 @@
 					          	<dati_soggetto>
 					          		<sog_dominio>ANA</sog_dominio>
 					          		<sog_codfisc>$1</sog_codfisc>
-					          		<sog_datarif>$2</sog_datarif>  
+					          		<sog_datarif>$2</sog_datarif>
 					          	</dati_soggetto>
 					          </wm_soggetto_alla_data_in>
 					           ]]></sch:wm_soggetto_alla_data_in>
@@ -50,6 +50,7 @@
               } else {
               	response = "<residente>true</residente>";
               }
+              log.info("response: " + response);
               mc.setPayloadXML(new XML(response));]]></script>
             <payloadFactory media-type="json">
                 <format>
