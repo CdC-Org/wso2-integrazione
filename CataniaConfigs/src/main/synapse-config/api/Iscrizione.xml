@@ -5,216 +5,198 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
                 var plInput = mc.getPayloadJSON();
            	  	var datiOriginali = plInput.dati;
-				datiOriginali = datiOriginali.replace("\\\"IT\\\"", "");
-				datiOriginali = datiOriginali.replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
-           	  	log.info("acquisizioneBuoniLibro Payload: " + JSON.stringify(pl));
+           	  	log.info("acquisizioneIscrizione Payload: " + JSON.stringify(pl));
 
-			  	var plAnnoScolastico = "2021";
-			    var plAnnoStr = findElement(pl,'paragraph-1605017328811').placeholder;
-			    if(plAnnoStr != null && plAnnoStr.indexOf("ANNO SCOLASTICO" != -1)) {
-			     plAnnoScolastico = plAnnoStr.substring(16, 20); 
-			    }
+				var idIstanzaOnline = plInput.id;
+				var numeroProtocolloIngresso = plInput.protoNumero;
+				var dataProtocolloIngresso = parseDate(plInput.protoData);
+				var numeroProtocolloUscita = plInput.protoFinaleNumero;
+				var dataProtocolloUscita = parseDate(plInput.protoFinaleData);
+				var dataIstanza = parseDate(plInput.dataInvio);
+				var codFiscaleCittadino = plInput.codice_fiscale;
+				var emailCittadino = plInput.email;
+				var flgRiconferma = decodeFlg(pl, "iscrizione", "riconferma");
+				var insegnante = findElementValue(pl, "insegnante_riconferma");
+				var responsabile = findElementValue(pl, "nome_richiedente");
+				var richiedente = findElementValue(pl, "richiedente");
 
-                var plCodiceFiscale=findElement(pl,'cf-alunno').value;      
-                var plCodiceFiscaleCittadino= plInput.codice_fiscale;
+				var tipoResponsabile = 0;
+				if(richiedente == "tutore") {
+				    tipoResponsabile = 1; 
+				} else if(richiedente == "affidatario") {
+				    tipoResponsabile = 2;
+				}
 
-                var plCointestato=getValue(findElement(pl,'radio-1605166148122'));       
-                var plIntCointestato = null;
-                if (plCointestato == "Cointestato") {
-                  plIntCointestato =1;
-                } else if (plCointestato == "Non Cointestato") {
-                      plIntCointestato =0;
-                }
+				var minoreCognome = findElementValue(pl, "cognome_figlio");
+				var minoreNome = findElementValue(pl, "nome_figlio");
+				
+				var sesso = findComplexElementValue(pl, "sesso");
+				var minoreSesso = 0;
+				if(sesso == "M") {
+				    minoreSesso = 1;
+				}
+				
+				var minoreCodFiscale = findElementValue(pl, "cf_figlio");
 
-                var plContoCorrente=getValue(findElement(pl,'radio-1605165862764'));  
-                var plIntContoCorrente = null;
-                if (plContoCorrente == "si") {
-                  plIntContoCorrente = 1;
-                } else if (plContoCorrente == "no") {
-                  plIntContoCorrente = 0;
-                }
+				var scuola = findComplexElementValue(pl, "untitled_4");
+				var codMecPlesso = "";
+				if(scuola.indexOf("(") != -1 && scuola.indexOf(")") != -1) {
+					codMecPlesso = scuola.substring(scuola.indexOf("("), scuola.indexOf(")"));
+				}
+				
+				var minoreLuogoNascita = findElementValue(pl, "luogo_nascita");
+				var minoreDataNascita = findElementValue(pl, "data_nascita");
+				var minoreNazionalita = decodeFlg(pl, "nazione", "straniero");
+				var minoreNazione = findElementValue(pl, "nazionalita");
+				var minoreProvinciaResidenza = findElementValue(pl, "prov_residenza");
+				var minoreIndirizzo = findElementValue(pl, "via_residenza");
+				var flgVaccinato = decodeFlg(pl, "vaccinazione", "si");
+				var flgAnticipatario = decodeFlg(pl, "anticipatario", "si");
+				var flgDisabilita = decodeFlg(pl, "disabilita", "si");
+				var flgPratica = decodeFlg(pl, "pratica_completa", "si");
 
-                var plGenitoreTutore=getValue(findElement(pl,'Scelta Genitore e Tutore'));
-                var plIntGenitoreTutore = 0;
-                if (plGenitoreTutore == "Genitore") {
-                  plIntGenitoreTutore = 0;
-                } else if (plGenitoreTutore == "Tutore") {
-                  plIntGenitoreTutore = 1;
-                }
+				var familiare1 = findElementValue(pl, "nome_richiedente_rpinc");
+				var familiare1LuogoData = findElementValue(pl, "nascita_richiedente");
+				var familiare1Relazione = "Richiedente";
 
-                var plSesso = getValue(findElement(pl,'SX_ALU'));
-                var plIntSesso = 0;
-                if (plSesso == "F") {
-                  plIntSesso = 0;
-                } else {
-                  plIntSesso = 1;
-                }
+				var familiare2 = findElementValue(pl, "nome_parente1");
+				var familiare2LuogoData = findElementValue(pl, "nascita_parente1");
+				var familiare2Relazione = findElementValue(pl, "relazione_parente1");
 
-                var plSessoRichiedente  = getValue(findElement(pl,'SX_GEN')); 
-                var plIntSessoRichiedente = 0;
-                if (plSessoRichiedente == "F") {
-                  plIntSessoRichiedente = 0;
-                } else {
-                 plIntSessoRichiedente = 1;
-                }
-                
-                var plTipoScuola  = getValue(findElement(pl,'Tipologia scuola'));
-                var plIntTipoScuola = 0;
-                if (plTipoScuola == "Statale") {
-                  plIntTipoScuola = 0;
-                } else if (plTipoScuola == "Paritaria") {
-                  plIntTipoScuola = 1;
-                }
-                
-                var plIntStato = 1;
-                if (plInput.conclusa == "true" && plInput.respinta == "true") {
-                  plIntStato = 3;
-                }
-                if (plInput.conclusa == "false" && plInput.respinta == "false") {
-                  plIntStato = 1;
-                }
-                if (plInput.conclusa == "true" && plInput.respinta == "false") {
-                  plIntStato = 2;
-                }
-                if (plInput.conclusa == "false" && plInput.respinta == "true") {
-                  plIntStato = 3;
-                }
-  
-                var keys = Object.keys(plInput);
+				var familiare3 = findElementValue(pl, "nome_parente2");
+				var familiare3LuogoData = findElementValue(pl, "nascita_parente2");
+				var familiare3Relazione = findElementValue(pl, "relazione_parente2");
+
+				var familiare4 = findElementValue(pl, "nome_parente3");
+				var familiare4LuogoData = findElementValue(pl, "nascita_parente3");
+				var familiare4Relazione = findElementValue(pl, "relazione_parente3");
+
+				var familiare5 = findElementValue(pl, "nome_parente4");
+				var familiare5LuogoData = findElementValue(pl, "nascita_parente4");
+				var familiare5Relazione = findElementValue(pl, "relazione_parente4");
+
+				var professione = findElementValue(pl, "professione");
+				var sedeLavorativa = findElementValue(pl, "sede_lavorativa");
+				var flgRefezione = decodeFlg(pl, "turno", "pm");
+				var flgFratello = decodeFlg(pl, "presenza_fratelli", "On");
+				var fratelloPlesso = findElementValue(pl, "nome_scuola");
+				var fratello = findElementValue(pl, "nome_fratello");
+				var fratelloDataNascita = findElementValue(pl, "data_nascita_fratello");
+				var fratelloInsegnante = findElementValue(pl, "nome_ins_fratello");
+				var fratelloAsilo = findElementValue(pl, "nome_asilo_nido");
+				var fratelloAsiloVia = findElementValue(pl, "via_asilo_nido");
+				var responsabileTelefono = findElementValue(pl, "tel1");
+				var responsabileCellulare = findElementValue(pl, "cell1");
+				var responsabileEmail = findElementValue(pl, "mail1");
+				var responsabileTelefono2 = findElementValue(pl, "tel2");
+				var responsabileCellulare2 = findElementValue(pl, "cell2");
+				var responsabileEmail2 = findElementValue(pl, "mail2");
+				var flgConsenso = decodeFlg(pl, "consenso", "si");
+				var flgAutorizzazione = decodeFlg(pl, "autorizza", "si");
+				var annoScolastico = new Date().getFullYear();				
+				
                 var response = {
-                  			  "annoScolastico": plAnnoScolastico,
-                 			  "cap": getValue(findElement(pl,'cap')),
-                              "classe": getValue(findElement(pl,'Classe')),
-                              "codiceFiscale": plCodiceFiscale,                          
-                              "codiceFiscaleCittadino": plCodiceFiscaleCittadino,                            
-                              "codiceFiscaleRichiedente": getValue(findElement(pl,'cf-genitore')),                         
-                              "cognome": getValue(findElement(pl,'Cog_alunno')),                                
-                              "cognomeRichiedente": getValue(findElement(pl,'cognome-genitore')),     
-                              "cointestatario": getValue(findElement(pl,'Cointestatario')),   
-                              "cointestato": plIntCointestato,
-                              "comuneNascita":  getValue(findElement(pl,'Luogo di nascita alunno')), 
-                              "comuneNascitaRichiedente": getValue(findElement(pl,'Luogo di nascita')),     
-                              "comuneResidenza": getValue(findElement(pl,'comune')), 
-                              "comuneScuola": getValue(findElement(pl,'text-1605017676697')),   
-                              "contoCorrente": plIntContoCorrente,                        
-                              "dataIstanza": parseDate("" + plInput.dataInvio + " "),   
-                              "dataNascita": getValue(findElement(pl,'Data di nascita alunno')), 
-                              "dataNascitaRichiedente": getValue(findElement(pl,'Data di nascita')), 
-                              "dataProtocolloIngresso": parseDate("" + plInput.protoData  + " "),
-                              "dataProtocolloUscita": parseDate("" + plInput.protoFinaleData + " ") ,           
-                              "email": getValue(findElement(pl,'email')), 
-                              "emailCittadino": plInput.email, 
-                              "genitoreTutore": plIntGenitoreTutore,
-                              "iban": getValue(findElement(pl,'iban')),  
-                              "idIstanzaOnline": plInput.id,
-                              "nome": getValue(findElement(pl,'NM_Alunno')), 
-                              "nomeRichiedente": getValue(findElement(pl,'nome-genitore')),   
-                              "numeroProtocolloIngresso": plInput.protoNumero, 
-                              "numeroProtocolloUscita": plInput.protoFinaleNumero, 
-                              "pec": getValue(findElement(plInput.dati,'P.E.C.')),     
-                              "provvedimento": getToggle(findElement(pl,'provvedimento')),    
-                              "residenza": getValue(findElement(pl,'residenza')),     
-                              "scuola": getValue(findElement(pl,'Scuola')),   
-                              "sesso": plIntSesso,                                 
-                              "sessoRichiedente": plIntSessoRichiedente,
-                              "sezione": getValue(findElement(pl,'Sezione')),
-                              "stato": plIntStato,                                             
-                              "telefono": getValue(findElement(pl,'Telefono')), 
-                              "tipoScuola": plIntTipoScuola                
+                  "idIstanzaOnline": idIstanzaOnline, 
+                  "numeroProtocolloIngresso": numeroProtocolloIngresso,
+                  "dataProtocolloIngresso": dataProtocolloIngresso,
+                  "numeroProtocolloUscita": numeroProtocolloUscita, 
+                  "dataProtocolloUscita": dataProtocolloUscita,
+                  "dataIstanza": dataIstanza,
+                  "codFiscaleCittadino": codFiscaleCittadino,
+                  "emailCittadino": emailCittadino,
+                  "annoScolastico": annoScolastico,
+                  "flgRiconferma": flgRiconferma,
+                  "insegnante": insegnante,
+                  "codMecPlesso": codMecPlesso,
+                  "tipoResponsabile": tipoResponsabile,
+                  "responsabile": responsabile,
+                  "responsabileTelefono": responsabileTelefono,
+                  "responsabileCellulare": responsabileCellulare,
+                  "responsabileEmail": responsabileEmail,
+                  "responsabileTelefono2": responsabileTelefono2,
+                  "responsabileCellulare2": responsabileCellulare2,
+                  "responsabileEmail2": responsabileEmail2,
+                  "minoreCognome": minoreCognome,
+                  "minoreNome": minoreNome,
+                  "minoreLuogoNascita": minoreLuogoNascita,
+                  "minoreDataNascita": minoreDataNascita,
+                  "minoreSesso": minoreSesso,
+                  "minoreCodFiscale": minoreCodFiscale,
+                  "minoreNazionalita": minoreNazionalita,
+                  "minoreNazione": minoreNazione,
+                  "minoreProvinciaResidenza": minoreProvinciaResidenza,
+                  "minoreIndirizzo": minoreIndirizzo,
+                  "flgVaccinato": flgVaccinato,
+                  "flgAnticipatario": flgAnticipatario,
+                  "familiare1": familiare1,
+                  "familiare1LuogoData": familiare1LuogoData,
+                  "familiare1Relazione": familiare1Relazione,
+                  "familiare2": familiare2,
+                  "familiare2LuogoData": familiare2LuogoData,
+                  "familiare2Relazione": familiare2Relazione,
+                  "familiare3": familiare3,
+                  "familiare3LuogoData": familiare3LuogoData,
+                  "familiare3Relazione": familiare3Relazione,
+                  "familiare4": familiare4,
+                  "familiare4LuogoData": familiare4LuogoData,
+                  "familiare4Relazione": familiare4Relazione,
+                  "familiare5": familiare5,
+                  "familiare5LuogoData": familiare5LuogoData,
+                  "familiare5Relazione": familiare5Relazione,
+                  "professione": professione,
+                  "sedeLavorativa": sedeLavorativa,
+                  "flgRefezione": flgRefezione,
+                  "flgFratello": flgFratello,
+                  "fratello": fratello,
+                  "fratelloDataNascita": fratelloDataNascita,
+                  "fratelloInsegnante": fratelloInsegnante,
+                  "fratelloPlesso": fratelloPlesso,
+                  "fratelloAsilo": fratelloAsilo,
+                  "fratelloAsiloVia": fratelloAsiloVia,
+                  "flgConsenso": flgConsenso,
+                  "flgAutorizzazione": flgAutorizzazione,
+                  "flgDisabilita": flgDisabilita,
+                  "flgPratica": flgPratica,
                 };
                           
+           	  	log.info("acquisizioneIscrizione response: " + JSON.stringify(response));
                 mc.setPayloadJSON(response);
 				
                 function parseDate(input) {
                  	return new Date(Number(input)).toISOString().split('T')[0];
                 }
                 
-                function parseDateOld (input) {
-                	var posInizialeGiorno = 4;
-                	var posInizialeAnno = 8;
-                	var meseNumerico = "";
-                	var meseBreveInglese = input.substr(0,3);
-                	
-                	if (meseBreveInglese == "Sep")
-                	{
-                		posInizialeGiorno++;
-                		posInizialeAnno++;
-                	}
-                	
-                	var giorno = input.substr(posInizialeGiorno,2);;
-                	var anno = input.substr(posInizialeAnno,4);;
-                	
-                	switch (meseBreveInglese) 
-                	{
-                		case 'Jan':
-                			meseNumerico = "01";
-    						break;
-    					case 'Feb':
-                			meseNumerico = "02";
-    						break;
-   						case 'Mar':
-                			meseNumerico = "03";
-    						break;
-   						case 'Apr':
-                			meseNumerico = "04";
-    						break;
-    					case 'May':
-                			meseNumerico = "05";
-    						break;	
-    					case 'Jun':
-                			meseNumerico = "06";
-    						break;	
-    					case 'Jul':
-                			meseNumerico = "07";
-    						break;	
-    					case 'Aug':
-                			meseNumerico = "08";
-    						break;	
-    					case 'Sept':
-                			meseNumerico = "09";
-    						break;	
-  						case 'Oct':
-      						meseNumerico = "10";
-    						break;
-    					case 'Nov':
-                			meseNumerico = "11";
-    						break;	
-   						case 'Dec':
-                			meseNumerico = "12";
-    						break;
-					}
-				    return anno + "-" + meseNumerico + "-" + giorno;
-				}
-                
-                function findElement(lista,nome){
+                function findElementValue(pl, nomeAttributo) {
                     var element='';
-                    for (i = 0; i < lista.length; ++i) {
-                        if (lista[i].name==nome) {
-                            element=lista[i];
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i][0]) {
+                            value = pl[i][1];
                             break;
                         }
                     }
+
                     return element;
                 }
-
-                function getValue(element){
-                    if(element && element.value){
-                        return element.value; 
-                    }
-                    return '';
-                }
-
-                function getToggle(element){
-                    if(element){
-                        if(element.toggle){
-                            return '1'; 
-                        } else {
-                            return '0';
+                function findComplexElementValue(pl, nomeAttributo) {
+                    var element='';
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i][0]) {
+                            value = pl[i][1][0];
+                            break;
                         }
                     }
-                    return '';
-                }]]></script>
+
+                    return element;
+                }
+				function decodeFlg(pl, nomeAttributo, valueToDecode) {
+					var value = findElementValue(pl, "iscrizione");
+					var flg = 0;
+					if(value == valueToDecode) {
+						flg = 1;
+					}
+					return flg;
+				}]]></script>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
             <log description="Log Input" level="custom">
                 <property name="MESSAGE" value="Request received to /users resource."/>
@@ -365,63 +347,7 @@
                 function parseDate(input) {
                  	return new Date(Number(input)).toISOString().split('T')[0];
                 }
-
-                function parseDateOld (input) {
-                	var posInizialeGiorno = 4;
-                	var posInizialeAnno = 8;
-                	var meseNumerico = "";
-                	var meseBreveInglese = input.substr(0,3);
-                	
-                	if (meseBreveInglese == "Sep")
-                	{
-                		posInizialeGiorno++;
-                		posInizialeAnno++;
-                	}
-                	
-                	var giorno = input.substr(posInizialeGiorno,2);;
-                	var anno = input.substr(posInizialeAnno,4);;
-                	
-                	switch (meseBreveInglese) 
-                	{
-                		case 'Jan':
-                			meseNumerico = "01";
-    						break;
-    					case 'Feb':
-                			meseNumerico = "02";
-    						break;
-   						case 'Mar':
-                			meseNumerico = "03";
-    						break;
-   						case 'Apr':
-                			meseNumerico = "04";
-    						break;
-    					case 'May':
-                			meseNumerico = "05";
-    						break;	
-    					case 'Jun':
-                			meseNumerico = "06";
-    						break;	
-    					case 'Jul':
-                			meseNumerico = "07";
-    						break;	
-    					case 'Aug':
-                			meseNumerico = "08";
-    						break;	
-    					case 'Sept':
-                			meseNumerico = "09";
-    						break;	
-  						case 'Oct':
-      						meseNumerico = "10";
-    						break;
-    					case 'Nov':
-                			meseNumerico = "11";
-    						break;	
-   						case 'Dec':
-                			meseNumerico = "12";
-    						break;
-					}
-				    return anno + "-" + meseNumerico + "-" + giorno;
-				}
+                
                 
                 function findElement(lista,nome){
                   var element='';
