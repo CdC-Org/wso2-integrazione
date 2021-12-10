@@ -41,4 +41,19 @@
     <artifact name="AnaWSSCedafSoggettoAllaDataSoap" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/endpoints/AnaWSSCedafSoggettoAllaDataSoap.xml</file>
     </artifact>
+    <artifact name="iscrizioneAcquisizione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/iscrizioneAcquisizione.xml</file>
+    </artifact>
+    <artifact name="iscrizioneValidazione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/iscrizioneValidazione.xml</file>
+    </artifact>
+    <artifact name="Iscrizione" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Iscrizione.xml</file>
+    </artifact>
+    <artifact name="iscrizioneAcquisizioneResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/iscrizioneAcquisizioneResponse.xml</file>
+    </artifact>
+    <artifact name="iscrizioneValidazioneResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/iscrizioneValidazioneResponse.xml</file>
+    </artifact>
 </artifacts>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="iscrizioneValidazioneResponse" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();      
+		var log = mc.getServiceLog();
+
+        var esito = plInput.payload.esito;
+        var status = "false";
+        var outcome = plInput.outcome;
+        var issue = outcome.issue;
+        
+      	var stringaWarnings = '';
+                     
+        if (esito == '0') {
+        	status = "true";
+        	stringaWarnings = ' ';
+        }
+        
+        var nIterazioni = -1;
+        
+		if (esito == '1') {
+        	status = "false";
+			
+			for (i = 0; i < issue.length; ++i) {
+				if (issue[i].code == 'IBLV-1' || issue[i].code == 'IBLV-4' || issue[i].code == 'IBLV-5' || issue[i].code == 'IBLV-7') {
+					if (nIterazioni <0 ) {	
+						if (issue[i].code != 'IBLV-7') {
+							stringaWarnings = issue[i].details + ": " + issue[i].message;
+							nIterazioni ++;
+							status = "false";
+						} else {
+							if (issue[i].code == 'IBLV-7' && issue[i].message != "Controllo non effettuabile") {
+								stringaWarnings = issue[i].message;
+								nIterazioni ++;
+								status = "false";
+							}
+						}
+					} else {
+						if (issue[i].code != 'IBLV-7') {
+							stringaWarnings = stringaWarnings + "; " + issue[i].details + ": " + issue[i].message;
+							nIterazioni ++;
+							status = "false";
+						} else {
+							if (issue[i].code == 'IBLV-7' && issue[i].message != "Controllo non effettuabile") {
+								stringaWarnings = issue[i].message;
+								nIterazioni ++;
+								status = "false";
+							}
+						}
+					}
+				}	
+			}
+			if (nIterazioni <0 ) {
+				status = "true";
+				stringaWarnings = ' ';
+			}
+        }
+        
+        var response = {"status": 	status, 
+        				"message": 	stringaWarnings};
+		
+        mc.setPayloadJSON(response);]]></script>
+    <respond/>
+</sequence>
