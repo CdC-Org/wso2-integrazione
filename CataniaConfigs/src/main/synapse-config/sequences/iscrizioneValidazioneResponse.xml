@@ -2,56 +2,56 @@
 <sequence name="iscrizioneValidazioneResponse" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();      
 		var log = mc.getServiceLog();
-
         var esito = plInput.payload.esito;
         var status = "false";
         var outcome = plInput.outcome;
-        var issue = outcome.issue;
-        
       	var stringaWarnings = '';
-                     
-        if (esito == '0') {
+
+        if (esito == '0' && (plInput.outcome == null || plInput.outcome.issue == null || plInput.outcome.issue.length == 0)) {
         	status = "true";
         	stringaWarnings = ' ';
-        }
-        
-        var nIterazioni = -1;
-        
-		if (esito == '1') {
+        } else {
         	status = "false";
+	        var issue = plInput.outcome.issue;
 			
 			for (i = 0; i < issue.length; ++i) {
-				if (issue[i].code == 'IBLV-1' || issue[i].code == 'IBLV-4' || issue[i].code == 'IBLV-5' || issue[i].code == 'IBLV-7') {
-					if (nIterazioni <0 ) {	
-						if (issue[i].code != 'IBLV-7') {
-							stringaWarnings = issue[i].details + ": " + issue[i].message;
-							nIterazioni ++;
-							status = "false";
-						} else {
-							if (issue[i].code == 'IBLV-7' && issue[i].message != "Controllo non effettuabile") {
-								stringaWarnings = issue[i].message;
-								nIterazioni ++;
-								status = "false";
-							}
-						}
-					} else {
-						if (issue[i].code != 'IBLV-7') {
-							stringaWarnings = stringaWarnings + "; " + issue[i].details + ": " + issue[i].message;
-							nIterazioni ++;
-							status = "false";
-						} else {
-							if (issue[i].code == 'IBLV-7' && issue[i].message != "Controllo non effettuabile") {
-								stringaWarnings = issue[i].message;
-								nIterazioni ++;
-								status = "false";
-							}
-						}
+				var code = issue[i].code;
+				var message = issue[i].message;
+				if (code == 'IIMV-1' || code == 'IIMV-2' || code == 'IIMV-3' || code == 'IIMV-4' || code == 'IIMV-5') {
+					switch (code) {
+               		case 'IIMV-1':
+                		if(message.indexOf("Controllo non effettuabile") != -1) {
+   	            			stringaWarnings = stringaWarnings + "['data_nascita', 'controllo non effettuabile', '']";
+       	        		} else {
+           	    			stringaWarnings = stringaWarnings + "['data_nascita', 'controllo ko', 'La data di nascita del figlio non è una data valida']";
+               			}
+   						break;
+   					case 'IIMV-2':
+                		if(message.indexOf("Controllo non effettuabile") != -1) {
+   	            			stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo non effettuabile', '']";
+       	        		} else if(message == 'Valore non presente' || message == 'Codice Fiscale non valido' || message == 'Giorno di nascita non valido') {
+           	    			stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo ko', 'Il codice fiscale del minore non è formalmente corretto']";
+               			} else if(message == 'Sesso non compatibile') {
+           	    			stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo ko', 'Il codice fiscale del minore non è coerente con il sesso']";
+               			} else {
+               				stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo ko', 'Il codice fiscale del minore non è coerente con la data di nascita']";
+               			}
+   						break;
+  					case 'IIMV-3':
+                		if(message.indexOf("Controllo non effettuabile") != -1) {
+   	            			stringaWarnings = stringaWarnings + "['nazionalita', 'controllo non effettuabile', '']";
+       	        		} else if(issue[i].message == 'La Nazione deve essere indicata in caso di cittadinanza non italiana') {
+       	        			stringaWarnings = stringaWarnings + "['nazionalita', 'controllo ko', 'La Nazionalità deve essere indicata in caso di cittadinanza non italiana']";
+       	        		}
+   						break;
+  					case 'IIMV-4':
+               			stringaWarnings = stringaWarnings + "['disabilita', 'controllo ko', message]";
+   						break;
+   					case 'IIMV-5':
+               			stringaWarnings = stringaWarnings + "['disabilita', 'controllo ko', message]";
+   						break;	
 					}
-				}	
-			}
-			if (nIterazioni <0 ) {
-				status = "true";
-				stringaWarnings = ' ';
+				}
 			}
         }
         
