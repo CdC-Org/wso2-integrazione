@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence name="iscrizioneValidazioneResponse" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();      
+    <script language="js"><![CDATA[var responseValidazione = mc.getPayloadJSON();
 		var log = mc.getServiceLog();
-        var esito = plInput.payload.esito;
-        var status = "false";
-        var outcome = plInput.outcome;
+		log.info("validazioneIscrizione response: " + JSON.stringify(responseValidazione));
+        var esito = responseValidazione.payload.esito;
+        var status = "";
+        var outcome = responseValidazione.outcome;
       	var stringaWarnings = '';
+      	var messageSeparator = '; ';
 
-        if (esito == '0' && (plInput.outcome == null || plInput.outcome.issue == null || plInput.outcome.issue.length == 0)) {
+        if (esito == '0' && (responseValidazione.outcome == null || responseValidazione.outcome.issue == null || responseValidazione.outcome.issue.length == 0)) {
         	status = "true";
         	stringaWarnings = ' ';
         } else {
-        	status = "false";
-	        var issue = plInput.outcome.issue;
+	        var issue = responseValidazione.outcome.issue;
 			
 			for (i = 0; i < issue.length; ++i) {
 				var code = issue[i].code;
@@ -20,39 +21,41 @@
 				if (code == 'IIMV-1' || code == 'IIMV-2' || code == 'IIMV-3' || code == 'IIMV-4' || code == 'IIMV-5') {
 					switch (code) {
                		case 'IIMV-1':
-                		if(message.indexOf("Controllo non effettuabile") != -1) {
-   	            			stringaWarnings = stringaWarnings + "['data_nascita', 'controllo non effettuabile', '']";
-       	        		} else {
-           	    			stringaWarnings = stringaWarnings + "['data_nascita', 'controllo ko', 'La data di nascita del figlio non è una data valida']";
-               			}
+           				stringaWarnings = stringaWarnings + 'La data di nascita del figlio non è una data valida' + messageSeparator;
    						break;
    					case 'IIMV-2':
-                		if(message.indexOf("Controllo non effettuabile") != -1) {
-   	            			stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo non effettuabile', '']";
-       	        		} else if(message == 'Valore non presente' || message == 'Codice Fiscale non valido' || message == 'Giorno di nascita non valido') {
-           	    			stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo ko', 'Il codice fiscale del minore non è formalmente corretto']";
+                		if(message.indexOf("Controllo non effettuabile") != -1 || message == 'Valore non presente' || message == 'Codice Fiscale non valido' || message == 'Giorno di nascita non valido') {
+   	            			stringaWarnings = stringaWarnings + 'Il codice fiscale del minore non è formalmente corretto' + messageSeparator;
                			} else if(message == 'Sesso non compatibile') {
-           	    			stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo ko', 'Il codice fiscale del minore non è coerente con il sesso']";
+   	            			stringaWarnings = stringaWarnings + 'Il codice fiscale del minore non è coerente con il sesso' + messageSeparator;
                			} else {
-               				stringaWarnings = stringaWarnings + "['cf_figlio', 'controllo ko', 'Il codice fiscale del minore non è coerente con la data di nascita']";
+   	            			stringaWarnings = stringaWarnings + 'Il codice fiscale del minore non è coerente con la data di nascita' + messageSeparator;
                			}
    						break;
   					case 'IIMV-3':
-                		if(message.indexOf("Controllo non effettuabile") != -1) {
-   	            			stringaWarnings = stringaWarnings + "['nazionalita', 'controllo non effettuabile', '']";
-       	        		} else if(issue[i].message == 'La Nazione deve essere indicata in caso di cittadinanza non italiana') {
-       	        			stringaWarnings = stringaWarnings + "['nazionalita', 'controllo ko', 'La Nazionalità deve essere indicata in caso di cittadinanza non italiana']";
+						if(issue[i].message == 'La Nazione deve essere indicata in caso di cittadinanza non italiana') {
+   	            			stringaWarnings = stringaWarnings + message + messageSeparator;
        	        		}
    						break;
   					case 'IIMV-4':
-               			stringaWarnings = stringaWarnings + "['disabilita', 'controllo ko', message]";
+               			stringaWarnings = stringaWarnings + message + messageSeparator;
    						break;
    					case 'IIMV-5':
-               			stringaWarnings = stringaWarnings + "['disabilita', 'controllo ko', message]";
+               			stringaWarnings = stringaWarnings + message + messageSeparator;
    						break;	
 					}
 				}
 			}
+
+			stringaWarnings = stringaWarnings.toString();
+
+			if(stringaWarnings.length != 0) {
+				stringaWarnings = stringaWarnings.slice(0, - 2);
+        		status = "false";
+        	} else {
+				stringaWarnings = ' ';
+        		status = "true";
+			}        	
         }
         
         var response = {"status": 	status, 

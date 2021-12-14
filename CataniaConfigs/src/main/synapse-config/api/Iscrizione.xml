@@ -96,7 +96,7 @@
 				var flgAutorizzazione = decodeFlg(pl, "autorizza", "si");
 				var annoScolastico = new Date().getFullYear();				
 				
-                var response = {
+                var requestAcquisizione = {
                   "idIstanzaOnline": idIstanzaOnline, 
                   "numeroProtocolloIngresso": numeroProtocolloIngresso,
                   "dataProtocolloIngresso": dataProtocolloIngresso,
@@ -160,8 +160,8 @@
                   "flgPratica": flgPratica,
                 };
                           
-           	  	log.info("acquisizioneIscrizione response: " + JSON.stringify(response));
-                mc.setPayloadJSON(response);
+           	  	log.info("acquisizioneIscrizione request: " + JSON.stringify(requestAcquisizione));
+                mc.setPayloadJSON(requestAcquisizione);
 				
                 function parseDate(input) {
                 	if(input) {
@@ -196,7 +196,7 @@
                     return value;
                 }
 				function decodeFlg(pl, nomeAttributo, valueToDecode) {
-					var value = findElementValue(pl, "iscrizione");
+					var value = findElementValue(pl, nomeAttributo);
 					var flg = 0;
 					if(value == valueToDecode) {
 						flg = 1;
@@ -341,7 +341,7 @@
 				var flgAutorizzazione = decodeFlg(pl, "autorizza", "si");
 				var annoScolastico = new Date().getFullYear();				
 				
-                var response = {
+                var requestValidazione = {
                   "idIstanzaOnline": idIstanzaOnline, 
                   "numeroProtocolloIngresso": numeroProtocolloIngresso,
                   "dataProtocolloIngresso": dataProtocolloIngresso,
@@ -405,8 +405,8 @@
                   "flgPratica": flgPratica,
                 };
                           
-           	  	log.info("validazioneIscrizione response: " + JSON.stringify(response));
-                mc.setPayloadJSON(response);
+           	  	log.info("validazioneIscrizione request: " + JSON.stringify(requestValidazione));
+                mc.setPayloadJSON(requestValidazione);
 				
                 function parseDate(input) {
                 	if(input) {
@@ -440,7 +440,7 @@
                     return value;
                 }
 				function decodeFlg(pl, nomeAttributo, valueToDecode) {
-					var value = findElementValue(pl, "iscrizione");
+					var value = findElementValue(pl, nomeAttributo);
 					var flg = 0;
 					if(value == valueToDecode) {
 						flg = 1;

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence name="iscrizioneAcquisizioneResponse" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();      
+    <script language="js"><![CDATA[var responseAcquisizione = mc.getPayloadJSON();      
 		var log = mc.getServiceLog();
+		log.info("acquisizioneIscrizione response: " + JSON.stringify(responseAcquisizione));
 
-        var esito = plInput.payload.esito; 
+        var esito = responseAcquisizione.payload.esito; 
         var status = "false";
         var stringaWarnings = '';
          
         if (esito == '1') {
         	status = "false";
- 	        var outcome = plInput.outcome;
+ 	        var outcome = responseAcquisizione.outcome;
 	        var issue = outcome.issue;
 			var strDettaglio = '';
 			
