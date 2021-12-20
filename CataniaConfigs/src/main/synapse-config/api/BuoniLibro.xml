@@ -27,6 +27,9 @@
                       plIntCointestato =0;
                 }
 
+              	//var plCointestatario= getValue(findElement(pl,'Cointestatario'));
+              	var plCointestatario= getValue(findElement(pl,'Cog_Cointestatario'))+ ' ' + getValue(findElement(pl,'Nom_Cointestatario'));
+
                 var plContoCorrente=getValue(findElement(pl,'radio-1605165862764'));  
                 var plIntContoCorrente = null;
                 if (plContoCorrente == "si") {
@@ -91,7 +94,7 @@
                               "codiceFiscaleRichiedente": getValue(findElement(pl,'cf-genitore')),                         
                               "cognome": getValue(findElement(pl,'Cog_alunno')),                                
                               "cognomeRichiedente": getValue(findElement(pl,'cognome-genitore')),     
-                              "cointestatario": getValue(findElement(pl,'Cointestatario')),   
+                              "cointestatario": plCointestatario,   
                               "cointestato": plIntCointestato,
                               "comuneNascita":  getValue(findElement(pl,'Luogo di nascita alunno')), 
                               "comuneNascitaRichiedente": getValue(findElement(pl,'Luogo di nascita')),     
@@ -112,7 +115,7 @@
                               "nomeRichiedente": getValue(findElement(pl,'nome-genitore')),   
                               "numeroProtocolloIngresso": plInput.protoNumero, 
                               "numeroProtocolloUscita": plInput.protoFinaleNumero, 
-                              "pec": getValue(findElement(plInput.dati,'P.E.C.')),     
+                              "pec": getValue(findElement(pl,'P.E.C.')),     
                               "provvedimento": getToggle(findElement(pl,'provvedimento')),    
                               "residenza": getValue(findElement(pl,'residenza')),     
                               "scuola": getValue(findElement(pl,'Scuola')),   
@@ -284,6 +287,9 @@
                     plIntCointestato =0;
                 }
                
+                //var plCointestatario= getValue(findElement(pl,'Cointestatario'));
+              	var plCointestatario= getValue(findElement(pl,'Cog_Cointestatario'))+ ' ' + getValue(findElement(pl,'Nom_Cointestatario'));
+              	
                 var plContoCorrente=getValue(findElement(pl,'radio-1605165862764'));  
                 var plIntContoCorrente = null;
                 if (plContoCorrente == "si") {
@@ -334,7 +340,7 @@
                               "codiceFiscaleRichiedente": getValue(findElement(pl,'cf-genitore')),                         
                               "cognome": getValue(findElement(pl,'Cog_alunno')),                                
                               "cognomeRichiedente": getValue(findElement(pl,'cognome-genitore')),     
-                              "cointestatario": getValue(findElement(pl,'Cointestatario')),   
+                              "cointestatario": plCointestatario,   
                               "cointestato": plIntCointestato,
                               "comuneNascita":  getValue(findElement(pl,'Luogo di nascita alunno')), 
                               "comuneNascitaRichiedente": getValue(findElement(pl,'Luogo di nascita')),     
