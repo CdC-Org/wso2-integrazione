@@ -79,7 +79,7 @@
 				var professione = findElementValue(pl, "professione");
 				var sedeLavorativa = findElementValue(pl, "sede_lavorativa");
 				var flgRefezione = decodeFlg(pl, "turno", "pm");
-				var flgFratello = decodeFlg(pl, "presenza_fratelli", "On");
+				var flgFratello = decodeFlg(pl, "presenza_fratelli", "si");
 				var fratelloPlesso = findElementValue(pl, "nome_scuola");
 				var fratello = findElementValue(pl, "nome_fratello");
 				var fratelloDataNascita = findElementValue(pl, "data_nascita_fratello");
@@ -324,7 +324,7 @@
 				var professione = findElementValue(pl, "professione");
 				var sedeLavorativa = findElementValue(pl, "sede_lavorativa");
 				var flgRefezione = decodeFlg(pl, "turno", "pm");
-				var flgFratello = decodeFlg(pl, "presenza_fratelli", "On");
+				var flgFratello = decodeFlg(pl, "presenza_fratelli", "si");
 				var fratelloPlesso = findElementValue(pl, "nome_scuola");
 				var fratello = findElementValue(pl, "nome_fratello");
 				var fratelloDataNascita = findElementValue(pl, "data_nascita_fratello");
