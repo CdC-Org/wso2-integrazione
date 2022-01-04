@@ -109,7 +109,7 @@
                               "email": getValue(findElement(pl,'email')), 
                               "emailCittadino": plInput.email, 
                               "genitoreTutore": plIntGenitoreTutore,
-                              "iban": getValue(findElement(pl,'iban')),  
+                              "iban": removeAllSpace(getValue(findElement(pl,'iban'))),  
                               "idIstanzaOnline": plInput.id,
                               "nome": getValue(findElement(pl,'NM_Alunno')), 
                               "nomeRichiedente": getValue(findElement(pl,'nome-genitore')),   
@@ -206,6 +206,10 @@
                         return element.value; 
                     }
                     return '';
+                }
+                
+                function removeAllSpace(input) {
+                 	return input.replace(/\s/g,'');
                 }
 
                 function getToggle(element){
@@ -352,7 +356,7 @@
                               "email": getValue(findElement(pl,'email')), 
                               "emailCittadino": plInput.email, 
                               "genitoreTutore": plIntGenitoreTutore,
-                              "iban": getValue(findElement(pl,'iban')),  
+                              "iban": removeAllSpace(getValue(findElement(pl,'iban'))),  
                               "nome": getValue(findElement(pl,'NM_Alunno')), 
                               "nomeRichiedente": getValue(findElement(pl,'nome-genitore')),   
                               "pec": getValue(findElement(pl,'P.E.C.')),     
@@ -445,6 +449,10 @@
                         return element.value; 
                     }
                     return '';
+                }
+
+                function removeAllSpace(input) {
+                 	return input.replace(/\s/g,'');
                 }
 
                 function getToggle(element){
