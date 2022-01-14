@@ -32,9 +32,6 @@
     <artifact name="validazioneReturn" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/sequences/validazioneReturn.xml</file>
     </artifact>
-    <artifact name="trasformaInputCambioStatoSequence" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
-        <file>src/main/synapse-config/sequences/trasformaInputCambioStatoSequence.xml</file>
-    </artifact>
     <artifact name="AnaWSSCedafSoggettoAllaDataESB" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/AnaWSSCedafSoggettoAllaDataESB.xml</file>
     </artifact>

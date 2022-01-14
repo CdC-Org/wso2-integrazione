@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<sequence name="trasformaInputCambioStatoSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
-    <datamapper config="gov:datamapper/trasformaInputCambioStato.dmc" description="inputCambioStato" inputSchema="gov:datamapper/trasformaInputCambioStato_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/trasformaInputCambioStato_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/trasformaInputCambioStato_xsltStyleSheet.xml"/>
-</sequence>

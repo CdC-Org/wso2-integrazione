@@ -31,38 +31,6 @@
             <properties/>
         </item>
     </artifact>
-    <artifact name="trasformaInputCambioStato" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>trasformaInputCambioStato.dmc</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="trasformaInputCambioStato_inputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>trasformaInputCambioStato_inputSchema.json</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="trasformaInputCambioStato_outputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>trasformaInputCambioStato_outputSchema.json</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="trasformaInputCambioStato_xsltStyleSheet" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>trasformaInputCambioStato_xsltStyleSheet.xml</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
     <artifact name="avvisiIstanzeDataMapper_xsltStyleSheet" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
         <item>
             <file>avvisiIstanzeDataMapper_xsltStyleSheet.xml</file>

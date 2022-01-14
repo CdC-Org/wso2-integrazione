@@ -21,18 +21,13 @@
     <com.example.resource_._esitoDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_xsltStyleSheet>
     <com.example.sequence_._validazioneReturn>capp/EnterpriseServiceBus</com.example.sequence_._validazioneReturn>
     <com.example.resource_._allegatiIstanzaDataMapper_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_outputSchema>
-    <com.example.sequence_._trasformaInputCambioStatoSequence>capp/EnterpriseServiceBus</com.example.sequence_._trasformaInputCambioStatoSequence>
     <com.example.sequence_._iscrizioneAcquisizioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._iscrizioneAcquisizioneResponse>
     <com.example.endpoint_._iscrizioneAcquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._iscrizioneAcquisizione>
-    <com.example.resource_._trasformaInputCambioStato_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._trasformaInputCambioStato_xsltStyleSheet>
     <com.example.resource_._avvisiIstanzeDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._avvisiIstanzeDataMapper_xsltStyleSheet>
-    <com.example.resource_._trasformaInputCambioStato>capp/EnterpriseServiceBus</com.example.resource_._trasformaInputCambioStato>
     <com.example.resource_._esitoDataMapper_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_inputSchema>
     <com.example.api_._ListaAllegati>capp/EnterpriseServiceBus</com.example.api_._ListaAllegati>
     <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>
-    <com.example.resource_._trasformaInputCambioStato_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._trasformaInputCambioStato_outputSchema>
     <com.example.endpoint_._validazione>capp/EnterpriseServiceBus</com.example.endpoint_._validazione>
-    <com.example.resource_._trasformaInputCambioStato_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._trasformaInputCambioStato_inputSchema>
     <com.example.resource_._allegatiIstanzaDataMapper>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper>
     <com.example.resource_._allegatiIstanzaDataMapper_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_inputSchema>
     <com.example.proxy-service_._cambioStatoPratica>capp/EnterpriseServiceBus</com.example.proxy-service_._cambioStatoPratica>
@@ -67,12 +62,6 @@
       <type>zip</type>
     </dependency>
     <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>trasformaInputCambioStatoSequence</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>InterpretazioneRitornoCambioStatoPratica_outputSchema</artifactId>
       <version>1.0.0</version>
@@ -85,22 +74,10 @@
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>trasformaInputCambioStato_outputSchema</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.sequence</groupId>
       <artifactId>validazioneReturn</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>trasformaInputCambioStato</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
     </dependency>
     <dependency>
       <groupId>com.example.resource</groupId>
@@ -111,12 +88,6 @@
     <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>trasformaInputCambioStato_inputSchema</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
     </dependency>
@@ -177,12 +148,6 @@
     <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>InterpretazioneRitornoCambioStatoPratica</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>trasformaInputCambioStato_xsltStyleSheet</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
     </dependency>
