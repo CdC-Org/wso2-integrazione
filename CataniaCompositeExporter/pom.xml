@@ -23,9 +23,7 @@
     <com.example.resource_._allegatiIstanzaDataMapper_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_outputSchema>
     <com.example.sequence_._iscrizioneAcquisizioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._iscrizioneAcquisizioneResponse>
     <com.example.endpoint_._iscrizioneAcquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._iscrizioneAcquisizione>
-    <com.example.resource_._avvisiIstanzeDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._avvisiIstanzeDataMapper_xsltStyleSheet>
     <com.example.resource_._esitoDataMapper_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_inputSchema>
-    <com.example.api_._ListaAllegati>capp/EnterpriseServiceBus</com.example.api_._ListaAllegati>
     <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>
     <com.example.endpoint_._validazione>capp/EnterpriseServiceBus</com.example.endpoint_._validazione>
     <com.example.resource_._allegatiIstanzaDataMapper>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper>
@@ -46,21 +44,8 @@
     <com.example.sequence_._istanzeBuoniLibroReturn>capp/EnterpriseServiceBus</com.example.sequence_._istanzeBuoniLibroReturn>
     <com.example.resource_._esitoDataMapper_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_outputSchema>
     <com.example.resource_._InterpretazioneRitornoCambioStatoPratica>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica>
-    <com.example.api_._listaAllegatiSoap>capp/EnterpriseServiceBus</com.example.api_._listaAllegatiSoap>
   </properties>
   <dependencies>
-    <dependency>
-      <groupId>com.example.api</groupId>
-      <artifactId>ListaAllegati</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>com.example.resource</groupId>
-      <artifactId>avvisiIstanzeDataMapper_xsltStyleSheet</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
-    </dependency>
     <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>InterpretazioneRitornoCambioStatoPratica_outputSchema</artifactId>
