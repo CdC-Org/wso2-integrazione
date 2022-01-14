@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<proxy name="cambioStatoPratica" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+<proxy name="avvisiIstanze" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
-        <endpoint name="cambioStatoPraticaEP">
-            <address uri="$FILE:cambioStatoPraticaEP">
+        <endpoint name="avvisiIstanzeEP">
+            <address uri="$FILE:avvisiIstanzeEP">
                 <suspendOnFailure>
                     <initialDuration>-1</initialDuration>
                     <progressionFactor>1</progressionFactor>
@@ -16,36 +16,17 @@
         <inSequence>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
 				var log = mc.getServiceLog();
-				log.info("cambioStatoPratica Payload: " + JSON.stringify(plInput));
-				var localRespinta = true;
-               	var	localConclusa = true;
-               	
-               	if (plInput.stato == 1)	{
-               		localRespinta = false;
-               		localConclusa = false;
-               	}
-               	if (plInput.stato == 2)	{
-               		localRespinta = false;
-               		localConclusa = true;
-               	}
-               	if (plInput.stato == 3)	{
-               		localRespinta = true;
-               		localConclusa = false;
-               	}
-                
-                var keys = Object.keys(plInput);
+				log.info("avvisiIstanze Payload: " + JSON.stringify(plInput));
+
                 var response = {
-                            "key": 		plInput.key,
-                            "id":  		plInput.id,
-                            "motivo": 	plInput.motivo,
-                            "respinta": localRespinta,
-							"conclusa": localConclusa
+                    "key": plInput.key,
+                    "avvisiIstanze": plInput.avvisiIstanze,
                 };
-               
+               log.info("avvisiIstanze response: " + JSON.stringify(response));
                mc.setPayloadJSON(response);]]></script>
         </inSequence>
         <outSequence>
-            <datamapper config="gov:datamapper/InterpretazioneRitornoCambioStatoPratica.dmc" inputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet.xml"/>
+            <datamapper config="gov:datamapper/avvisiIstanzeDataMapper.dmc" inputSchema="gov:datamapper/avvisiIstanzeDataMapper_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/avvisiIstanzeDataMapper_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/avvisiIstanzeDataMapper_xsltStyleSheet.xml"/>
             <send/>
         </outSequence>
         <faultSequence>
