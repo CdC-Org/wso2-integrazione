@@ -15,18 +15,17 @@
         </endpoint>
         <inSequence>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
-				var log = mc.getServiceLog();
-				log.info("avvisiIstanze Payload: " + JSON.stringify(plInput));
+                var log = mc.getServiceLog();
+                log.info("avvisiIstanze Payload: " + JSON.stringify(plInput));
 
                 var response = {
                     "key": plInput.key,
                     "avvisiIstanze": plInput.avvisiIstanze,
                 };
-               log.info("avvisiIstanze response: " + JSON.stringify(response));
-               mc.setPayloadJSON(response);]]></script>
+                mc.setPayloadJSON(response);]]></script>
         </inSequence>
         <outSequence>
-            <datamapper config="gov:datamapper/avvisiIstanzeDataMapper.dmc" inputSchema="gov:datamapper/avvisiIstanzeDataMapper_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/avvisiIstanzeDataMapper_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/avvisiIstanzeDataMapper_xsltStyleSheet.xml"/>
+            <datamapper config="gov:datamapper/esitoDataMapper.dmc" description="esitoDM" inputSchema="gov:datamapper/esitoDataMapper_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/esitoDataMapper_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/esitoDataMapper_xsltStyleSheet.xml"/>
             <send/>
         </outSequence>
         <faultSequence>

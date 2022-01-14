@@ -45,7 +45,7 @@
                mc.setPayloadJSON(response);]]></script>
         </inSequence>
         <outSequence>
-            <datamapper config="gov:datamapper/InterpretazioneRitornoCambioStatoPratica.dmc" inputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet.xml"/>
+            <datamapper config="gov:datamapper/esitoDataMapper.dmc" inputSchema="gov:datamapper/esitoDataMapper_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/esitoDataMapper_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/esitoDataMapper_xsltStyleSheet.xml"/>
             <send/>
         </outSequence>
         <faultSequence>

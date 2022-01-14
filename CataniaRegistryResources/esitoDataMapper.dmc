@@ -1,0 +1,34 @@
+map_S_ritorno_S_root = function(){ 
+var outputroot={};
+var COMPARE_8_0 = '';
+var IF_ELSE_9_0 = '';
+var SPLIT_10_0 = '';
+
+COMPARE_8_0 = ( inputritorno.esito == 'true' );
+IF_ELSE_9_0 = (COMPARE_8_0)?('0 - INFORMATION - 0 - Operazione Eseguita'):('1 - INFORMATION - 1 - Operazione non eseguita');
+SPLIT_10_0 = IF_ELSE_9_0.split(' - ');
+outputroot =  {};
+outputroot.payload =  {};
+outputroot.payload.esito = SPLIT_10_0[0];
+outputroot.outcome =  {};
+outputroot.outcome.issue =  [];
+outputroot.outcome.issue[0] =  {};
+outputroot.outcome.issue[0].severity = SPLIT_10_0[1];
+outputroot.outcome.issue[0].code = SPLIT_10_0[2];
+outputroot.outcome.issue[0].message = SPLIT_10_0[3];
+return outputroot;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
