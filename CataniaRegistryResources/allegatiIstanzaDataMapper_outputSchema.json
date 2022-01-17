@@ -1,0 +1,45 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "outputType" : "JSON",
+  "id" : "",
+  "title" : "root",
+  "type" : "object",
+  "properties" : {
+    "payload" : {
+      "id" : "",
+      "type" : "object",
+      "properties" : {
+        "listaAllegati" : {
+          "id" : "",
+          "type" : "array",
+          "items" : [ {
+            "id" : "/0",
+            "type" : "object",
+            "properties" : {
+              "idAllegato" : {
+                "id" : "null/0",
+                "type" : "number"
+              },
+              "tipologiaFile" : {
+                "id" : "null/0",
+                "type" : "string"
+              },
+              "nomeFile" : {
+                "id" : "null/0",
+                "type" : "string"
+              },
+              "file" : {
+                "id" : "null/0",
+                "type" : "string"
+              }
+            }
+          } ]
+        }
+      }
+    },
+    "outcome" : {
+      "id" : "",
+      "type" : "object"
+    }
+  }
+}

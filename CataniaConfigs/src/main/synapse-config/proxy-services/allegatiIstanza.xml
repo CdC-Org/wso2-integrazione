@@ -2,7 +2,7 @@
 <proxy name="allegatiIstanza" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <endpoint name="allegatiIstanzaEP">
-            <address uri="$FILE:allegatiIstanzaEP">
+            <http method="get" uri-template="http://localhost:8111/citta-semplice-office-test/wsesterni/istanza/allegati/get?key={uri.var.key}&amp;id={uri.var.id}">
                 <suspendOnFailure>
                     <initialDuration>-1</initialDuration>
                     <progressionFactor>1</progressionFactor>
@@ -10,22 +10,24 @@
                 <markForSuspension>
                     <retriesBeforeSuspension>0</retriesBeforeSuspension>
                 </markForSuspension>
-            </address>
+            </http>
             <property name="NO_KEEPALIVE" scope="axis2" value="true"/>
         </endpoint>
         <inSequence>
+            <property expression="$body//jsonObject//id" name="uri.var.id" scope="default" type="STRING"/>
+            <property expression="$body//jsonObject//key" name="uri.var.key" scope="default" type="STRING"/>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
-				var log = mc.getServiceLog();
-				log.info("allegatiIstanza Payload: " + JSON.stringify(plInput));
+                var log = mc.getServiceLog();
+                log.info("allegatiIstanza Payload: " + JSON.stringify(plInput));
 
                 var response = {
                     "key": plInput.key,
-                    "id": plInput.id,
+                    "avvisiIstanze": plInput.avvisiIstanze,
                 };
-               log.info("allegatiIstanza response: " + JSON.stringify(response));
-               mc.setPayloadJSON(response);]]></script>
+                mc.setPayloadJSON(response);]]></script>
         </inSequence>
         <outSequence>
+            <datamapper config="gov:datamapper/allegatiIstanzaDataMapper.dmc" inputSchema="gov:datamapper/allegatiIstanzaDataMapper_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/allegatiIstanzaDataMapper_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/allegatiIstanzaDataMapper_xsltStyleSheet.xml"/>
             <send/>
         </outSequence>
         <faultSequence>

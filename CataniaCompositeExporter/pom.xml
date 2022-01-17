@@ -14,39 +14,40 @@
   <name>CataniaCompositeExporter</name>
   <description>CataniaCompositeExporter</description>
   <properties>
-    <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_outputSchema>
-    <com.example.proxy-service_._avvisiIstanze>capp/EnterpriseServiceBus</com.example.proxy-service_._avvisiIstanze>
-    <com.example.endpoint_._AnaWSSCedafSoggettoAllaDataSoap>capp/EnterpriseServiceBus</com.example.endpoint_._AnaWSSCedafSoggettoAllaDataSoap>
-    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
-    <com.example.resource_._esitoDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_xsltStyleSheet>
-    <com.example.sequence_._validazioneReturn>capp/EnterpriseServiceBus</com.example.sequence_._validazioneReturn>
-    <com.example.resource_._allegatiIstanzaDataMapper_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_outputSchema>
     <com.example.sequence_._iscrizioneAcquisizioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._iscrizioneAcquisizioneResponse>
-    <com.example.endpoint_._iscrizioneAcquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._iscrizioneAcquisizione>
-    <com.example.resource_._esitoDataMapper_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_inputSchema>
-    <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>
-    <com.example.endpoint_._validazione>capp/EnterpriseServiceBus</com.example.endpoint_._validazione>
-    <com.example.resource_._allegatiIstanzaDataMapper>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper>
-    <com.example.resource_._allegatiIstanzaDataMapper_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_inputSchema>
-    <com.example.proxy-service_._cambioStatoPratica>capp/EnterpriseServiceBus</com.example.proxy-service_._cambioStatoPratica>
-    <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_inputSchema>
-    <com.example.endpoint_._iscrizioneValidazione>capp/EnterpriseServiceBus</com.example.endpoint_._iscrizioneValidazione>
-    <com.example.endpoint_.__acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_.__acquisizione>
-    <com.example.proxy-service_._allegatiIstanza>capp/EnterpriseServiceBus</com.example.proxy-service_._allegatiIstanza>
-    <com.example.endpoint_._acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._acquisizione>
-    <com.example.api_._Iscrizione>capp/EnterpriseServiceBus</com.example.api_._Iscrizione>
-    <com.example.api_._AnaWSSCedafSoggettoAllaDataESB>capp/EnterpriseServiceBus</com.example.api_._AnaWSSCedafSoggettoAllaDataESB>
-    <com.example.api_._BuoniLibro>capp/EnterpriseServiceBus</com.example.api_._BuoniLibro>
-    <com.example.sequence_._iscrizioneValidazioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._iscrizioneValidazioneResponse>
     <com.example.api_._AcquisizioneApi>capp/ApplicationServer</com.example.api_._AcquisizioneApi>
+    <com.example.endpoint_._iscrizioneAcquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._iscrizioneAcquisizione>
     <com.example.resource_._esitoDataMapper>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper>
-    <com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>
+    <com.example.endpoint_.__acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_.__acquisizione>
+    <com.example.proxy-service_._avvisiIstanze>capp/EnterpriseServiceBus</com.example.proxy-service_._avvisiIstanze>
+    <com.example.proxy-service_._allegatiIstanza>capp/EnterpriseServiceBus</com.example.proxy-service_._allegatiIstanza>
+    <com.example.sequence_._iscrizioneValidazioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._iscrizioneValidazioneResponse>
+    <com.example.resource_._allegatiIstanzaDataMapper_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_inputSchema>
+    <com.example.resource_._esitoDataMapper_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_inputSchema>
+    <com.example.sequence_._validazioneReturn>capp/EnterpriseServiceBus</com.example.sequence_._validazioneReturn>
     <com.example.sequence_._istanzeBuoniLibroReturn>capp/EnterpriseServiceBus</com.example.sequence_._istanzeBuoniLibroReturn>
+    <com.example.resource_._allegatiIstanzaDataMapper_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_outputSchema>
+    <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_inputSchema>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_inputSchema>
+    <com.example.api_._BuoniLibro>capp/EnterpriseServiceBus</com.example.api_._BuoniLibro>
+    <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,synapse/metadata=yaml,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+    <com.example.endpoint_._AnaWSSCedafSoggettoAllaDataSoap>capp/EnterpriseServiceBus</com.example.endpoint_._AnaWSSCedafSoggettoAllaDataSoap>
+    <com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>
+    <com.example.api_._AnaWSSCedafSoggettoAllaDataESB>capp/EnterpriseServiceBus</com.example.api_._AnaWSSCedafSoggettoAllaDataESB>
+    <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_outputSchema>
+    
+    <com.example.api_._Iscrizione>capp/EnterpriseServiceBus</com.example.api_._Iscrizione>
+    <com.example.resource_._esitoDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_xsltStyleSheet>
+    <com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet>
+    <com.example.resource_._allegatiIstanzaDataMapper>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper>
     <com.example.resource_._esitoDataMapper_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_outputSchema>
+    <com.example.endpoint_._iscrizioneValidazione>capp/EnterpriseServiceBus</com.example.endpoint_._iscrizioneValidazione>
+    <com.example.endpoint_._validazione>capp/EnterpriseServiceBus</com.example.endpoint_._validazione>
     <com.example.resource_._InterpretazioneRitornoCambioStatoPratica>capp/EnterpriseServiceBus</com.example.resource_._InterpretazioneRitornoCambioStatoPratica>
+    <com.example.endpoint_._acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._acquisizione>
+    <com.example.proxy-service_._cambioStatoPratica>capp/EnterpriseServiceBus</com.example.proxy-service_._cambioStatoPratica>
   </properties>
   <dependencies>
-    <dependency>
+        <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>InterpretazioneRitornoCambioStatoPratica_outputSchema</artifactId>
       <version>1.0.0</version>
@@ -77,12 +78,6 @@
       <type>zip</type>
     </dependency>
     <dependency>
-      <groupId>com.example.sequence</groupId>
-      <artifactId>iscrizioneValidazioneResponse</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>esitoDataMapper_xsltStyleSheet</artifactId>
       <version>1.0.0</version>
@@ -93,6 +88,12 @@
       <artifactId>InterpretazioneRitornoCambioStatoPratica_inputSchema</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.sequence</groupId>
+      <artifactId>iscrizioneValidazioneResponse</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.api</groupId>
@@ -107,16 +108,16 @@
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>iscrizioneValidazione</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>esitoDataMapper_inputSchema</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>iscrizioneValidazione</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.resource</groupId>
@@ -125,16 +126,16 @@
       <type>zip</type>
     </dependency>
     <dependency>
-      <groupId>com.example.proxy-service</groupId>
-      <artifactId>allegatiIstanza</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>InterpretazioneRitornoCambioStatoPratica</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.proxy-service</groupId>
+      <artifactId>allegatiIstanza</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.api</groupId>
@@ -191,16 +192,16 @@
       <type>zip</type>
     </dependency>
     <dependency>
-      <groupId>com.example.endpoint</groupId>
-      <artifactId>AnaWSSCedafSoggettoAllaDataSoap</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
       <groupId>com.example.resource</groupId>
       <artifactId>allegatiIstanzaDataMapper</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.endpoint</groupId>
+      <artifactId>AnaWSSCedafSoggettoAllaDataSoap</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>com.example.resource</groupId>
