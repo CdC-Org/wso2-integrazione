@@ -39,7 +39,31 @@
     },
     "outcome" : {
       "id" : "",
-      "type" : "object"
+      "type" : "object",
+      "properties" : {
+        "issue" : {
+          "id" : "",
+          "type" : "array",
+          "items" : [ {
+            "id" : "/0",
+            "type" : "object",
+            "properties" : {
+              "severity" : {
+                "id" : "null/0",
+                "type" : "string"
+              },
+              "code" : {
+                "id" : "null/0",
+                "type" : "string"
+              },
+              "message" : {
+                "id" : "null/0",
+                "type" : "string"
+              }
+            }
+          } ]
+        }
+      }
     }
   }
 }

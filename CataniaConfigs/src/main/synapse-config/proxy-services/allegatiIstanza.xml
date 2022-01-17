@@ -2,7 +2,7 @@
 <proxy name="allegatiIstanza" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <endpoint name="allegatiIstanzaEP">
-            <http method="get" uri-template="http://localhost:8111/citta-semplice-office-test/wsesterni/istanza/allegati/get?key={uri.var.key}&amp;id={uri.var.id}">
+            <http method="get" uri-template="http://192.168.20.210:8080/citta-semplice-office-test/wsesterni/istanza/allegati/get?key={uri.var.key}&amp;id={uri.var.id}">
                 <suspendOnFailure>
                     <initialDuration>-1</initialDuration>
                     <progressionFactor>1</progressionFactor>

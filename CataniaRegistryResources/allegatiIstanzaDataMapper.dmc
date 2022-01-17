@@ -1,23 +1,26 @@
 map_S_ritorno_S_root = function(){ 
 var outputroot={};
 
-var count_i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac = 0;
+var count_i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3 = 0;
 outputroot =  {};
 outputroot.payload =  {};
 outputroot.payload.listaAllegati =  [];
 outputroot.outcome =  {};
+outputroot.outcome.issue =  [];
 
-for(i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac in inputritorno.allegati){
-outputroot.payload.listaAllegati[count_i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac] =  {};
-outputroot.payload.listaAllegati[count_i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].idAllegato = inputritorno.allegati[i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].idAllegato;
-outputroot.payload.listaAllegati[count_i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].tipologiaFile = inputritorno.allegati[i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].tipologiaFile;
-outputroot.payload.listaAllegati[count_i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].nomeFile = inputritorno.allegati[i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].nomeFile;
-outputroot.payload.listaAllegati[count_i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].file = inputritorno.allegati[i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac].file;
+for(i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3 in inputritorno.allegati){
+outputroot.payload.listaAllegati[count_i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3] =  {};
+outputroot.payload.listaAllegati[count_i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].idAllegato = inputritorno.allegati[i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].idAllegato;
+outputroot.payload.listaAllegati[count_i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].tipologiaFile = inputritorno.allegati[i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].tipologiaFile;
+outputroot.payload.listaAllegati[count_i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].nomeFile = inputritorno.allegati[i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].nomeFile;
+outputroot.payload.listaAllegati[count_i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].file = inputritorno.allegati[i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3].file;
 
-count_i_allegati_c187d8c2_2afe_47f1_bc84_0e3aa7a2e3ac++;
+count_i_allegati_0cafe777_426c_4b66_806a_a430272e7ce3++;
 }
 return outputroot;
 };
+
+
 
 
 

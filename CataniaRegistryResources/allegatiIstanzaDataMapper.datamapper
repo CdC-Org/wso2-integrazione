@@ -123,6 +123,39 @@
         <inNode/>
       </node>
       <node name="outcome" level="2">
+        <node name="issue" level="3">
+          <node name="severity" level="4">
+            <properties key="type" value="string"/>
+            <properties key="items_id" value="/0"/>
+            <properties key="items_type" value="string"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="code" level="4">
+            <properties key="type" value="string"/>
+            <properties key="items_id" value="/0"/>
+            <properties key="items_type" value="string"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <node name="message" level="4">
+            <properties key="type" value="string"/>
+            <properties key="items_id" value="/0"/>
+            <properties key="items_type" value="string"/>
+            <properties key="nullable" value="false"/>
+            <outNode/>
+            <inNode/>
+          </node>
+          <properties key="type" value="array"/>
+          <properties key="items_id" value="/0"/>
+          <properties key="items_type" value="object"/>
+          <properties key="added_properties_id" value="hasProperties"/>
+          <properties key="nullable" value="false"/>
+          <outNode/>
+          <inNode/>
+        </node>
         <properties key="type" value="object"/>
         <properties key="items_id" value="/0"/>
         <properties key="items_type" value="object"/>
