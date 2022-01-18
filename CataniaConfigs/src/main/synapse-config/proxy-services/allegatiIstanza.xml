@@ -2,7 +2,7 @@
 <proxy name="allegatiIstanza" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <endpoint name="allegatiIstanzaEP">
-            <http method="get" uri-template="http://192.168.20.210:8080/citta-semplice-office-test/wsesterni/istanza/allegati/get?key={uri.var.key}&amp;id={uri.var.id}">
+            <http method="get" uri-template="{uri.var.address}?key={uri.var.key}&amp;id={uri.var.id}">
                 <suspendOnFailure>
                     <initialDuration>-1</initialDuration>
                     <progressionFactor>1</progressionFactor>
@@ -14,8 +14,9 @@
             <property name="NO_KEEPALIVE" scope="axis2" value="true"/>
         </endpoint>
         <inSequence>
-            <property expression="$body//jsonObject//id" name="uri.var.id" scope="default" type="STRING"/>
+            <property expression="$body//jsonObject//address" name="uri.var.address" scope="default" type="STRING"/>
             <property expression="$body//jsonObject//key" name="uri.var.key" scope="default" type="STRING"/>
+            <property expression="$body//jsonObject//id" name="uri.var.id" scope="default" type="STRING"/>
             <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
                 var log = mc.getServiceLog();
                 log.info("allegatiIstanza Payload: " + JSON.stringify(plInput));
