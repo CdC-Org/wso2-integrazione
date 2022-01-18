@@ -1,36 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?><artifacts>
-    <artifact name="InterpretazioneRitornoCambioStatoPratica" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>InterpretazioneRitornoCambioStatoPratica.dmc</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="InterpretazioneRitornoCambioStatoPratica_inputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>InterpretazioneRitornoCambioStatoPratica_inputSchema.json</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="InterpretazioneRitornoCambioStatoPratica_outputSchema" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>InterpretazioneRitornoCambioStatoPratica_outputSchema.json</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
-    <artifact name="InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
-        <item>
-            <file>InterpretazioneRitornoCambioStatoPratica_xsltStyleSheet.xml</file>
-            <path>/_system/governance/datamapper</path>
-            <mediaType>text/plain</mediaType>
-            <properties/>
-        </item>
-    </artifact>
     <artifact name="allegatiIstanzaDataMapper" groupId="com.example.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseServiceBus">
         <item>
             <file>allegatiIstanzaDataMapper.dmc</file>
