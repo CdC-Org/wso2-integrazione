@@ -2,8 +2,9 @@
 <endpoint name="acquisizione" xmlns="http://ws.apache.org/ns/synapse">
     <http method="post" uri-template="$FILE:istanzaBuonoLibriEP">
         <suspendOnFailure>
-            <initialDuration>-1</initialDuration>
+            <initialDuration>0</initialDuration>
             <progressionFactor>1.0</progressionFactor>
+            <maximumDuration>0</maximumDuration>
         </suspendOnFailure>
         <markForSuspension>
             <retriesBeforeSuspension>0</retriesBeforeSuspension>

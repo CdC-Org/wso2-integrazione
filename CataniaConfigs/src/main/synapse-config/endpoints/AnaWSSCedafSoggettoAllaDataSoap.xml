@@ -2,8 +2,9 @@
 <endpoint name="AnaWSSCedafSoggettoAllaDataSoap" xmlns="http://ws.apache.org/ns/synapse">
     <address format="soap11" uri="http://192.168.20.70:58000/client/services/AnaWSSCedafSoggettoAllaDataSoap?CID=sicraweb">
         <suspendOnFailure>
-            <initialDuration>-1</initialDuration>
+            <initialDuration>0</initialDuration>
             <progressionFactor>1.0</progressionFactor>
+            <maximumDuration>0</maximumDuration>
         </suspendOnFailure>
         <markForSuspension>
             <retriesBeforeSuspension>0</retriesBeforeSuspension>
