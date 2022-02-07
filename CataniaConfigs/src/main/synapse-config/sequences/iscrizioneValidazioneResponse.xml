@@ -21,7 +21,7 @@
 				if (code == 'IIMV-1' || code == 'IIMV-2' || code == 'IIMV-3' || code == 'IIMV-4' || code == 'IIMV-5') {
 					switch (code) {
                		case 'IIMV-1':
-           				stringaWarnings = stringaWarnings + 'La data di nascita del figlio non è una data valida' + messageSeparator;
+           				stringaWarnings = stringaWarnings + message + messageSeparator;
    						break;
    					case 'IIMV-2':
                 		if(message.indexOf("Controllo non effettuabile") != -1 || message == 'Valore non presente' || message == 'Codice Fiscale non valido' || message == 'Giorno di nascita non valido') {
