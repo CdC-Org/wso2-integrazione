@@ -59,4 +59,19 @@
     <artifact name="allegatiIstanza" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/proxy-services/allegatiIstanza.xml</file>
     </artifact>
+    <artifact name="BuoniPasto" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/BuoniPasto.xml</file>
+    </artifact>
+    <artifact name="buoniPastoAcquisizione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/buoniPastoAcquisizione.xml</file>
+    </artifact>
+    <artifact name="buoniPastoAquisizioneResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/buoniPastoAquisizioneResponse.xml</file>
+    </artifact>
+    <artifact name="buoniPastoValidazioneResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/buoniPastoValidazioneResponse.xml</file>
+    </artifact>
+    <artifact name="buoniPastoValidazione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/buoniPastoValidazione.xml</file>
+    </artifact>
 </artifacts>

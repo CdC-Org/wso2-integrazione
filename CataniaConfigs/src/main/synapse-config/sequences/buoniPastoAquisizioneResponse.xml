@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="buoniPastoAquisizioneResponse" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <script language="js"><![CDATA[var responseAcquisizione = mc.getPayloadJSON();      
+		var log = mc.getServiceLog();
+		log.info("acquisizioneBuoniPasto response: " + JSON.stringify(responseAcquisizione));
+
+        var esito = responseAcquisizione.payload.esito; 
+        var status = "false";
+        var stringaWarnings = '';
+         
+        if (esito == '1') {
+        	status = "false";
+ 	        var outcome = responseAcquisizione.outcome;
+	        var issue = outcome.issue;
+			var strDettaglio = '';
+			
+			for (i = 0; i < issue.length; ++i) {
+				if (i==0) {
+					if (issue[i].details != null) {
+						strDettaglio = issue[i].details + ": ";
+					}
+					
+					stringaWarnings = strDettaglio + issue[i].message;
+					strDettaglio = '';
+				} else {
+					if (issue[i].details != null) {
+						strDettaglio = issue[i].details + ": ";
+					}
+					stringaWarnings = stringaWarnings + ", " + strDettaglio + issue[i].message;
+					strDettaglio = '';
+				}
+			}
+        } else if (esito == '0') {
+        	status = "true";
+        	stringaWarnings =  " ";
+        }
+        
+        var response = {"status": 	status, 
+        				"message": 	stringaWarnings};
+		
+        mc.setPayloadJSON(response);]]></script>
+    <respond/>
+</sequence>

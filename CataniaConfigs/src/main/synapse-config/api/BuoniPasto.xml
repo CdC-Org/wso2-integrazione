@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api/msistruzione/esb/istanzabuonipasto" name="BuoniPasto" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" url-mapping="/acquisizione">
+        <inSequence>
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+                var plInput = mc.getPayloadJSON();
+           	  	var datiOriginali = plInput.dati;
+           	  	var pl = JSON.parse(datiOriginali);
+           	  	log.info("acquisizioneBuoniPasto Payload: " + JSON.stringify(pl));
+
+			  	var idIstanzaOnline = plInput.id;
+				var numeroProtocolloIngresso = plInput.protoNumero;
+				var dataProtocolloIngresso = parseDate(plInput.protoData);
+				var numeroProtocolloUscita = plInput.protoFinaleNumero ? plInput.protoFinaleNumero : null;
+				var dataProtocolloUscita = parseDate(plInput.protoFinaleData);
+				var dataIstanza = parseDate(plInput.dataInvio);
+				var codFiscaleCittadino = plInput.codice_fiscale;
+				var emailCittadino = plInput.email ? plInput.email : null;
+				var annoScolastico = new Date().getFullYear();				
+				var codMecPlesso = findElementValue(pl, "studente_scuola");
+				var classe = findElementValue(pl, "studente_classe");
+				var sezione = findElementValue(pl, "studente_sezione");
+				var minoreCognome = findElementValue(pl, "studente_cognome");
+				var minoreNome = findElementValue(pl, "studente_nome");
+				var minoreSesso = findElementValue(pl, "studente_sesso");
+				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");				
+				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
+				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
+				var minoreIndirizzo = findElementValue(pl, "studente_indirizzo");
+				var minoreComuneResidenza = findElementValue(pl, "studente_comune");
+				var tipoResponsabile = findElementValue(pl, "genitore1_tipo");
+				var responsabileCognome = findElementValue(pl, "genitore1_cognome");
+				var responsabileNome = findElementValue(pl, "genitore1_nome");
+				var responsabileLuogoNascita = findElementValue(pl, "genitore1_luogo_nascita");
+				var responsabileDataNascita = findElementValue(pl, "genitore1_data_nascita");
+				var responsabileSesso = findElementValue(pl, "genitore1_sesso");
+				var responsabileCodFiscale = findElementValue(pl, "genitore1_cod_fiscale");
+				var responsabileTelefono = findElementValue(pl, "genitore1_telefono");
+				var responsabileEmail = findElementValue(pl, "genitore1_email");
+				var estremiProvvTribunale = findElementValue(pl, "genitore1_provv_tribunale");
+				var responsabile2Cognome = findElementValue(pl, "genitore2_cognome");
+				var responsabile2Nome = findElementValue(pl, "genitore2_nome");
+				var responsabile2LuogoNascita = findElementValue(pl, "genitore2_luogo_nascita");
+				var responsabile2DataNascita = findElementValue(pl, "genitore2_data_nascita");
+				var responsabile2Sesso = findElementValue(pl, "genitore2_sesso");
+				var responsabile2CodFiscale = findElementValue(pl, "genitore2_cod_fiscale");
+				var responsabile2Telefono = findElementValue(pl, "genitore2_telefono");
+				var responsabile2Email = findElementValue(pl, "genitore2_email");
+				var flgResidente = findElementValue(pl, "flag_residente");
+				var valoreIsee = findElementValue(pl, "isee_valore");
+				var protocolloIsee = findElementValue(pl, "isee_Protocollo");
+				var flgIseeSup = findElementValue(pl, "flag_isee_superiore");
+
+                var requestAcquisizione = {
+                  "idIstanzaOnline": idIstanzaOnline, 
+                  "numeroProtocolloIngresso": numeroProtocolloIngresso,
+                  "dataProtocolloIngresso": dataProtocolloIngresso,
+                  "numeroProtocolloUscita": numeroProtocolloUscita, 
+                  "dataProtocolloUscita": dataProtocolloUscita,
+                  "dataIstanza": dataIstanza,
+                  "codFiscaleCittadino": codFiscaleCittadino,
+                  "emailCittadino": emailCittadino,
+                  "annoScolastico": annoScolastico,
+                  "codMecPlesso": codMecPlesso,
+                  "tipoResponsabile": tipoResponsabile,
+                  "responsabileCognome": responsabileCognome,
+                  "responsabileNome": responsabileNome,
+                  "responsabileDataNascita": responsabileDataNascita,
+                  "responsabileLuogoNascita": responsabileLuogoNascita,
+                  "responsabileSesso": responsabileSesso,
+                  "responsabileCodFiscale": responsabileCodFiscale,
+                  "responsabileTelefono": responsabileTelefono,
+                  "responsabileEmail": responsabileEmail,
+                  "estremiProvvTribunale": estremiProvvTribunale,
+                  "responsabile2Cognome": responsabile2Cognome,
+                  "responsabile2Nome": responsabile2Nome,
+                  "responsabile2DataNascita": responsabile2DataNascita,
+                  "responsabile2LuogoNascita": responsabile2LuogoNascita,
+                  "responsabile2Sesso": responsabile2Sesso,
+                  "responsabile2CodFiscale": responsabile2CodFiscale,
+                  "responsabile2Telefono": responsabile2Telefono,
+                  "responsabile2Email": responsabile2Email,
+                  "minoreCognome": minoreCognome,
+                  "minoreNome": minoreNome,
+                  "minoreLuogoNascita": minoreLuogoNascita,
+                  "minoreDataNascita": minoreDataNascita,
+                  "minoreSesso": minoreSesso,
+                  "minoreCodFiscale": minoreCodFiscale,
+                  "minoreIndirizzo": minoreIndirizzo,
+                  "minoreComuneResidenza": minoreComuneResidenza,
+                  "classe": classe,
+                  "sezione": sezione,
+                  "valoreIsee": valoreIsee,
+                  "protocolloIsee": protocolloIsee,
+                  "flgIseeSup": flgIseeSup,
+                };
+                          
+           	  	log.info("acquisizioneBuoniPasto request: " + JSON.stringify(requestAcquisizione));
+                mc.setPayloadJSON(requestAcquisizione);
+				
+                function parseDate(input) {
+                	if(input) {
+                		return new Date(Number(input)).toISOString().split('T')[0];
+                 	} else {
+                 		return null;
+                 	}
+                }
+                
+                function findElementValue(pl, nomeAttributo) {
+                    var value = null;
+
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i][0]) {
+                            value = pl[i][1];
+                            break;
+                        }
+                    }
+
+                    return value;
+                }
+                function findComplexElementValue(pl, nomeAttributo) {
+                    var value = null;
+
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i][0]) {
+                            value = pl[i][1][0];
+                            break;
+                        }
+                    }
+
+                    return value;
+                }]]></script>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <log description="Log Input" level="custom">
+                <property name="MESSAGE" value="Request received to /users resource."/>
+            </log>
+            <call blocking="true" description="Send Request to Users Endpoint">
+                <endpoint key="buoniPastoAcquisizione"/>
+            </call>
+            <sequence key="buoniPastoAquisizioneResponse"/>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <log category="ERROR" description="Log Errore" level="custom">
+                <property name="text" value="An unexpected error occured"/>
+                <property expression="get-property('ERROR_MESSAGE')" name="message"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>
+                  {
+                    "payload": {
+                      "esito": "1"
+                    },
+                    "outcome": {
+                      "issue": [
+                        {
+                          "severity": "FATAL",
+                          "code": "$1",
+                          "message": "$2"
+                        }
+                      ]
+                    }
+                  }
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
+                    <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                </args>
+            </payloadFactory>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
+            <respond description="Send Error Back to Client"/>
+        </faultSequence>
+    </resource>
+    <resource methods="POST" url-mapping="/validazione">
+        <inSequence>
+            <script language="js"><![CDATA[var log = mc.getServiceLog();
+                var plInput = mc.getPayloadJSON();
+           	  	var datiOriginali = plInput.dati;
+           	  	var pl = JSON.parse(datiOriginali);
+           	  	log.info("validazioneBuoniPasto Payload: " + JSON.stringify(pl));
+
+				var dataIstanza = parseDate(plInput.dataInvio);
+				var codFiscaleCittadino = plInput.codice_fiscale;
+				var emailCittadino = plInput.email ? plInput.email : null;
+				var annoScolastico = new Date().getFullYear();				
+				var codMecPlesso = findElementValue(pl, "studente_scuola");
+				var classe = findElementValue(pl, "studente_classe");
+				var sezione = findElementValue(pl, "studente_sezione");
+				var minoreCognome = findElementValue(pl, "studente_cognome");
+				var minoreNome = findElementValue(pl, "studente_nome");
+				var minoreSesso = findElementValue(pl, "studente_sesso");
+				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");				
+				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
+				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
+				var minoreIndirizzo = findElementValue(pl, "studente_indirizzo");
+				var minoreComuneResidenza = findElementValue(pl, "studente_comune");
+				var tipoResponsabile = findElementValue(pl, "genitore1_tipo");
+				var responsabileCognome = findElementValue(pl, "genitore1_cognome");
+				var responsabileNome = findElementValue(pl, "genitore1_nome");
+				var responsabileLuogoNascita = findElementValue(pl, "genitore1_luogo_nascita");
+				var responsabileDataNascita = findElementValue(pl, "genitore1_data_nascita");
+				var responsabileSesso = findElementValue(pl, "genitore1_sesso");
+				var responsabileCodFiscale = findElementValue(pl, "genitore1_cod_fiscale");
+				var responsabileTelefono = findElementValue(pl, "genitore1_telefono");
+				var responsabileEmail = findElementValue(pl, "genitore1_email");
+				var estremiProvvTribunale = findElementValue(pl, "genitore1_provv_tribunale");
+				var responsabile2Cognome = findElementValue(pl, "genitore2_cognome");
+				var responsabile2Nome = findElementValue(pl, "genitore2_nome");
+				var responsabile2LuogoNascita = findElementValue(pl, "genitore2_luogo_nascita");
+				var responsabile2DataNascita = findElementValue(pl, "genitore2_data_nascita");
+				var responsabile2Sesso = findElementValue(pl, "genitore2_sesso");
+				var responsabile2CodFiscale = findElementValue(pl, "genitore2_cod_fiscale");
+				var responsabile2Telefono = findElementValue(pl, "genitore2_telefono");
+				var responsabile2Email = findElementValue(pl, "genitore2_email");
+				var flgResidente = findElementValue(pl, "flag_residente");
+				var valoreIsee = findElementValue(pl, "isee_valore");
+				var protocolloIsee = findElementValue(pl, "isee_Protocollo");
+				var flgIseeSup = findElementValue(pl, "flag_isee_superiore");
+
+                var requestValidazione = {
+                  "dataIstanza": dataIstanza,
+                  "codFiscaleCittadino": codFiscaleCittadino,
+                  "emailCittadino": emailCittadino,
+                  "annoScolastico": annoScolastico,
+                  "codMecPlesso": codMecPlesso,
+                  "tipoResponsabile": tipoResponsabile,
+                  "responsabileCognome": responsabileCognome,
+                  "responsabileNome": responsabileNome,
+                  "responsabileDataNascita": responsabileDataNascita,
+                  "responsabileLuogoNascita": responsabileLuogoNascita,
+                  "responsabileSesso": responsabileSesso,
+                  "responsabileCodFiscale": responsabileCodFiscale,
+                  "responsabileTelefono": responsabileTelefono,
+                  "responsabileEmail": responsabileEmail,
+                  "estremiProvvTribunale": estremiProvvTribunale,
+                  "responsabile2Cognome": responsabile2Cognome,
+                  "responsabile2Nome": responsabile2Nome,
+                  "responsabile2DataNascita": responsabile2DataNascita,
+                  "responsabile2LuogoNascita": responsabile2LuogoNascita,
+                  "responsabile2Sesso": responsabile2Sesso,
+                  "responsabile2CodFiscale": responsabile2CodFiscale,
+                  "responsabile2Telefono": responsabile2Telefono,
+                  "responsabile2Email": responsabile2Email,
+                  "minoreCognome": minoreCognome,
+                  "minoreNome": minoreNome,
+                  "minoreLuogoNascita": minoreLuogoNascita,
+                  "minoreDataNascita": minoreDataNascita,
+                  "minoreSesso": minoreSesso,
+                  "minoreCodFiscale": minoreCodFiscale,
+                  "minoreIndirizzo": minoreIndirizzo,
+                  "minoreComuneResidenza": minoreComuneResidenza,
+                  "classe": classe,
+                  "sezione": sezione,
+                  "valoreIsee": valoreIsee,
+                  "protocolloIsee": protocolloIsee,
+                  "flgIseeSup": flgIseeSup,
+                };
+                          
+           	  	log.info("validazioneBuoniPasto request: " + JSON.stringify(requestValidazione));
+                mc.setPayloadJSON(requestValidazione);
+				
+                function parseDate(input) {
+                	if(input) {
+                		return new Date(Number(input)).toISOString().split('T')[0];
+                 	} else {
+                 		return null;
+                 	}
+                }
+                
+                function findElementValue(pl, nomeAttributo) {
+                    var value = null;
+
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i][0]) {
+                            value = pl[i][1];
+                            break;
+                        }
+                    }
+
+                    return value;
+                }
+                function findComplexElementValue(pl, nomeAttributo) {
+                    var value = null;
+
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i][0]) {
+                            value = pl[i][1][0];
+                            break;
+                        }
+                    }
+
+                    return value;
+                }]]></script>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <log description="Log Input" level="custom">
+                <property name="MESSAGE" value="Request received to /users resource."/>
+            </log>
+            <call blocking="true" description="Send Request to Users Endpoint">
+                <endpoint key="buoniPastoValidazione"/>
+            </call>
+            <sequence key="buoniPastoValidazioneResponse"/>
+            <respond description="Send Response Back to Client"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <log category="ERROR" description="Log Errore" level="custom">
+                <property name="text" value="An unexpected error occured"/>
+                <property expression="get-property('ERROR_MESSAGE')" name="message"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>
+                  {
+                    "payload": {
+                      "esito": "1"
+                    },
+                    "outcome": {
+                      "issue": [
+                        {
+                          "severity": "FATAL",
+                          "code": "$1",
+                          "message": "$2"
+                        }
+                      ]
+                    }
+                  }
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
+                    <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+                </args>
+            </payloadFactory>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
+            <respond description="Send Error Back to Client"/>
+        </faultSequence>
+    </resource>
+</api>
