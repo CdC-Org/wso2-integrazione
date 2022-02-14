@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sequence name="buoniPastoValidazioneResponse" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+<sequence name="buoniPastoValidazioneAcquistoResponse" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <script language="js"><![CDATA[var responseValidazione = mc.getPayloadJSON();      
 		var log = mc.getServiceLog();
-		log.info("validazioneBuoniPasto response: " + JSON.stringify(responseValidazione));
+		log.info("validazioneAcquistoBuoniPasto response: " + JSON.stringify(responseValidazione));
 
         var esito = responseValidazione.payload.esito; 
         var status = "false";

@@ -3,7 +3,7 @@
     <log level="full"/>
     <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();      
 		var log = mc.getServiceLog();
-
+		log.info("acquisizioneBuoniLibro response: " + JSON.stringify(plInput));
         var esito = plInput.payload.esito; 
         var status = "false";
         var stringaWarnings = '';

@@ -74,4 +74,31 @@
     <artifact name="buoniPastoValidazione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/endpoints/buoniPastoValidazione.xml</file>
     </artifact>
+    <artifact name="buoniPastoAcquisto" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/buoniPastoAcquisto.xml</file>
+    </artifact>
+    <artifact name="buoniPastoCessione" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/buoniPastoCessione.xml</file>
+    </artifact>
+    <artifact name="AcquistoBuoniPasto" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/AcquistoBuoniPasto.xml</file>
+    </artifact>
+    <artifact name="CessioneBuoniPasto" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/CessioneBuoniPasto.xml</file>
+    </artifact>
+    <artifact name="buoniPastoAcquisizioneAcquistoResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/buoniPastoAcquisizioneAcquistoResponse.xml</file>
+    </artifact>
+    <artifact name="buoniPastoAcquisizioneCessioneResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/buoniPastoAcquisizioneCessioneResponse.xml</file>
+    </artifact>
+    <artifact name="buoniPastoValidazioneAcquistoResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/buoniPastoValidazioneAcquistoResponse.xml</file>
+    </artifact>
+    <artifact name="buoniPastoValidazioneCessioneResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/buoniPastoValidazioneCessioneResponse.xml</file>
+    </artifact>
+    <artifact name="buoniPastoPosizioneDebitoriaResponse" groupId="com.example.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/buoniPastoPosizioneDebitoriaResponse.xml</file>
+    </artifact>
 </artifacts>
