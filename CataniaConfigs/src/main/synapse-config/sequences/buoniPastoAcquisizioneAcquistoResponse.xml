@@ -10,7 +10,7 @@
          
         if (esito == '1') {
         	status = "false";
- 	        var outcome = responseAcquisizione.outcome;
+ 	        var outcome = responseAcquisto.outcome;
 	        var issue = outcome.issue;
 			var strDettaglio = '';
 			

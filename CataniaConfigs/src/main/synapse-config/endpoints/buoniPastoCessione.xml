@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoint name="buoniPastoCessione" xmlns="http://ws.apache.org/ns/synapse">
-    <http method="post" uri-template="$FILE:$istanzaCessioneEP">
+    <http method="post" uri-template="$FILE:istanzaCessioneEP">
         <suspendOnFailure>
             <initialDuration>0</initialDuration>
             <progressionFactor>1.0</progressionFactor>

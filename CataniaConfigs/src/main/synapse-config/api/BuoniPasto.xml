@@ -91,6 +91,7 @@
                   "classe": classe,
                   "sezione": sezione,
                   "valoreIsee": valoreIsee,
+                  "flgResidente": flgResidente,
                   "protocolloIsee": protocolloIsee,
                   "flgIseeSup": flgIseeSup,
                 };
@@ -252,6 +253,7 @@
                   "minoreComuneResidenza": minoreComuneResidenza,
                   "classe": classe,
                   "sezione": sezione,
+                  "flgResidente": flgResidente, 
                   "valoreIsee": valoreIsee,
                   "protocolloIsee": protocolloIsee,
                   "flgIseeSup": flgIseeSup,

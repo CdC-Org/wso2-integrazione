@@ -16,13 +16,14 @@
 				var dataIstanza = parseDate(plInput.dataInvio);
 				var codFiscaleCittadino = plInput.codice_fiscale;
 				var emailCittadino = plInput.email ? plInput.email : null;
+				var intestatario = plInput.richiedente;
 				var minoreCognome = findElementValue(pl, "studente_cognome");
 				var minoreNome = findElementValue(pl, "studente_nome");
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
 				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");
-				var buoniPasto = findElementValue(pl, "buoni_pasto");
+				var numeroBuoni = findElementValue(pl, "buoni_pasto");
 
                 var requestValidazione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -39,7 +40,8 @@
                   "minoreDataNascita": minoreDataNascita,
                   "minoreSesso": minoreSesso,
                   "minoreCodFiscale": minoreCodFiscale,
-                  "buoniPasto": buoniPasto,
+                  "numeroBuoni": numeroBuoni,
+                  "intestatario": intestatario
                 };
                           
            	  	log.info("validazioneAcquistoBuoniPasto request: " + JSON.stringify(requestValidazione));
@@ -135,13 +137,14 @@
 				var dataIstanza = parseDate(plInput.dataInvio);
 				var codFiscaleCittadino = plInput.codice_fiscale;
 				var emailCittadino = plInput.email ? plInput.email : null;
+				var intestatario = plInput.richiedente;
 				var minoreCognome = findElementValue(pl, "studente_cognome");
 				var minoreNome = findElementValue(pl, "studente_nome");
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
 				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");
-				var buoniPasto = findElementValue(pl, "buoni_pasto");
+				var numeroBuoni = findElementValue(pl, "buoni_pasto");
 
                 var requestAcquisizione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -158,7 +161,8 @@
                   "minoreDataNascita": minoreDataNascita,
                   "minoreSesso": minoreSesso,
                   "minoreCodFiscale": minoreCodFiscale,
-                  "buoniPasto": buoniPasto,
+                  "numeroBuoni": numeroBuoni,
+                  "intestatario": intestatario
                 };
                           
            	  	log.info("acquisizioneAcquistoBuoniPasto request: " + JSON.stringify(requestAcquisizione));

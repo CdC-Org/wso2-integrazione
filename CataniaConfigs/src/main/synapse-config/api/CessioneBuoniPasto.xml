@@ -28,7 +28,7 @@
 				var riceventeDataNascita = findElementValue(pl, "studente2_data_nascita");
 				var riceventeSesso = findComplexElementValue(pl, "studente2_sesso");
 				var riceventeCodFiscale = findElementValue(pl, "studente2_cod_fiscale");
-				var importo = findElementValue(pl, "importo");
+				var numeroBuoni = findElementValue(pl, "buoni_pasto");
 
                 var requestAcquisizione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -39,19 +39,19 @@
                   "dataIstanza": dataIstanza,
                   "codFiscaleCittadino": codFiscaleCittadino,
                   "emailCittadino": emailCittadino,
-                  "mittenteCognome": minoreCognome,
-                  "mittenteNome": minoreNome,
-                  "mittenteLuogoNascita": minoreLuogoNascita,
-                  "mittenteDataNascita": minoreDataNascita,
-                  "mittenteSesso": minoreSesso,
-                  "mittenteCodFiscale": minoreCodFiscale,
-                  "riceventeCognome": minoreCognome,
-                  "riceventeNome": minoreNome,
-                  "riceventeLuogoNascita": minoreLuogoNascita,
-                  "riceventeDataNascita": minoreDataNascita,
-                  "riceventeSesso": minoreSesso,
-                  "riceventeCodFiscale": minoreCodFiscale,
-                  "importo": importo,
+                  "mittenteCognome": mittenteCognome,
+                  "mittenteNome": mittenteNome,
+                  "mittenteLuogoNascita": mittenteLuogoNascita,
+                  "mittenteDataNascita": mittenteDataNascita,
+                  "mittenteSesso": mittenteSesso,
+                  "mittenteCodFiscale": mittenteCodFiscale,
+                  "riceventeCognome": riceventeCognome,
+                  "riceventeNome": riceventeNome,
+                  "riceventeLuogoNascita": riceventeLuogoNascita,
+                  "riceventeDataNascita": riceventeDataNascita,
+                  "riceventeSesso": riceventeSesso,
+                  "riceventeCodFiscale": riceventeCodFiscale,
+                  "numeroBuoni": numeroBuoni
                 };
                           
            	  	log.info("acquisizioneCessioneBuoniPasto request: " + JSON.stringify(requestAcquisizione));
@@ -94,7 +94,7 @@
                 <property name="MESSAGE" value="Request received to /users resource."/>
             </log>
             <call blocking="true" description="Send Request to Users Endpoint">
-                <endpoint key="buoniPastoAcquisizione"/>
+                <endpoint key="buoniPastoCessione"/>
             </call>
             <sequence key="buoniPastoAcquisizioneCessioneResponse"/>
             <respond/>
@@ -159,7 +159,7 @@
 				var riceventeDataNascita = findElementValue(pl, "studente2_data_nascita");
 				var riceventeSesso = findComplexElementValue(pl, "studente2_sesso");
 				var riceventeCodFiscale = findElementValue(pl, "studente2_cod_fiscale");
-				var importo = findElementValue(pl, "importo");
+				var numeroBuoni = findElementValue(pl, "buoni_pasto");
 
                 var requestValidazione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -170,19 +170,19 @@
                   "dataIstanza": dataIstanza,
                   "codFiscaleCittadino": codFiscaleCittadino,
                   "emailCittadino": emailCittadino,
-                  "mittenteCognome": minoreCognome,
-                  "mittenteNome": minoreNome,
-                  "mittenteLuogoNascita": minoreLuogoNascita,
-                  "mittenteDataNascita": minoreDataNascita,
-                  "mittenteSesso": minoreSesso,
-                  "mittenteCodFiscale": minoreCodFiscale,
-                  "riceventeCognome": minoreCognome,
-                  "riceventeNome": minoreNome,
-                  "riceventeLuogoNascita": minoreLuogoNascita,
-                  "riceventeDataNascita": minoreDataNascita,
-                  "riceventeSesso": minoreSesso,
-                  "riceventeCodFiscale": minoreCodFiscale,
-                  "importo": importo,
+                  "mittenteCognome": mittenteCognome,
+                  "mittenteNome": mittenteNome,
+                  "mittenteLuogoNascita": mittenteLuogoNascita,
+                  "mittenteDataNascita": mittenteDataNascita,
+                  "mittenteSesso": mittenteSesso,
+                  "mittenteCodFiscale": mittenteCodFiscale,
+                  "riceventeCognome": riceventeCognome,
+                  "riceventeNome": riceventeNome,
+                  "riceventeLuogoNascita": riceventeLuogoNascita,
+                  "riceventeDataNascita": riceventeDataNascita,
+                  "riceventeSesso": riceventeSesso,
+                  "riceventeCodFiscale": riceventeCodFiscale,
+                  "numeroBuoni": numeroBuoni,
                 };
                           
            	  	log.info("validazioneCessioneBuoniPasto request: " + JSON.stringify(requestValidazione));
@@ -225,7 +225,7 @@
                 <property name="MESSAGE" value="Request received to /users resource."/>
             </log>
             <call blocking="true" description="Send Request to Users Endpoint">
-                <endpoint key="buoniPastoValidazione"/>
+                <endpoint key="buoniPastoCessione"/>
             </call>
             <sequence key="buoniPastoValidazioneCessioneResponse"/>
             <respond description="Send Response Back to Client"/>
