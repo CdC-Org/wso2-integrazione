@@ -22,7 +22,7 @@
 				var sezione = findElementValue(pl, "studente_sezione");
 				var minoreCognome = findElementValue(pl, "studente_cognome");
 				var minoreNome = findElementValue(pl, "studente_nome");
-				var minoreSesso = findElementValue(pl, "studente_sesso");
+				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");				
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
@@ -33,7 +33,7 @@
 				var responsabileNome = findElementValue(pl, "genitore1_nome");
 				var responsabileLuogoNascita = findElementValue(pl, "genitore1_luogo_nascita");
 				var responsabileDataNascita = findElementValue(pl, "genitore1_data_nascita");
-				var responsabileSesso = findElementValue(pl, "genitore1_sesso");
+				var responsabileSesso = findComplexElementValue(pl, "genitore1_sesso");
 				var responsabileCodFiscale = findElementValue(pl, "genitore1_cod_fiscale");
 				var responsabileTelefono = findElementValue(pl, "genitore1_telefono");
 				var responsabileEmail = findElementValue(pl, "genitore1_email");
@@ -42,7 +42,7 @@
 				var responsabile2Nome = findElementValue(pl, "genitore2_nome");
 				var responsabile2LuogoNascita = findElementValue(pl, "genitore2_luogo_nascita");
 				var responsabile2DataNascita = findElementValue(pl, "genitore2_data_nascita");
-				var responsabile2Sesso = findElementValue(pl, "genitore2_sesso");
+				var responsabile2Sesso = findComplexElementValue(pl, "genitore2_sesso");
 				var responsabile2CodFiscale = findElementValue(pl, "genitore2_cod_fiscale");
 				var responsabile2Telefono = findElementValue(pl, "genitore2_telefono");
 				var responsabile2Email = findElementValue(pl, "genitore2_email");
@@ -189,7 +189,7 @@
 				var sezione = findElementValue(pl, "studente_sezione");
 				var minoreCognome = findElementValue(pl, "studente_cognome");
 				var minoreNome = findElementValue(pl, "studente_nome");
-				var minoreSesso = findElementValue(pl, "studente_sesso");
+				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");				
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
@@ -200,7 +200,7 @@
 				var responsabileNome = findElementValue(pl, "genitore1_nome");
 				var responsabileLuogoNascita = findElementValue(pl, "genitore1_luogo_nascita");
 				var responsabileDataNascita = findElementValue(pl, "genitore1_data_nascita");
-				var responsabileSesso = findElementValue(pl, "genitore1_sesso");
+				var responsabileSesso = findComplexElementValue(pl, "genitore1_sesso");
 				var responsabileCodFiscale = findElementValue(pl, "genitore1_cod_fiscale");
 				var responsabileTelefono = findElementValue(pl, "genitore1_telefono");
 				var responsabileEmail = findElementValue(pl, "genitore1_email");
@@ -209,7 +209,7 @@
 				var responsabile2Nome = findElementValue(pl, "genitore2_nome");
 				var responsabile2LuogoNascita = findElementValue(pl, "genitore2_luogo_nascita");
 				var responsabile2DataNascita = findElementValue(pl, "genitore2_data_nascita");
-				var responsabile2Sesso = findElementValue(pl, "genitore2_sesso");
+				var responsabile2Sesso = findComplexElementValue(pl, "genitore2_sesso");
 				var responsabile2CodFiscale = findElementValue(pl, "genitore2_cod_fiscale");
 				var responsabile2Telefono = findElementValue(pl, "genitore2_telefono");
 				var responsabile2Email = findElementValue(pl, "genitore2_email");

@@ -20,9 +20,9 @@
 				var minoreNome = findElementValue(pl, "studente_nome");
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
-				var minoreSesso = findElementValue(pl, "studente_sesso");
+				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");
-				var importo = findElementValue(pl, "importo");
+				var buoniPasto = findElementValue(pl, "buoni_pasto");
 
                 var requestValidazione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -39,7 +39,7 @@
                   "minoreDataNascita": minoreDataNascita,
                   "minoreSesso": minoreSesso,
                   "minoreCodFiscale": minoreCodFiscale,
-                  "importo": importo,
+                  "buoniPasto": buoniPasto,
                 };
                           
            	  	log.info("validazioneAcquistoBuoniPasto request: " + JSON.stringify(requestValidazione));
@@ -139,9 +139,9 @@
 				var minoreNome = findElementValue(pl, "studente_nome");
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
-				var minoreSesso = findElementValue(pl, "studente_sesso");
+				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");
-				var importo = findElementValue(pl, "importo");
+				var buoniPasto = findElementValue(pl, "buoni_pasto");
 
                 var requestAcquisizione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -158,7 +158,7 @@
                   "minoreDataNascita": minoreDataNascita,
                   "minoreSesso": minoreSesso,
                   "minoreCodFiscale": minoreCodFiscale,
-                  "importo": importo,
+                  "buoniPasto": buoniPasto,
                 };
                           
            	  	log.info("acquisizioneAcquistoBuoniPasto request: " + JSON.stringify(requestAcquisizione));
@@ -240,88 +240,14 @@
     </resource>
     <resource methods="POST" url-mapping="/posizionedebitoria">
         <inSequence>
-            <script language="js"><![CDATA[var log = mc.getServiceLog();
-                var plInput = mc.getPayloadJSON();
-           	  	var datiOriginali = plInput.dati;
-           	  	var pl = JSON.parse(datiOriginali);
-           	  	log.info("posizioneDebitoriaBuoniPasto Payload: " + JSON.stringify(pl));
+            <script language="js"><![CDATA[var plInput = mc.getPayloadJSON();
+                var log = mc.getServiceLog();
+                log.info("posizioneDebitoriaBuoniPasto Payload: " + JSON.stringify(plInput));
 
-			  	var idIstanzaOnline = plInput.id;
-				var numeroProtocolloIngresso = plInput.protoNumero;
-				var dataProtocolloIngresso = parseDate(plInput.protoData);
-				var numeroProtocolloUscita = plInput.protoFinaleNumero ? plInput.protoFinaleNumero : null;
-				var dataProtocolloUscita = parseDate(plInput.protoFinaleData);
-				var dataIstanza = parseDate(plInput.dataInvio);
-				var codFiscaleCittadino = plInput.codice_fiscale;
-				var emailCittadino = plInput.email ? plInput.email : null;
-				var minoreCognome = findElementValue(pl, "studente_cognome");
-				var minoreNome = findElementValue(pl, "studente_nome");
-				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
-				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
-				var minoreSesso = findElementValue(pl, "studente_sesso");
-				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");
-				var importo = findElementValue(pl, "importo");
-
-//Intestatario
-//Ente
-//Codice_tributo
-//Numero_documento
-//Anno
-//Data_emissione
-
-                var requestPosizioneDebitoria = {
-                  "idIstanzaOnline": idIstanzaOnline, 
-                  "numeroProtocolloIngresso": numeroProtocolloIngresso,
-                  "dataProtocolloIngresso": dataProtocolloIngresso,
-                  "numeroProtocolloUscita": numeroProtocolloUscita, 
-                  "dataProtocolloUscita": dataProtocolloUscita,
-                  "dataIstanza": dataIstanza,
-                  "codFiscaleCittadino": codFiscaleCittadino,
-                  "emailCittadino": emailCittadino,
-                  "minoreCognome": minoreCognome,
-                  "minoreNome": minoreNome,
-                  "minoreLuogoNascita": minoreLuogoNascita,
-                  "minoreDataNascita": minoreDataNascita,
-                  "minoreSesso": minoreSesso,
-                  "minoreCodFiscale": minoreCodFiscale,
-                  "importo": importo,
+                var response = {
+                    "idIstanzaOnline": plInput.idIstanzaOnline,
                 };
-                          
-           	  	log.info("posizioneDebitoriaBuoniPasto request: " + JSON.stringify(requestPosizioneDebitoria));
-                mc.setPayloadJSON(requestPosizioneDebitoria);
-				
-                function parseDate(input) {
-                	if(input) {
-                		return new Date(Number(input)).toISOString().split('T')[0];
-                 	} else {
-                 		return null;
-                 	}
-                }
-                
-                function findElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }
-                function findComplexElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1][0];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }]]></script>
+                mc.setPayloadJSON(response);]]></script>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
             <log description="Log Input" level="custom">
                 <property name="MESSAGE" value="Request received to /users resource."/>

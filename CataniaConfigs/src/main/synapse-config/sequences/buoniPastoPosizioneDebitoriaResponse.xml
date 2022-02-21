@@ -3,14 +3,20 @@
     <script language="js"><![CDATA[var responsePosizioneDebitoria = mc.getPayloadJSON();      
 		var log = mc.getServiceLog();
 		log.info("posizioneDebitoriaBuoniPasto response: " + JSON.stringify(responsePosizioneDebitoria));
-
-        var esito = responsePosizioneDebitoria.payload.esito; 
-        var status = "false";
-        var stringaWarnings = '';
-         
-        if (esito == '1') {
+        var status = "true";
+        var stringaWarnings = "";
+        var idIstanzaOnline = null;
+        var importo = null;
+        var intestatario = null;
+        var ente = null;
+		var codiceTributo = null;
+		var numeroDocumento = null;  
+		var anno = null;
+		var dataEmissione = null;
+		
+		if(responsePosizioneDebitoria.outcome != null && responsePosizioneDebitoria.outcome.issue != null && responsePosizioneDebitoria.outcome.issue.length != 0) {
         	status = "false";
- 	        var outcome = responseAcquisizione.outcome;
+ 	        var outcome = responsePosizioneDebitoria.outcome;
 	        var issue = outcome.issue;
 			var strDettaglio = '';
 			
@@ -30,14 +36,28 @@
 					strDettaglio = '';
 				}
 			}
-        } else if (esito == '0') {
-        	status = "true";
-        	stringaWarnings =  " ";
+        } else {
+            var payload = responsePosizioneDebitoria.payload; 
+        	idIstanzaOnline = payload.idIstanzaOnline;
+        	importo = payload.importo;
+        	intestatario = payload.intestatario;
+        	ente = payload.ente;
+			codiceTributo = payload.codiceTributo;
+			numeroDocumento = payload.numeroDocumento;  
+			anno = payload.anno;
+			dataEmissione = payload.dataEmissione;
         }
         
-        var response = {"status": 	status, 
-        				"message": 	stringaWarnings};
-		
+        var response = {"status": status, 
+        				"message": stringaWarnings,
+        				"idIstanzaOnline": idIstanzaOnline,
+        				"importo": importo,
+        				"intestatario": intestatario,
+        				"ente": ente,
+						"codiceTributo": codiceTributo,
+						"numeroDocumento": numeroDocumento,  
+						"anno": anno,
+						"dataEmissione": dataEmissione};
         mc.setPayloadJSON(response);]]></script>
     <respond/>
 </sequence>
