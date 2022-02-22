@@ -3,61 +3,67 @@
     <script language="js"><![CDATA[var responsePosizioneDebitoria = mc.getPayloadJSON();      
 		var log = mc.getServiceLog();
 		log.info("posizioneDebitoriaBuoniPasto response: " + JSON.stringify(responsePosizioneDebitoria));
-        var status = "true";
-        var stringaWarnings = "";
-        var idIstanzaOnline = null;
-        var importo = null;
-        var intestatario = null;
-        var ente = null;
-		var codiceTributo = null;
-		var numeroDocumento = null;  
-		var anno = null;
-		var dataEmissione = null;
-		
-		if(responsePosizioneDebitoria.outcome != null && responsePosizioneDebitoria.outcome.issue != null && responsePosizioneDebitoria.outcome.issue.length != 0) {
-        	status = "false";
- 	        var outcome = responsePosizioneDebitoria.outcome;
-	        var issue = outcome.issue;
-			var strDettaglio = '';
+
+        var response = {};
+		if(responsePosizioneDebitoria.payload == null && responsePosizioneDebitoria.outcome == null) {
+        	response = {"status": "false", "message": responsePosizioneDebitoria.message};
+		} else {
+	        var status = "true";
+	        var stringaWarnings = "";
+	        var idIstanzaOnline = null;
+	        var importo = null;
+	        var intestatario = null;
+	        var ente = null;
+			var codiceTributo = null;
+			var numeroDocumento = null;  
+			var anno = null;
+			var dataEmissione = null;
 			
-			for (i = 0; i < issue.length; ++i) {
-				if (i==0) {
-					if (issue[i].details != null) {
-						strDettaglio = issue[i].details + ": ";
+			if(responsePosizioneDebitoria.outcome != null && responsePosizioneDebitoria.outcome.issue != null && responsePosizioneDebitoria.outcome.issue.length != 0) {
+	        	status = "false";
+	 	        var outcome = responsePosizioneDebitoria.outcome;
+		        var issue = outcome.issue;
+				var strDettaglio = '';
+				
+				for (i = 0; i < issue.length; ++i) {
+					if (i==0) {
+						if (issue[i].details != null) {
+							strDettaglio = issue[i].details + ": ";
+						}
+						
+						stringaWarnings = strDettaglio + issue[i].message;
+						strDettaglio = '';
+					} else {
+						if (issue[i].details != null) {
+							strDettaglio = issue[i].details + ": ";
+						}
+						stringaWarnings = stringaWarnings + ", " + strDettaglio + issue[i].message;
+						strDettaglio = '';
 					}
-					
-					stringaWarnings = strDettaglio + issue[i].message;
-					strDettaglio = '';
-				} else {
-					if (issue[i].details != null) {
-						strDettaglio = issue[i].details + ": ";
-					}
-					stringaWarnings = stringaWarnings + ", " + strDettaglio + issue[i].message;
-					strDettaglio = '';
 				}
-			}
-        } else {
-            var payload = responsePosizioneDebitoria.payload; 
-        	idIstanzaOnline = payload.idIstanzaOnline;
-        	importo = payload.importo;
-        	intestatario = payload.intestatario;
-        	ente = payload.ente;
-			codiceTributo = payload.codiceTributo;
-			numeroDocumento = payload.numeroDocumento;  
-			anno = payload.anno;
-			dataEmissione = payload.dataEmissione;
-        }
-        
-        var response = {"status": status, 
-        				"message": stringaWarnings,
-        				"idIstanzaOnline": idIstanzaOnline,
-        				"importo": importo,
-        				"intestatario": intestatario,
-        				"ente": ente,
-						"codiceTributo": codiceTributo,
-						"numeroDocumento": numeroDocumento,  
-						"anno": anno,
-						"dataEmissione": dataEmissione};
+	        } else {
+	            var payload = responsePosizioneDebitoria.payload; 
+	        	idIstanzaOnline = payload.idIstanzaOnline;
+	        	importo = payload.importo;
+	        	intestatario = payload.intestatario;
+	        	ente = payload.ente;
+				codiceTributo = payload.codiceTributo;
+				numeroDocumento = payload.numeroDocumento;  
+				anno = payload.anno;
+				dataEmissione = payload.dataEmissione;
+	        }
+	        
+	        var response = {"status": status, 
+	        				"message": stringaWarnings,
+	        				"idIstanzaOnline": idIstanzaOnline,
+	        				"importo": importo,
+	        				"intestatario": intestatario,
+	        				"ente": ente,
+							"codiceTributo": codiceTributo,
+							"numeroDocumento": numeroDocumento,  
+							"anno": anno,
+							"dataEmissione": dataEmissione};
+		}
         mc.setPayloadJSON(response);]]></script>
     <respond/>
 </sequence>

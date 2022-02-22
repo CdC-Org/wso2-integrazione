@@ -4,40 +4,43 @@
 		var log = mc.getServiceLog();
 		log.info("acquisizioneAcquistoBuoniPasto response: " + JSON.stringify(responseAcquisto));
 
-        var esito = responseAcquisto.payload.esito; 
-        var status = "false";
-        var stringaWarnings = '';
-         
-        if (esito == '1') {
-        	status = "false";
- 	        var outcome = responseAcquisto.outcome;
-	        var issue = outcome.issue;
-			var strDettaglio = '';
-			
-			for (i = 0; i < issue.length; ++i) {
-				if (i==0) {
-					if (issue[i].details != null) {
-						strDettaglio = issue[i].details + ": ";
+        var response = {};
+		if(responseAcquisto.payload == null && responseAcquisto.outcome == null) {
+        	response = {"status": "false", "message": responseAcquisto.message};
+		} else {
+	        var esito = responseAcquisto.payload.esito; 
+	        var status = "false";
+	        var stringaWarnings = '';
+	         
+	        if (esito == '1') {
+	        	status = "false";
+	 	        var outcome = responseAcquisto.outcome;
+		        var issue = outcome.issue;
+				var strDettaglio = '';
+				
+				for (i = 0; i < issue.length; ++i) {
+					if (i==0) {
+						if (issue[i].details != null) {
+							strDettaglio = issue[i].details + ": ";
+						}
+						
+						stringaWarnings = strDettaglio + issue[i].message;
+						strDettaglio = '';
+					} else {
+						if (issue[i].details != null) {
+							strDettaglio = issue[i].details + ": ";
+						}
+						stringaWarnings = stringaWarnings + ", " + strDettaglio + issue[i].message;
+						strDettaglio = '';
 					}
-					
-					stringaWarnings = strDettaglio + issue[i].message;
-					strDettaglio = '';
-				} else {
-					if (issue[i].details != null) {
-						strDettaglio = issue[i].details + ": ";
-					}
-					stringaWarnings = stringaWarnings + ", " + strDettaglio + issue[i].message;
-					strDettaglio = '';
 				}
-			}
-        } else if (esito == '0') {
-        	status = "true";
-        	stringaWarnings =  " ";
-        }
-        
-        var response = {"status": 	status, 
-        				"message": 	stringaWarnings};
-		
+	        } else if (esito == '0') {
+	        	status = "true";
+	        	stringaWarnings =  " ";
+	        }
+	        
+	        var response = {"status": status, "message": stringaWarnings};
+		}		
         mc.setPayloadJSON(response);]]></script>
     <respond/>
 </sequence>
