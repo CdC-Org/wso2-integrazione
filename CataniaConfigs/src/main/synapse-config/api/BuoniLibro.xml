@@ -10,7 +10,7 @@
            	  	var pl = JSON.parse(datiOriginali);
            	  	log.info("acquisizioneBuoniLibro Payload: " + JSON.stringify(pl));
 
-			  	var plAnnoScolastico = "2021";
+			  	var plAnnoScolastico = "" + new Date().getFullYear();                
 			    var plAnnoStr = findElement(pl,'paragraph-1605017328811').placeholder;
 			    if(plAnnoStr != null && plAnnoStr.indexOf("ANNO SCOLASTICO" != -1)) {
 			     plAnnoScolastico = plAnnoStr.substring(16, 20); 
