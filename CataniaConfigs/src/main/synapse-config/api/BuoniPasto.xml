@@ -5,6 +5,8 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
                 var plInput = mc.getPayloadJSON();
            	  	var datiOriginali = plInput.dati;
+           	  	/* non funziona replaceAll e si devono rimuovere gli \ dalle regular expression */
+           	  	datiOriginali = datiOriginali.replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
            	  	log.info("acquisizioneBuoniPasto Payload: " + JSON.stringify(pl));
 
@@ -109,20 +111,8 @@
                     var value = null;
 
                     for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }
-                function findComplexElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1][0];
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value ? pl[i].value : null;
                             break;
                         }
                     }
@@ -176,6 +166,8 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
                 var plInput = mc.getPayloadJSON();
            	  	var datiOriginali = plInput.dati;
+           	  	/* non funziona replaceAll e si devono rimuovere gli \ dalle regular expression */
+           	  	datiOriginali = datiOriginali.replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
            	  	log.info("validazioneBuoniPasto Payload: " + JSON.stringify(pl));
 
@@ -270,20 +262,8 @@
                     var value = null;
 
                     for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }
-                function findComplexElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1][0];
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value ? pl[i].value : null;
                             break;
                         }
                     }

@@ -5,6 +5,8 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
                 var plInput = mc.getPayloadJSON();
            	  	var datiOriginali = plInput.dati;
+           	  	/* non funziona replaceAll e si devono rimuovere gli \ dalle regular expression */
+           	  	datiOriginali = datiOriginali.replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
            	  	log.info("validazioneAcquistoBuoniPasto Payload: " + JSON.stringify(pl));
 
@@ -21,9 +23,9 @@
 				var minoreNome = findElementValue(pl, "studente_nome");
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
-				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
+				var minoreSesso = findElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");
-				var numeroBuoni = findElementValue(pl, "buoni_pasto");
+				var numeroBuoni = findElementValue(pl, "numero_buoni");
 
                 var requestValidazione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -59,20 +61,8 @@
                     var value = null;
 
                     for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }
-                function findComplexElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1][0];
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value;
                             break;
                         }
                     }
@@ -126,6 +116,8 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
                 var plInput = mc.getPayloadJSON();
            	  	var datiOriginali = plInput.dati;
+           	  	/* non funziona replaceAll e si devono rimuovere gli \ dalle regular expression */
+           	  	datiOriginali = datiOriginali.replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
            	  	log.info("acquisizioneAcquistoBuoniPasto Payload: " + JSON.stringify(pl));
 
@@ -142,9 +134,9 @@
 				var minoreNome = findElementValue(pl, "studente_nome");
 				var minoreLuogoNascita = findElementValue(pl, "studente_luogo_nascita");
 				var minoreDataNascita = findElementValue(pl, "studente_data_nascita");
-				var minoreSesso = findComplexElementValue(pl, "studente_sesso");
+				var minoreSesso = findElementValue(pl, "studente_sesso");
 				var minoreCodFiscale = findElementValue(pl, "studente_cod_fiscale");
-				var numeroBuoni = findElementValue(pl, "buoni_pasto");
+				var numeroBuoni = findElementValue(pl, "numero_buoni");
 
                 var requestAcquisizione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -180,20 +172,8 @@
                     var value = null;
 
                     for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }
-                function findComplexElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1][0];
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value;
                             break;
                         }
                     }

@@ -5,6 +5,8 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
                 var plInput = mc.getPayloadJSON();
            	  	var datiOriginali = plInput.dati;
+           	  	/* non funziona replaceAll e si devono rimuovere gli \ dalle regular expression */
+           	  	datiOriginali = datiOriginali.replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
            	  	log.info("acquisizioneCessioneBuoniPasto Payload: " + JSON.stringify(pl));
 
@@ -20,13 +22,13 @@
 				var mittenteNome = findElementValue(pl, "studente1_nome");
 				var mittenteLuogoNascita = findElementValue(pl, "studente1_luogo_nascita");
 				var mittenteDataNascita = findElementValue(pl, "studente1_data_nascita");
-				var mittenteSesso = findComplexElementValue(pl, "studente1_sesso");
+				var mittenteSesso = findElementValue(pl, "studente1_sesso");
 				var mittenteCodFiscale = findElementValue(pl, "studente1_cod_fiscale");
 				var riceventeCognome = findElementValue(pl, "studente2_cognome");
 				var riceventeNome = findElementValue(pl, "studente2_nome");
 				var riceventeLuogoNascita = findElementValue(pl, "studente2_luogo_nascita");
 				var riceventeDataNascita = findElementValue(pl, "studente2_data_nascita");
-				var riceventeSesso = findComplexElementValue(pl, "studente2_sesso");
+				var riceventeSesso = findElementValue(pl, "studente2_sesso");
 				var riceventeCodFiscale = findElementValue(pl, "studente2_cod_fiscale");
 				var numeroBuoni = findElementValue(pl, "buoni_pasto");
 
@@ -69,20 +71,8 @@
                     var value = null;
 
                     for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }
-                function findComplexElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1][0];
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value ? pl[i].value : null;
                             break;
                         }
                     }
@@ -136,6 +126,8 @@
             <script language="js"><![CDATA[var log = mc.getServiceLog();
                 var plInput = mc.getPayloadJSON();
            	  	var datiOriginali = plInput.dati;
+           	  	/* non funziona replaceAll e si devono rimuovere gli \ dalle regular expression */
+           	  	datiOriginali = datiOriginali.replace("\\", "").replace("\\", "").replace("\\", "").replace("\\", "");
            	  	var pl = JSON.parse(datiOriginali);
            	  	log.info("validazioneCessioneBuoniPasto Payload: " + JSON.stringify(pl));
 
@@ -151,13 +143,13 @@
 				var mittenteNome = findElementValue(pl, "studente1_nome");
 				var mittenteLuogoNascita = findElementValue(pl, "studente1_luogo_nascita");
 				var mittenteDataNascita = findElementValue(pl, "studente1_data_nascita");
-				var mittenteSesso = findComplexElementValue(pl, "studente1_sesso");
+				var mittenteSesso = findElementValue(pl, "studente1_sesso");
 				var mittenteCodFiscale = findElementValue(pl, "studente1_cod_fiscale");
 				var riceventeCognome = findElementValue(pl, "studente2_cognome");
 				var riceventeNome = findElementValue(pl, "studente2_nome");
 				var riceventeLuogoNascita = findElementValue(pl, "studente2_luogo_nascita");
 				var riceventeDataNascita = findElementValue(pl, "studente2_data_nascita");
-				var riceventeSesso = findComplexElementValue(pl, "studente2_sesso");
+				var riceventeSesso = findElementValue(pl, "studente2_sesso");
 				var riceventeCodFiscale = findElementValue(pl, "studente2_cod_fiscale");
 				var numeroBuoni = findElementValue(pl, "buoni_pasto");
 
@@ -200,20 +192,8 @@
                     var value = null;
 
                     for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1];
-                            break;
-                        }
-                    }
-
-                    return value;
-                }
-                function findComplexElementValue(pl, nomeAttributo) {
-                    var value = null;
-
-                    for (i = 0; i < pl.length; ++i) {
-                        if(nomeAttributo == pl[i][0]) {
-                            value = pl[i][1][0];
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value ? pl[i].value : null;
                             break;
                         }
                     }
