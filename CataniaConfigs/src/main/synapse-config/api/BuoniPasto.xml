@@ -47,10 +47,10 @@
 				var responsabile2CodFiscale = findElementValue(pl, "genitore2_cod_fiscale");
 				var responsabile2Telefono = findElementValue(pl, "genitore2_telefono");
 				var responsabile2Email = findElementValue(pl, "genitore2_email");
-				var flgResidente = findElementValue(pl, "flag_residente");
+				var flgResidente = findFlgValue(pl, "flag_residente");
 				var valoreIsee = findElementValue(pl, "isee_valore");
 				var protocolloIsee = findElementValue(pl, "isee_Protocollo");
-				var flgIseeSup = findElementValue(pl, "flag_isee_superiore");
+				var flgIseeSup = findFlgValue(pl, "flag_isee_superiore");
 
                 var requestAcquisizione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -113,6 +113,19 @@
                     for (i = 0; i < pl.length; ++i) {
                         if(nomeAttributo == pl[i].name) {
                             value = pl[i].value ? pl[i].value : null;
+                            break;
+                        }
+                    }
+
+                    return value;
+                }
+
+                function findFlgValue(pl, nomeAttributo) {
+                    var value = "0";
+
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value ? pl[i].value : "0";
                             break;
                         }
                     }
@@ -203,10 +216,10 @@
 				var responsabile2CodFiscale = findElementValue(pl, "genitore2_cod_fiscale");
 				var responsabile2Telefono = findElementValue(pl, "genitore2_telefono");
 				var responsabile2Email = findElementValue(pl, "genitore2_email");
-				var flgResidente = findElementValue(pl, "flag_residente");
+				var flgResidente = findFlgValue(pl, "flag_residente");
 				var valoreIsee = findElementValue(pl, "isee_valore");
 				var protocolloIsee = findElementValue(pl, "isee_Protocollo");
-				var flgIseeSup = findElementValue(pl, "flag_isee_superiore");
+				var flgIseeSup = findFlgValue(pl, "flag_isee_superiore");
 
                 var requestValidazione = {
                   "dataIstanza": dataIstanza,
@@ -264,6 +277,19 @@
                     for (i = 0; i < pl.length; ++i) {
                         if(nomeAttributo == pl[i].name) {
                             value = pl[i].value ? pl[i].value : null;
+                            break;
+                        }
+                    }
+
+                    return value;
+                }
+
+                function findFlgValue(pl, nomeAttributo) {
+                    var value = "0";
+
+                    for (i = 0; i < pl.length; ++i) {
+                        if(nomeAttributo == pl[i].name) {
+                            value = pl[i].value ? pl[i].value : "0";
                             break;
                         }
                     }
