@@ -49,7 +49,7 @@
 				var responsabile2Email = findElementValue(pl, "genitore2_email");
 				var flgResidente = findFlgValue(pl, "flag_residente");
 				var valoreIsee = findElementValue(pl, "isee_valore");
-				var protocolloIsee = findElementValue(pl, "isee_Protocollo");
+				var protocolloIsee = findElementValue(pl, "isee_protocollo");
 				var flgIseeSup = findFlgValue(pl, "flag_isee_superiore");
 
                 var requestAcquisizione = {
@@ -218,7 +218,7 @@
 				var responsabile2Email = findElementValue(pl, "genitore2_email");
 				var flgResidente = findFlgValue(pl, "flag_residente");
 				var valoreIsee = findElementValue(pl, "isee_valore");
-				var protocolloIsee = findElementValue(pl, "isee_Protocollo");
+				var protocolloIsee = findElementValue(pl, "isee_protocollo");
 				var flgIseeSup = findFlgValue(pl, "flag_isee_superiore");
 
                 var requestValidazione = {

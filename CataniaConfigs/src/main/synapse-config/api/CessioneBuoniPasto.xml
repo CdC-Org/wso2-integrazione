@@ -30,7 +30,7 @@
 				var riceventeDataNascita = findElementValue(pl, "studente2_data_nascita");
 				var riceventeSesso = findElementValue(pl, "studente2_sesso");
 				var riceventeCodFiscale = findElementValue(pl, "studente2_cod_fiscale");
-				var numeroBuoni = findElementValue(pl, "buoni_pasto");
+				var numeroBuoni = findElementValue(pl, "numero_buoni");
 
                 var requestAcquisizione = {
                   "idIstanzaOnline": idIstanzaOnline, 
@@ -151,7 +151,7 @@
 				var riceventeDataNascita = findElementValue(pl, "studente2_data_nascita");
 				var riceventeSesso = findElementValue(pl, "studente2_sesso");
 				var riceventeCodFiscale = findElementValue(pl, "studente2_cod_fiscale");
-				var numeroBuoni = findElementValue(pl, "buoni_pasto");
+				var numeroBuoni = findElementValue(pl, "numero_buoni");
 
                 var requestValidazione = {
                   "idIstanzaOnline": idIstanzaOnline, 
