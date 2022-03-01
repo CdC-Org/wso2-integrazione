@@ -33,11 +33,12 @@
     <com.example.proxy-service_._cambioStatoPratica>capp/EnterpriseServiceBus</com.example.proxy-service_._cambioStatoPratica>
     <com.example.endpoint_._iscrizioneValidazione>capp/EnterpriseServiceBus</com.example.endpoint_._iscrizioneValidazione>
     <com.example.endpoint_.__acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_.__acquisizione>
-    <com.example.api_._CessioneBuoniPasto>capp/EnterpriseServiceBus</com.example.api_._CessioneBuoniPasto>
     <com.example.proxy-service_._allegatiIstanza>capp/EnterpriseServiceBus</com.example.proxy-service_._allegatiIstanza>
+    <com.example.api_._CessioneBuoniPasto>capp/EnterpriseServiceBus</com.example.api_._CessioneBuoniPasto>
     <com.example.endpoint_._acquisizione>capp/EnterpriseServiceBus</com.example.endpoint_._acquisizione>
     <com.example.sequence_._buoniPastoAquisizioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._buoniPastoAquisizioneResponse>
     <com.example.sequence_._buoniPastoValidazioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._buoniPastoValidazioneResponse>
+    <com.example.proxy-service_._inviaAllegatoIstanza>capp/EnterpriseServiceBus</com.example.proxy-service_._inviaAllegatoIstanza>
     <com.example.sequence_._buoniPastoAcquisizioneCessioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._buoniPastoAcquisizioneCessioneResponse>
     <com.example.sequence_._buoniPastoAcquisizioneAcquistoResponse>capp/EnterpriseServiceBus</com.example.sequence_._buoniPastoAcquisizioneAcquistoResponse>
     <com.example.api_._Iscrizione>capp/EnterpriseServiceBus</com.example.api_._Iscrizione>
@@ -50,8 +51,8 @@
     <com.example.endpoint_._buoniPastoValidazione>capp/EnterpriseServiceBus</com.example.endpoint_._buoniPastoValidazione>
     <com.example.resource_._esitoDataMapper>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper>
     <com.example.sequence_._buoniPastoValidazioneCessioneResponse>capp/EnterpriseServiceBus</com.example.sequence_._buoniPastoValidazioneCessioneResponse>
-    <com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>
     <com.example.sequence_._istanzeBuoniLibroReturn>capp/EnterpriseServiceBus</com.example.sequence_._istanzeBuoniLibroReturn>
+    <com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>capp/EnterpriseServiceBus</com.example.resource_._allegatiIstanzaDataMapper_xsltStyleSheet>
     <com.example.resource_._esitoDataMapper_outputSchema>capp/EnterpriseServiceBus</com.example.resource_._esitoDataMapper_outputSchema>
     <com.example.sequence_._buoniPastoValidazioneAcquistoResponse>capp/EnterpriseServiceBus</com.example.sequence_._buoniPastoValidazioneAcquistoResponse>
   </properties>
@@ -71,6 +72,12 @@
     <dependency>
       <groupId>com.example.proxy-service</groupId>
       <artifactId>cambioStatoPratica</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.example.proxy-service</groupId>
+      <artifactId>inviaAllegatoIstanza</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
