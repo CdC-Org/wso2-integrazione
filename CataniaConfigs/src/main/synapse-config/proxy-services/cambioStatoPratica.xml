@@ -47,6 +47,7 @@
         </inSequence>
         <outSequence>
             <datamapper config="gov:datamapper/esitoDataMapper.dmc" inputSchema="gov:datamapper/esitoDataMapper_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/esitoDataMapper_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/esitoDataMapper_xsltStyleSheet.xml"/>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
             <send/>
         </outSequence>
         <faultSequence>

@@ -30,6 +30,7 @@
         </inSequence>
         <outSequence>
             <datamapper config="gov:datamapper/allegatiIstanzaDataMapper.dmc" inputSchema="gov:datamapper/allegatiIstanzaDataMapper_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/allegatiIstanzaDataMapper_outputSchema.json" outputType="JSON" xsltStyleSheet="gov:datamapper/allegatiIstanzaDataMapper_xsltStyleSheet.xml"/>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
             <send/>
         </outSequence>
         <faultSequence>
